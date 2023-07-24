@@ -4,20 +4,11 @@ import SendIcon from "@mui/icons-material/Send";
 const Navbar = () => {
   return (
     <Stack
-      direction={{ xs: "column", md: "row" }}
+      direction={{ xs: "column", md: "row", lg: "row" }}
       justifyContent="space-between"
       alignItems="center"
-      width={"100%"}
-      sx={{
-        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-        fontSize: { xs: "2px", md: "10px", lg: "15px" }, // Add margin-bottom to child elements when in column (xs) mode
-      }}
     >
-      <Stack
-        direction="row"
-        spacing={{ xs: 2, md: 3, lg: 5 }}
-        // marginLeft={{ xs: 12, md: 4 }}
-      >
+      <Stack direction="row" spacing={{ xs: 2, md: 3, lg: 5 }}>
         <Link
           href="/"
           variant="h5"
@@ -130,6 +121,7 @@ const Navbar = () => {
               backgroundColor: "#f5f5f5",
               border: "none",
               paddingLeft: "1.5rem",
+              fontSize: { xs: "10px", md: "12px", lg: "15px" },
             }}
             variant="outlined"
             color="primary"
@@ -143,11 +135,12 @@ const Navbar = () => {
               borderRadius: "2em",
               fontWeight: "bold",
               backgroundColor: "#00bfff",
-              marginRight: "100px",
+              marginRight: "1.5rem",
               paddingLeft: "1.5rem",
               paddingRight: "1rem",
               paddingTop: "0.5rem",
               paddingBottom: "0.5rem",
+              fontSize: { xs: "10px", md: "10px", lg: "15px" },
 
               "&:hover": {
                 backgroundColor: "#0099ff", // Set the background color on hover
