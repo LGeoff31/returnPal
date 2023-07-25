@@ -1,25 +1,22 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button, Paper, Stack, Typography } from "@mui/material";
+import { Button, Grid, Paper, Stack, Typography } from "@mui/material";
 import InfoCard from "../sub_components/InfoCard";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    background: "linear-gradient(261deg, #3DAFC5 24.21875%, #3C53F4 100%)",
-    padding: theme.spacing(2),
-    borderRadius: "10px",
-    color: "#fff",
-  },
-}));
 const HowItWorks = () => {
-  const classes = useStyles();
-
   return (
-    <Paper className={classes.root}>
+    <Paper
+      style={{
+        background: "linear-gradient(261deg, #3DAFC5 24.21875%, #3C53F4 100%)",
+        padding: "2rem",
+        borderRadius: "10px",
+        color: "#fff",
+      }}
+    >
       <Typography
         variant="h5"
-        fontWeight="bold"
         fontSize="2.5rem"
+        fontWeight="bold"
         justifyContent={"center"}
         align="center"
         paddingTop={"3rem"}
@@ -28,10 +25,10 @@ const HowItWorks = () => {
         {" "}
         How It Works
       </Typography>
-      <Typography variant="body1" align="center">
+      <Typography variant="body1" align="center" fontSize="1.5rem">
         3 Simple steps to get you started
       </Typography>
-      <Stack direction="row" justifyContent={"center"}>
+      <Grid container direction="row" justifyContent={"center"}>
         <InfoCard
           title="Request A Return"
           description="From the comfort of your home, answer a few quick questions form us so that we can get to know your package a little more."
@@ -47,8 +44,16 @@ const HowItWorks = () => {
           description="Sit back and relax, our couriers will be at your door ready to retrieve your package within 48 hours of less."
           src="https://static.wixstatic.com/media/cfb1f8f03ec948f2a3eb4e46890195a3.jpg/v1/fill/w_359,h_479,q_90/cfb1f8f03ec948f2a3eb4e46890195a3.jpg"
         />
-      </Stack>
-      <Typography fontSize={"1rem"}>
+      </Grid>
+      <Typography
+        // maxWidth="20rem"
+        className="font"
+        width="60%"
+        fontSize={"1.4rem"}
+        marginLeft="10%"
+        maxWidth="80%"
+        sx={{ paddingTop: "3rem" }}
+      >
         At ReturnPal, we are passionate about offering our customers the highest
         quality returns service. We understand that returning items can be a
         hassle, so we strive to make the process as hassle-free as possible. Our

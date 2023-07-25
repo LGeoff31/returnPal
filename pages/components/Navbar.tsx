@@ -1,12 +1,22 @@
-import { Stack, Typography, Button, Link } from "@mui/material";
+import { Stack, Typography, Button, Link, Grid } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SendIcon from "@mui/icons-material/Send";
 const Navbar = () => {
   return (
-    <Stack
+    <Grid
+      // position="fixed"
+      // zIndex={100}
+      container
       direction={{ xs: "column", md: "row", lg: "row" }}
       justifyContent="space-between"
       alignItems="center"
+      paddingLeft="5%"
+      sx={{
+        width: "100%",
+        position: "fixed",
+        zIndex: 100,
+        background: "white",
+      }}
     >
       <Stack direction="row" spacing={{ xs: 2, md: 3, lg: 5 }}>
         <Link
@@ -39,13 +49,13 @@ const Navbar = () => {
           alignItems="center"
           variant="h5"
           underline="none"
-          color="textPrimary"
+          color="#666d73"
           sx={{
             alignSelf: "center",
             cursor: "pointer",
             transition: "color 0.3s ease",
             // fontSize: "1.2rem",
-            fontSize: { xs: 15, md: 20, lg: 25 },
+            fontSize: { xs: 15, md: 20, lg: 22 },
             "&:hover": { color: "#1E90FF" },
           }}
         >
@@ -55,12 +65,12 @@ const Navbar = () => {
           href="/how-it-works"
           variant="h5"
           underline="none"
-          color="textPrimary"
+          color="#666d73"
           sx={{
             alignSelf: "center",
             cursor: "pointer",
             transition: "color 0.3s ease",
-            fontSize: { xs: 15, md: 20, lg: 25 },
+            fontSize: { xs: 15, md: 20, lg: 22 },
             "&:hover": { color: "#1E90FF" },
           }}
         >
@@ -70,12 +80,12 @@ const Navbar = () => {
           href="/about"
           variant="h5"
           underline="none"
-          color="textPrimary"
+          color="#666d73"
           sx={{
             alignSelf: "center",
             cursor: "pointer",
             transition: "color 0.3s ease",
-            fontSize: { xs: 15, md: 20, lg: 25 },
+            fontSize: { xs: 15, md: 20, lg: 22 },
             "&:hover": { color: "#1E90FF" },
           }}
         >
@@ -85,12 +95,12 @@ const Navbar = () => {
           href="/contact"
           variant="h5"
           underline="none"
-          color="textPrimary"
+          color="#666d73"
           sx={{
             alignSelf: "center",
             cursor: "pointer",
             transition: "color 0.3s ease",
-            fontSize: { xs: 15, md: 20, lg: 25 },
+            fontSize: { xs: 15, md: 20, lg: 22 },
             "&:hover": { color: "#1E90FF" },
           }}
         >
@@ -100,12 +110,12 @@ const Navbar = () => {
           href="/blog"
           variant="h5"
           underline="none"
-          color="textPrimary"
+          color="#666d73"
           sx={{
             alignSelf: "center",
             cursor: "pointer",
             transition: "color 0.3s ease",
-            fontSize: { xs: 15, md: 20, lg: 25 },
+            fontSize: { xs: 15, md: 20, lg: 22 },
             "&:hover": { color: "#1E90FF" },
           }}
         >
@@ -153,7 +163,7 @@ const Navbar = () => {
           </Button>
         </Link>
       </Stack>
-    </Stack>
+    </Grid>
   );
 };
 
