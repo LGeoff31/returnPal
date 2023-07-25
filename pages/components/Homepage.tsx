@@ -4,8 +4,9 @@ import SendIcon from "@mui/icons-material/Send";
 
 const Homepage = () => {
   return (
-    <>
+    <div id="homepage">
       <Grid
+        // id="homepage"
         sx={{
           position: "relative",
           overflow: "hidden",
@@ -129,7 +130,7 @@ const Homepage = () => {
           </Link>
         </Stack>
       </Stack>
-    </>
+    </div>
   );
 };
 
