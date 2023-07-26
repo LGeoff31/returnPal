@@ -6,14 +6,15 @@ const Navbar = () => {
     <Grid
       container
       direction={{ xs: "column", md: "row", lg: "row" }}
-      justifyContent="space-between"
+      justifyContent={{ xs: "center", md: "space-between" }}
       alignItems="center"
-      paddingLeft="5%"
+      // paddingLeft="5%"
       sx={{
         width: "100%",
         position: "fixed",
         zIndex: 100,
         background: "white",
+        paddingLeft: { md: "5%" },
       }}
     >
       <Stack direction="row" spacing={{ xs: 2, md: 3, lg: 5 }}>
