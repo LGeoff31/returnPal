@@ -20,12 +20,14 @@ const About = () => {
         }}
       >
         <div className="image-wrapper">
-          <img
-            src="https://static.wixstatic.com/media/nsplsh_71386b525f696536576e49~mv2.jpg/v1/fill/w_1960,h_1166,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/nsplsh_71386b525f696536576e49~mv2.jpg"
-            alt="Image by Claudio Schwarz"
-            width="100%"
-            height="583"
-          />
+          <picture>
+            <img
+              src="https://static.wixstatic.com/media/nsplsh_71386b525f696536576e49~mv2.jpg/v1/fill/w_1960,h_1166,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/nsplsh_71386b525f696536576e49~mv2.jpg"
+              alt="Image by Claudio Schwarz"
+              width="100%"
+              height="583"
+            />
+          </picture>
         </div>
         <Grid
           color={"white"}
@@ -75,7 +77,8 @@ const About = () => {
       <Grid container>
         <Stack
           direction={{ xs: "column", md: "row", lg: "row" }}
-          margin="10%"
+          marginLeft="10%"
+          marginTop="5%"
           maxWidth="80%"
           justifyContent="center"
           alignItems={{ xs: "center", md: "flex-start", lg: "flex-start" }}
@@ -105,44 +108,17 @@ const About = () => {
               office.
             </Typography>
           </Grid>
-          <img
-            src="https://static.wixstatic.com/media/nsplsh_dd2487edc88745488809acd16dde4375~mv2.jpg/v1/fill/w_1090,h_728,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Image%20by%20Bannon%20Morrissy.jpg"
-            alt="Image by Bannon Morrissy"
-            width="545"
-            height="364"
-          />
+          <picture>
+            <img
+              src="https://static.wixstatic.com/media/nsplsh_dd2487edc88745488809acd16dde4375~mv2.jpg/v1/fill/w_1090,h_728,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Image%20by%20Bannon%20Morrissy.jpg"
+              alt="Image by Bannon Morrissy"
+              width="545"
+              height="364"
+            />
+          </picture>
         </Stack>
       </Grid>
-      <Box
-        sx={{
-          backgroundColor: "#def8ff", // Light blue background color
-          padding: "2rem",
-          textAlign: "center",
-          width: "80%",
-          mx: "auto", // Center the box horizontally
-        }}
-      >
-        <Typography
-          marginBottom="2rem"
-          variant="h5"
-          fontWeight="bold"
-          color="#01314B"
-        >
-          Learn more about our process step by step.
-        </Typography>
-        <Button
-          variant="contained"
-          color="primary"
-          sx={{
-            fontWeight: "bold",
-            borderRadius: "50px",
-            background: "#00bfff",
-            padding: "1.5%",
-          }}
-        >
-          Our Process &nbsp; {<NearMeIcon />}
-        </Button>
-      </Box>
+
       <Grid container>
         <Stack
           direction={{ xs: "column", md: "row", lg: "row" }}
@@ -154,18 +130,20 @@ const About = () => {
           spacing={2}
         >
           <Grid item xs={12} md={6} lg={6} order={{ xs: 1, md: 1 }}>
-            <img
-              src="https://static.wixstatic.com/media/nsplsh_bc2f7d1dcade40e18eb4a24f959ae5e4~mv2.jpg/v1/fill/w_1092,h_728,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Image%20by%20Marcin%20Skalij.jpg"
-              alt="Image by Marcin Skalij"
-              width="546"
-              height="364"
-              style={{
-                width: "100%",
-                height: "auto",
-                maxWidth: "100%",
-                maxHeight: "100%",
-              }}
-            />
+            <picture>
+              <img
+                src="https://static.wixstatic.com/media/nsplsh_bc2f7d1dcade40e18eb4a24f959ae5e4~mv2.jpg/v1/fill/w_1092,h_728,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Image%20by%20Marcin%20Skalij.jpg"
+                alt="Image by Marcin Skalij"
+                width="546"
+                height="364"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                }}
+              />
+            </picture>
           </Grid>
           <Grid
             item
@@ -198,6 +176,37 @@ const About = () => {
             </Typography>
           </Grid>
         </Stack>
+        <Box
+          sx={{
+            backgroundColor: "#def8ff", // Light blue background color
+            padding: "2rem",
+            textAlign: "center",
+            width: "80%",
+            mx: "auto", // Center the box horizontally
+            marginBottom: "5%",
+          }}
+        >
+          <Typography
+            marginBottom="2rem"
+            variant="h5"
+            fontWeight="bold"
+            color="#01314B"
+          >
+            Learn more about our process step by step.
+          </Typography>
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{
+              fontWeight: "bold",
+              borderRadius: "50px",
+              background: "#00bfff",
+              padding: "1.5%",
+            }}
+          >
+            Our Process &nbsp; {<NearMeIcon />}
+          </Button>
+        </Box>
       </Grid>
     </>
   );

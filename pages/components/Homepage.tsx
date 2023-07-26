@@ -52,12 +52,14 @@ const Homepage = () => {
             borderRadius: 30,
           }}
         >
-          <img
-            src="https://static.wixstatic.com/media/bf8e2b_68051fb7563f42079a1cd10f2b4b4b22~mv2.png/v1/fill/w_88,h_98,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/returnpalfinal%20logos_Transparent_Full%20Bl.png"
-            alt="ReturnPal Icon Logo"
-            width="88"
-            height="98"
-          />
+          <picture>
+            <img
+              src="https://static.wixstatic.com/media/bf8e2b_68051fb7563f42079a1cd10f2b4b4b22~mv2.png/v1/fill/w_88,h_98,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/returnpalfinal%20logos_Transparent_Full%20Bl.png"
+              alt="ReturnPal Icon Logo"
+              width="88"
+              height="98"
+            />
+          </picture>
           <Link href="get-started">
             <Button
               sx={{
@@ -92,12 +94,14 @@ const Homepage = () => {
           marginTop: "2rem",
         }}
       >
-        <img
-          src="https://static.wixstatic.com/media/cfb1f8f03ec948f2a3eb4e46890195a3.jpg/v1/fill/w_1022,h_682,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Box%20Delivery.jpg"
-          alt="A girl receiving a box"
-          width="400px"
-          height="auto"
-        />
+        <picture>
+          <img
+            src="https://static.wixstatic.com/media/cfb1f8f03ec948f2a3eb4e46890195a3.jpg/v1/fill/w_1022,h_682,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Box%20Delivery.jpg"
+            alt="A girl receiving a box"
+            width="400px"
+            height="auto"
+          />
+        </picture>
 
         <Stack direction="column" paddingLeft="4rem">
           <Typography
