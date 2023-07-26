@@ -10,12 +10,8 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <Element name="home">
-        <Homepage />
-      </Element>
-      <Element name="how-it-works">
-        <HowItWorks />
-      </Element>
+      <Homepage />
+      <HowItWorks />
       <About />
       <Questions />
       <Footer />

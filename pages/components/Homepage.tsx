@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Stack, Typography, Button, Link, Grid } from "@mui/material";
-
+import Image from "next/image";
 import NearMeIcon from "@mui/icons-material/NearMe";
 
 const Homepage = () => {

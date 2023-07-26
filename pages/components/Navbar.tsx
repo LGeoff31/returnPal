@@ -1,6 +1,5 @@
 import { Stack, Typography, Button, Link, Grid } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { Link as ScrollLink } from "react-scroll";
 import NearMeIcon from "@mui/icons-material/NearMe";
 const Navbar = () => {
   return (
@@ -18,51 +17,47 @@ const Navbar = () => {
       }}
     >
       <Stack direction="row" spacing={{ xs: 2, md: 3, lg: 5 }}>
-        <ScrollLink to="homepage" smooth={true} duration={700}>
+        <Link
+          href="/"
+          variant="h5"
+          underline="none"
+          color="textPrimary"
+          sx={{
+            marginTop: "0.5rem",
+            cursor: "pointer",
+            transition: "color 0.3s ease",
+            size: { xs: 15, md: 20, lg: 25 },
+            "&:hover": { color: "#1E90FF" },
+          }}
+        >
+          <img
+            src="https://static.wixstatic.com/media/bf8e2b_c85de989efb94a37b6648bf67621349b~mv2.png/v1/crop/x_0,y_845,w_2403,h_878/fill/w_193,h_70,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/returnpalfinal%20logos_WMK_BlackBlue_transparent.png"
+            alt="returnpalfinal logos_WMK_BlackBlue_transparent.png"
+            width="100%"
+            style={{
+              // width: "auto", // The image will take the full width of its container on all screens
+              height: "auto", // The height will adjust proportionally based on the width
+              display: "block", // This ensures that any extra space around the image is removed
+            }}
+          />
+        </Link>
+
+        <Stack alignSelf="center">
           <Link
-            href="/"
+            href="/how-it-works"
             variant="h5"
             underline="none"
-            color="textPrimary"
+            color="#666d73"
             sx={{
-              marginTop: "0.5rem",
+              alignSelf: "center",
               cursor: "pointer",
               transition: "color 0.3s ease",
-              size: { xs: 15, md: 20, lg: 25 },
+              fontSize: { xs: 15, md: 20, lg: 22 },
               "&:hover": { color: "#1E90FF" },
             }}
           >
-            <img
-              src="https://static.wixstatic.com/media/bf8e2b_c85de989efb94a37b6648bf67621349b~mv2.png/v1/crop/x_0,y_845,w_2403,h_878/fill/w_193,h_70,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/returnpalfinal%20logos_WMK_BlackBlue_transparent.png"
-              alt="returnpalfinal logos_WMK_BlackBlue_transparent.png"
-              width="100%"
-              style={{
-                // width: "auto", // The image will take the full width of its container on all screens
-                height: "auto", // The height will adjust proportionally based on the width
-                display: "block", // This ensures that any extra space around the image is removed
-              }}
-            />
+            How it Works
           </Link>
-        </ScrollLink>
-
-        <Stack alignSelf="center">
-          <ScrollLink to="how-it-works" smooth={true} duration={700}>
-            <Link
-              href="/how-it-works"
-              variant="h5"
-              underline="none"
-              color="#666d73"
-              sx={{
-                alignSelf: "center",
-                cursor: "pointer",
-                transition: "color 0.3s ease",
-                fontSize: { xs: 15, md: 20, lg: 22 },
-                "&:hover": { color: "#1E90FF" },
-              }}
-            >
-              How it Works
-            </Link>
-          </ScrollLink>
         </Stack>
         <Link
           href="/about"
