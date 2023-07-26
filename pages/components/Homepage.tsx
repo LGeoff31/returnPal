@@ -91,10 +91,6 @@ const Homepage = () => {
           margin: "0 auto", // Center the Stack itself
           padding: { xs: "0.5rem", sm: "1rem", md: "2rem" }, // Add some padding for better spacing
           marginTop: "2rem",
-          "@media (max-width: 600px)": {
-            // Apply styles only on screens with max width of 600px (mobile screens)
-            width: "100%", // Set the width to 100% on mobile screens
-          },
         }}
       >
         <picture>

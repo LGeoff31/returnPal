@@ -1,6 +1,7 @@
 import { Stack, Typography, Button, Link, Grid } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import NearMeIcon from "@mui/icons-material/NearMe";
+import Image from "next/image";
 const Navbar = () => {
   return (
     <Grid
@@ -17,7 +18,7 @@ const Navbar = () => {
         paddingLeft: { md: "5%" },
       }}
     >
-      <Stack direction="row" spacing={{ xs: 1, md: 3, lg: 5 }}>
+      <Stack direction="row" spacing={{ xs: 1.5, md: 3, lg: 5 }}>
         <Link
           href="/"
           variant="h5"
@@ -27,7 +28,7 @@ const Navbar = () => {
             marginTop: "0.5rem",
             cursor: "pointer",
             transition: "color 0.3s ease",
-            size: { xs: 15, md: 20, lg: 25 },
+
             "&:hover": { color: "#1E90FF" },
           }}
         >
