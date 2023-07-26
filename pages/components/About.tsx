@@ -93,9 +93,9 @@ const About = () => {
               color="#01314B"
               marginBottom="2rem"
             >
-              As a convenient one-stop service, We're bringing couriers to your
-              location, repackaging, and delivering your return to a predefined
-              location.
+              As a convenient one-stop service, We&apos;re bringing couriers to
+              your location, repackaging, and delivering your return to a
+              predefined location.
             </Typography>
             <Typography
               fontWeight="bold"
@@ -160,9 +160,9 @@ const About = () => {
               color="#01314B"
               marginBottom="2rem"
             >
-              As a convenient one-stop service, We're bringing couriers to your
-              location, repackaging, and delivering your return to a predefined
-              location.
+              As a convenient one-stop service, We&apos;re bringing couriers to
+              your location, repackaging, and delivering your return to a
+              predefined location.
             </Typography>
             <Typography
               fontWeight="bold"
