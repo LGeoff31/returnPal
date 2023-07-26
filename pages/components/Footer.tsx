@@ -4,10 +4,12 @@ import React from "react";
 const Footer = () => {
   return (
     <Grid marginTop={10} marginLeft="10%" maxWidth="80%">
-      <img
-        src="https://static.wixstatic.com/media/bf8e2b_c85de989efb94a37b6648bf67621349b~mv2.png/v1/crop/x_0,y_845,w_2403,h_878/fill/w_193,h_70,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/returnpalfinal%20logos_WMK_BlackBlue_transparent.png"
-        alt="returnpalfinal logos_WMK_BlackBlue_transparent.png"
-      />
+      <picture>
+        <img
+          src="https://static.wixstatic.com/media/bf8e2b_c85de989efb94a37b6648bf67621349b~mv2.png/v1/crop/x_0,y_845,w_2403,h_878/fill/w_193,h_70,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/returnpalfinal%20logos_WMK_BlackBlue_transparent.png"
+          alt="returnpalfinal logos_WMK_BlackBlue_transparent.png"
+        />
+      </picture>
       <Grid container spacing={2}>
         <Grid item xs={4} container direction="column">
           <Typography
@@ -134,21 +136,25 @@ const Footer = () => {
             target="_blank"
             paddingRight={"0.5rem"}
           >
-            <img
-              alt="LinkedIn"
-              src="https://static.wixstatic.com/media/11062b_23e5890c2dfc4a04af80178b43ef66fd~mv2.png/v1/fill/w_78,h_78,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_23e5890c2dfc4a04af80178b43ef66fd~mv2.png"
-              width="10%"
-            />
+            <picture>
+              <img
+                alt="LinkedIn"
+                src="https://static.wixstatic.com/media/11062b_23e5890c2dfc4a04af80178b43ef66fd~mv2.png/v1/fill/w_78,h_78,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_23e5890c2dfc4a04af80178b43ef66fd~mv2.png"
+                width="10%"
+              />
+            </picture>
           </Link>
           <Link
             href="https://www.instagram.com/playforever.ca/"
             target="_blank"
           >
-            <img
-              alt="Instagram"
-              src="https://static.wixstatic.com/media/11062b_482d38aa2aaa49a5b45774ebe9a5b544~mv2.png/v1/fill/w_78,h_78,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_482d38aa2aaa49a5b45774ebe9a5b544~mv2.png"
-              width="10%"
-            />
+            <picture>
+              <img
+                alt="Instagram"
+                src="https://static.wixstatic.com/media/11062b_482d38aa2aaa49a5b45774ebe9a5b544~mv2.png/v1/fill/w_78,h_78,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_482d38aa2aaa49a5b45774ebe9a5b544~mv2.png"
+                width="10%"
+              />
+            </picture>
           </Link>
         </Grid>
       </Grid>

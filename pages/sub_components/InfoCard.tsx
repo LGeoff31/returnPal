@@ -19,17 +19,19 @@ const InfoCard = ({
       borderRadius="12px"
       overflow="hidden"
     >
-      <img
-        src={src}
-        alt="Typing"
-        loading="eager"
-        style={{
-          width: "100%",
-          height: "auto",
-          display: "block",
-          filter: "brightness(40%)", // Adjust the brightness value to make the image darker
-        }}
-      />
+      <picture>
+        <img
+          src={src}
+          alt="Typing"
+          loading="eager"
+          style={{
+            width: "100%",
+            height: "auto",
+            display: "block",
+            filter: "brightness(40%)", // Adjust the brightness value to make the image darker
+          }}
+        />
+      </picture>
       <Box
         position="absolute"
         top="50%"

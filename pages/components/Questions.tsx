@@ -83,12 +83,14 @@ const Questions = () => {
               margin: "10px",
             }}
           >
-            <img
-              src="https://static.wixstatic.com/media/bf8e2b_45cf2bb5c6c94e6d93f32a2a65d26fb1~mv2.png/v1/fill/w_204,h_204,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/bf8e2b_45cf2bb5c6c94e6d93f32a2a65d26fb1~mv2.png"
-              alt="purolator courier logo"
-              width="102"
-              height="102"
-            />
+            <picture>
+              <img
+                src="https://static.wixstatic.com/media/bf8e2b_45cf2bb5c6c94e6d93f32a2a65d26fb1~mv2.png/v1/fill/w_204,h_204,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/bf8e2b_45cf2bb5c6c94e6d93f32a2a65d26fb1~mv2.png"
+                alt="purolator courier logo"
+                width="102"
+                height="102"
+              />
+            </picture>
           </Box>
           <Box
             sx={{
@@ -99,12 +101,14 @@ const Questions = () => {
               margin: "10px",
             }}
           >
-            <img
-              src="https://static.wixstatic.com/media/bf8e2b_057e9b83e897486ba813c80ac897b5d7~mv2.png/v1/fill/w_344,h_168,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/FedEx-Logo.png"
-              alt="FedEx Logo"
-              width="172"
-              height="84"
-            />
+            <picture>
+              <img
+                src="https://static.wixstatic.com/media/bf8e2b_057e9b83e897486ba813c80ac897b5d7~mv2.png/v1/fill/w_344,h_168,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/FedEx-Logo.png"
+                alt="FedEx Logo"
+                width="172"
+                height="84"
+              />
+            </picture>
           </Box>
           <Box
             sx={{
@@ -115,12 +119,14 @@ const Questions = () => {
               margin: "10px",
             }}
           >
-            <img
-              src="https://static.wixstatic.com/media/bf8e2b_4be81e81690c434488e498fa103d75a7~mv2.png/v1/fill/w_166,h_166,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/UPS-Logo_edited.png"
-              alt="ups logo"
-              width="83"
-              height="83"
-            />
+            <picture>
+              <img
+                src="https://static.wixstatic.com/media/bf8e2b_4be81e81690c434488e498fa103d75a7~mv2.png/v1/fill/w_166,h_166,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/UPS-Logo_edited.png"
+                alt="ups logo"
+                width="83"
+                height="83"
+              />
+            </picture>
           </Box>
           <Box
             sx={{
@@ -131,12 +137,14 @@ const Questions = () => {
               margin: "10px",
             }}
           >
-            <img
-              src="https://static.wixstatic.com/media/bf8e2b_0c9381a5706043c6b388f94acbb31a69~mv2.png/v1/fill/w_344,h_168,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/DHL-Emblem.png"
-              alt="DHL Logo"
-              width="172"
-              height="84"
-            />
+            <picture>
+              <img
+                src="https://static.wixstatic.com/media/bf8e2b_0c9381a5706043c6b388f94acbb31a69~mv2.png/v1/fill/w_344,h_168,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/DHL-Emblem.png"
+                alt="DHL Logo"
+                width="172"
+                height="84"
+              />
+            </picture>
           </Box>
         </Grid>
       </Grid>
