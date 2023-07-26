@@ -59,7 +59,7 @@ const Questions = () => {
         maxWidth="80%"
       >
         <Grid item xs={12} md={3}>
-          <Typography variant="h3" fontWeight={"bold"}>
+          <Typography variant="h3" fontWeight={"bold"} color="#01314B">
             Drop Offs Made Easy
           </Typography>
           <Typography
@@ -67,6 +67,7 @@ const Questions = () => {
             fontSize={"1.5rem"}
             paddingTop="2rem"
             paddingBottom="2rem"
+            color="#01314B"
           >
             Your scheduled pickup is retrieved by us right from your door and on
             its way to our assigned courier
@@ -159,12 +160,16 @@ const Questions = () => {
               }}
             >
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography fontSize="1.25rem" fontWeight="bold">
+                <Typography
+                  fontSize="1.25rem"
+                  fontWeight="bold"
+                  color="#01314B"
+                >
                   {faq.question}
                 </Typography>
               </AccordionSummary>
               <AccordionDetails sx={{ padding: "16px" }}>
-                <Typography>{faq.answer}</Typography>
+                <Typography color="#01314B">{faq.answer}</Typography>
               </AccordionDetails>
             </Accordion>
           ))}

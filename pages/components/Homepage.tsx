@@ -106,6 +106,7 @@ const Homepage = () => {
             margin="1rem"
             marginTop={"3rem"}
             fontSize={"2.5rem"}
+            color="#01314B"
             sx={{ fontSize: { xs: "30px", md: "40px" } }}
           >
             Returning has never <br /> been this hassle-free
