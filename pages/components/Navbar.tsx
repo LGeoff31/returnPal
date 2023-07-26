@@ -17,7 +17,7 @@ const Navbar = () => {
         paddingLeft: { md: "5%" },
       }}
     >
-      <Stack direction="row" spacing={{ xs: 2, md: 3, lg: 5 }}>
+      <Stack direction="row" spacing={{ xs: 1, md: 3, lg: 5 }}>
         <Link
           href="/"
           variant="h5"
@@ -55,11 +55,11 @@ const Navbar = () => {
               alignSelf: "center",
               cursor: "pointer",
               transition: "color 0.3s ease",
-              fontSize: { xs: 15, md: 20, lg: 22 },
+              fontSize: { xs: 13, md: 20, lg: 22 },
               "&:hover": { color: "#1E90FF" },
             }}
           >
-            How it Works
+            Process
           </Link>
         </Stack>
         <Link
@@ -71,7 +71,7 @@ const Navbar = () => {
             alignSelf: "center",
             cursor: "pointer",
             transition: "color 0.3s ease",
-            fontSize: { xs: 15, md: 20, lg: 22 },
+            fontSize: { xs: 13, md: 20, lg: 22 },
             "&:hover": { color: "#1E90FF" },
           }}
         >
@@ -88,7 +88,7 @@ const Navbar = () => {
             cursor: "pointer",
             transition: "color 0.3s ease",
             // fontSize: "1.2rem",
-            fontSize: { xs: 15, md: 20, lg: 22 },
+            fontSize: { xs: 13, md: 20, lg: 22 },
             "&:hover": { color: "#1E90FF" },
           }}
         >
@@ -103,7 +103,7 @@ const Navbar = () => {
             alignSelf: "center",
             cursor: "pointer",
             transition: "color 0.3s ease",
-            fontSize: { xs: 15, md: 20, lg: 22 },
+            fontSize: { xs: 13, md: 20, lg: 22 },
             "&:hover": { color: "#1E90FF" },
           }}
         >
@@ -118,7 +118,7 @@ const Navbar = () => {
             alignSelf: "center",
             cursor: "pointer",
             transition: "color 0.3s ease",
-            fontSize: { xs: 15, md: 20, lg: 22 },
+            fontSize: { xs: 13, md: 20, lg: 22 },
             "&:hover": { color: "#1E90FF" },
           }}
         >
