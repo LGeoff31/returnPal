@@ -34,12 +34,19 @@ const InfoCard = ({
       </picture>
       <Box
         position="absolute"
-        top="50%"
+        top="10%"
         left="0%"
         color="white"
         margin="1.5rem"
+        justifyContent={"center"}
+        textAlign={"center"}
       >
-        <Typography variant="h6" fontWeight="bold" fontSize="1.7rem">
+        <Typography
+          variant="h6"
+          fontWeight="bold"
+          fontSize="1.7rem"
+          marginBottom="3%"
+        >
           {title}
         </Typography>
         <Typography

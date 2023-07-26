@@ -34,6 +34,7 @@ const Homepage = () => {
             variant="h2"
             fontWeight="bold"
             zIndex={2}
+            sx={{ fontSize: { xs: "2rem", md: "4rem" } }}
           >
             Return Your Package <br /> The Easy Way.
           </Typography>
@@ -41,7 +42,7 @@ const Homepage = () => {
         <Box
           sx={{
             position: "absolute",
-            bottom: "5%",
+            bottom: "10%",
             left: "10%",
             display: "flex",
             alignItems: "center",
@@ -91,6 +92,7 @@ const Homepage = () => {
           margin: "0 auto", // Center the Stack itself
           padding: { xs: "0.5rem", sm: "1rem", md: "2rem" }, // Add some padding for better spacing
           marginTop: "2rem",
+          marginLeft: { md: "10%" },
         }}
       >
         <picture>
@@ -102,7 +104,7 @@ const Homepage = () => {
           />
         </picture>
 
-        <Stack direction="column" paddingLeft="4rem">
+        <Stack direction="column">
           <Typography
             variant="h4"
             fontWeight="bold"
@@ -110,7 +112,11 @@ const Homepage = () => {
             marginTop={"3rem"}
             fontSize={"2.5rem"}
             color="#01314B"
-            sx={{ fontSize: { xs: "30px", md: "40px" } }}
+            sx={{
+              paddingLeft: { md: "4rem" },
+              alignSelf: "center",
+              fontSize: { xs: "30px", md: "40px" },
+            }}
           >
             Returning has never <br /> been this hassle-free
           </Typography>

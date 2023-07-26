@@ -19,6 +19,7 @@ const Pricing = () => {
         marginBottom="6%"
         color="#01314B"
         fontWeight="bold"
+        sx={{ fontSize: { xs: "3rem" } }}
       >
         Choose Your Pricing Plans
       </Typography>

@@ -25,7 +25,7 @@ const About = () => {
               src="https://static.wixstatic.com/media/nsplsh_71386b525f696536576e49~mv2.jpg/v1/fill/w_1960,h_1166,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/nsplsh_71386b525f696536576e49~mv2.jpg"
               alt="Image by Claudio Schwarz"
               width="100%"
-              height="583"
+              height="600vh"
             />
           </picture>
         </div>
@@ -114,6 +114,12 @@ const About = () => {
               alt="Image by Bannon Morrissy"
               width="545"
               height="364"
+              style={{
+                width: "100%",
+                height: "auto",
+                maxWidth: "100%",
+                maxHeight: "100%",
+              }}
             />
           </picture>
         </Stack>
@@ -181,7 +187,7 @@ const About = () => {
             backgroundColor: "#def8ff", // Light blue background color
             padding: "2rem",
             textAlign: "center",
-            width: "80%",
+            width: "100%",
             mx: "auto", // Center the box horizontally
             marginBottom: "5%",
           }}

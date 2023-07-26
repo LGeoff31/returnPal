@@ -49,11 +49,13 @@ const HowItWorks = () => {
         <Typography
           // maxWidth="20rem"
           className="font"
-          width="60%"
+          // width="60%"
           fontSize={"1.4rem"}
           marginLeft="10%"
           maxWidth="80%"
           sx={{ paddingTop: "3rem" }}
+          textAlign={"center"}
+          align="center"
         >
           At ReturnPal, we are passionate about offering our customers the
           highest quality returns service. We understand that returning items
