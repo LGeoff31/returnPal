@@ -14,14 +14,30 @@
   z-index: -1;
   overflow: hidden;
 }
-
-/* .margin {
-  margin-top: 4rem;
-  margin-left: 10rem;
-} */
 .font {
   font-style: normal;
   font-family: wfont_044ec0_8a940bae2f2740e789023089a84fc84d;
+}
+
+.image-wrapper {
+  position: relative;
+  background-color: #1a1a1a;
+}
+
+.image-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* Dark background color with some transparency */
+  z-index: 1; /* Make sure the overlay is below the text */
 }
 
 .video-wrapper {
@@ -40,7 +56,7 @@
     0,
     0,
     0,
-    0.6
+    0.459
   ); /* Dark background color with some transparency */
   z-index: 1; /* Make sure the overlay is below the text */
 }

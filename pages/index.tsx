@@ -1,3 +1,4 @@
+import About from "./components/About";
 import Footer from "./components/Footer";
 import Homepage from "./components/Homepage";
 import HowItWorks from "./components/HowItWorks";
@@ -15,6 +16,7 @@ export default function Home() {
       <Element name="how-it-works">
         <HowItWorks />
       </Element>
+      <About />
       <Questions />
       <Footer />
     </>

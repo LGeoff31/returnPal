@@ -1,12 +1,12 @@
 import React from "react";
 import { Box, Stack, Typography, Button, Link, Grid } from "@mui/material";
-import SendIcon from "@mui/icons-material/Send";
+
+import NearMeIcon from "@mui/icons-material/NearMe";
 
 const Homepage = () => {
   return (
     <div id="homepage">
       <Grid
-        // id="homepage"
         sx={{
           position: "relative",
           overflow: "hidden",
@@ -49,7 +49,7 @@ const Homepage = () => {
             zIndex: 3,
             paddingLeft: 5,
             paddingRight: 5,
-            borderRadius: 20,
+            borderRadius: 30,
           }}
         >
           <img
@@ -61,18 +61,19 @@ const Homepage = () => {
           <Link href="get-started">
             <Button
               sx={{
-                borderRadius: "50px", // Adjust the value as needed to get the desired oval shape
+                background: "#00bfff",
+                borderRadius: 50, // Adjust the value as needed to get the desired oval shape
                 padding: "0.5rem 36px", // Customize the padding to fit the content
                 fontSize: "1.15rem", // Set the font size to your preference
                 fontWeight: "bold", // Adjust font weight as needed
                 textTransform: "none", // Avoid uppercase transformation
-                color: "#fff", // Set the text color to contrast with the background
+                color: "primary", // Set the text color to contrast with the background
                 "&:hover": {
                   background: "#005DFF", // Set a darker background color on hover
                 },
               }}
               variant="contained"
-              endIcon={<SendIcon />}
+              endIcon={<NearMeIcon />}
             >
               Return
             </Button>
@@ -117,8 +118,9 @@ const Homepage = () => {
                 fontSize: "1.15rem", // Set the font size to your preference
                 fontWeight: "bold", // Adjust font weight as needed
                 textTransform: "none", // Avoid uppercase transformation
-                background: "#0099ff", // Set the desired background color
+                background: "#00bfff", // Set the desired background color
                 marginBottom: "2rem",
+
                 color: "#fff", // Set the text color to contrast with the background
                 "&:hover": {
                   background: "#005DFF", // Set a darker background color on hover

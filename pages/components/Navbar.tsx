@@ -1,7 +1,7 @@
 import { Stack, Typography, Button, Link, Grid } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import SendIcon from "@mui/icons-material/Send";
 import { Link as ScrollLink } from "react-scroll";
+import NearMeIcon from "@mui/icons-material/NearMe";
 const Navbar = () => {
   return (
     <Grid
@@ -35,33 +35,16 @@ const Navbar = () => {
             <img
               src="https://static.wixstatic.com/media/bf8e2b_c85de989efb94a37b6648bf67621349b~mv2.png/v1/crop/x_0,y_845,w_2403,h_878/fill/w_193,h_70,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/returnpalfinal%20logos_WMK_BlackBlue_transparent.png"
               alt="returnpalfinal logos_WMK_BlackBlue_transparent.png"
-              // width="193"
-              // height="70"
+              width="100%"
               style={{
-                width: "auto", // The image will take the full width of its container on all screens
+                // width: "auto", // The image will take the full width of its container on all screens
                 height: "auto", // The height will adjust proportionally based on the width
                 display: "block", // This ensures that any extra space around the image is removed
               }}
             />
           </Link>
         </ScrollLink>
-        <Link
-          href="/pricing"
-          alignItems="center"
-          variant="h5"
-          underline="none"
-          color="#666d73"
-          sx={{
-            alignSelf: "center",
-            cursor: "pointer",
-            transition: "color 0.3s ease",
-            // fontSize: "1.2rem",
-            fontSize: { xs: 15, md: 20, lg: 22 },
-            "&:hover": { color: "#1E90FF" },
-          }}
-        >
-          Pricing
-        </Link>
+
         <Stack alignSelf="center">
           <ScrollLink to="how-it-works" smooth={true} duration={700}>
             <Link
@@ -97,7 +80,8 @@ const Navbar = () => {
           About
         </Link>
         <Link
-          href="/contact"
+          href="/pricing"
+          alignItems="center"
           variant="h5"
           underline="none"
           color="#666d73"
@@ -105,11 +89,12 @@ const Navbar = () => {
             alignSelf: "center",
             cursor: "pointer",
             transition: "color 0.3s ease",
+            // fontSize: "1.2rem",
             fontSize: { xs: 15, md: 20, lg: 22 },
             "&:hover": { color: "#1E90FF" },
           }}
         >
-          Contact
+          Pricing
         </Link>
         <Link
           href="/blog"
@@ -124,7 +109,22 @@ const Navbar = () => {
             "&:hover": { color: "#1E90FF" },
           }}
         >
-          Blog
+          Partners
+        </Link>
+        <Link
+          href="/contact"
+          variant="h5"
+          underline="none"
+          color="#666d73"
+          sx={{
+            alignSelf: "center",
+            cursor: "pointer",
+            transition: "color 0.3s ease",
+            fontSize: { xs: 15, md: 20, lg: 22 },
+            "&:hover": { color: "#1E90FF" },
+          }}
+        >
+          Contact
         </Link>
       </Stack>
       <Stack direction="row" spacing={2} marginRight={"4em"}>
@@ -164,7 +164,7 @@ const Navbar = () => {
             variant="contained"
             color="primary"
           >
-            Get Started &nbsp; <SendIcon />
+            Get Started &nbsp; <NearMeIcon />
           </Button>
         </Link>
       </Stack>
