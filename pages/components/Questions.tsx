@@ -58,7 +58,7 @@ const Questions = () => {
         marginTop="10%"
         maxWidth="80%"
       >
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12} md={3} sx={{ textAlign: { xs: "center" } }}>
           <Typography variant="h3" fontWeight={"bold"} color="#01314B">
             Drop Offs Made Easy
           </Typography>
