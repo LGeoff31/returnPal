@@ -2,13 +2,13 @@ import { Stack, Typography, Button, Link, Grid } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import NearMeIcon from "@mui/icons-material/NearMe";
 import Image from "next/image";
+import { Link as ScrollLink, Element } from "react-scroll";
 const Navbar = () => {
   return (
     <Grid
       container
       direction={{ xs: "column", md: "row", lg: "row" }}
       justifyContent={{ xs: "center", md: "space-between" }}
-      alignItems="center"
       // paddingLeft="5%"
       sx={{
         width: "100%",
@@ -18,18 +18,21 @@ const Navbar = () => {
         paddingLeft: { md: "5%" },
       }}
     >
-      <Stack direction="row" spacing={{ xs: 1.5, md: 3, lg: 5 }}>
-        <Link
+      <Stack
+        direction="row"
+        spacing={{ xs: 1.5, md: 3, lg: 5 }}
+        alignItems={"center"}
+      >
+        <ScrollLink
+          to="section1"
+          spy={true}
+          smooth={true}
+          offset={-100}
           href="/"
-          variant="h5"
-          underline="none"
-          color="textPrimary"
-          sx={{
+          style={{
             marginTop: "0.5rem",
             cursor: "pointer",
             transition: "color 0.3s ease",
-
-            "&:hover": { color: "#1E90FF" },
           }}
         >
           <picture>
@@ -44,89 +47,104 @@ const Navbar = () => {
               }}
             />
           </picture>
-        </Link>
+        </ScrollLink>
 
-        <Stack alignSelf="center">
-          <Link
-            href="/how-it-works"
-            variant="h5"
-            underline="none"
-            color="#666d73"
+        {/* <Stack alignSelf="center" direction="row"> */}
+        <ScrollLink
+          to="section2"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          style={{
+            marginTop: "0.5rem",
+            cursor: "pointer",
+            transition: "color 0.3s ease",
+            color: "#666d73",
+          }}
+        >
+          <Typography
             sx={{
-              alignSelf: "center",
-              cursor: "pointer",
-              transition: "color 0.3s ease",
               fontSize: { xs: 13, md: 20, lg: 22 },
               "&:hover": { color: "#1E90FF" },
             }}
           >
             Process
-          </Link>
-        </Stack>
-        <Link
-          href="/about"
-          variant="h5"
-          underline="none"
-          color="#666d73"
-          sx={{
-            alignSelf: "center",
+          </Typography>
+        </ScrollLink>
+
+        <ScrollLink
+          to="section3"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          style={{
+            marginTop: "0.5rem",
             cursor: "pointer",
             transition: "color 0.3s ease",
-            fontSize: { xs: 13, md: 20, lg: 22 },
-            "&:hover": { color: "#1E90FF" },
+            color: "#666d73",
           }}
         >
-          About
-        </Link>
-        <Link
-          href="/pricing"
-          alignItems="center"
-          variant="h5"
-          underline="none"
-          color="#666d73"
-          sx={{
-            alignSelf: "center",
+          <Typography
+            sx={{
+              fontSize: { xs: 13, md: 20, lg: 22 },
+              "&:hover": { color: "#1E90FF" },
+            }}
+          >
+            About
+          </Typography>
+        </ScrollLink>
+
+        <ScrollLink
+          to="section4"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          style={{
+            marginTop: "0.5rem",
             cursor: "pointer",
             transition: "color 0.3s ease",
-            // fontSize: "1.2rem",
-            fontSize: { xs: 13, md: 20, lg: 22 },
-            "&:hover": { color: "#1E90FF" },
+            color: "#666d73",
           }}
         >
-          Pricing
-        </Link>
-        <Link
-          href="/blog"
-          variant="h5"
-          underline="none"
-          color="#666d73"
-          sx={{
-            alignSelf: "center",
+          <Typography
+            sx={{
+              fontSize: { xs: 13, md: 20, lg: 22 },
+              "&:hover": { color: "#1E90FF" },
+            }}
+          >
+            Pricing
+          </Typography>
+        </ScrollLink>
+
+        <ScrollLink
+          to="section5"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          style={{
+            marginTop: "0.5rem",
             cursor: "pointer",
             transition: "color 0.3s ease",
-            fontSize: { xs: 13, md: 20, lg: 22 },
-            "&:hover": { color: "#1E90FF" },
+            color: "#666d73",
           }}
         >
-          Partners
-        </Link>
-        <Link
-          href="/contact"
-          variant="h5"
-          underline="none"
-          color="#666d73"
-          sx={{
-            alignSelf: "center",
-            cursor: "pointer",
-            transition: "color 0.3s ease",
-            fontSize: { xs: 13, md: 20, lg: 22 },
-            "&:hover": { color: "#1E90FF" },
-          }}
-        >
-          Contact
-        </Link>
+          <Typography
+            sx={{
+              fontSize: { xs: 13, md: 20, lg: 22 },
+              "&:hover": { color: "#1E90FF" },
+            }}
+          >
+            Contact
+          </Typography>
+        </ScrollLink>
+        {/* </Stack> */}
       </Stack>
-      <Stack direction="row" spacing={2} marginRight={"4em"}>
+      <Stack
+        direction="row"
+        spacing={2}
+        marginRight={"4em"}
+        alignItems={"center"}
+      >
         <Link href="/sign-in" underline="none">
           <Button
             sx={{

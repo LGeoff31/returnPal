@@ -12,12 +12,23 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <Homepage />
-      <HowItWorks />
-      <About />
-      <Pricing />
+      <Element name="section1">
+        <Homepage />
+      </Element>
+      <Element name="section2">
+        <HowItWorks />
+      </Element>
+      <Element name="section3">
+        <About />
+      </Element>
+      <Element name="section4">
+        <Pricing />
+      </Element>
       <Questions />
-      <Contact />
+      <Element name="section5">
+        <Contact />
+      </Element>
+
       <Footer />
     </>
   );
