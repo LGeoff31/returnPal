@@ -112,7 +112,7 @@ const Pricing = () => {
                 19
               </Typography>
             </Box>
-            <Typography variant="body2">We've Got You Handled</Typography>
+            <Typography variant="body2">We&apos;ve Got You Handled</Typography>
 
             <Button
               variant="contained"
