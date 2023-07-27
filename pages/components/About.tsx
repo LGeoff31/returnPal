@@ -34,11 +34,16 @@ const About = () => {
           sx={{
             position: "absolute",
             top: "15%",
-            left: "10%",
+
             zIndex: 2,
           }}
         >
-          <Grid>
+          <Grid
+            container
+            alignItems="center"
+            justifyContent="center"
+            direction="column"
+          >
             <Typography variant="h2" fontWeight="bold">
               Our
             </Typography>
@@ -46,7 +51,12 @@ const About = () => {
               Mission
             </Typography>
           </Grid>
-          <Grid>
+          <Grid
+            container
+            alignItems="center"
+            justifyContent="center"
+            direction="column"
+          >
             <Typography
               variant="body1"
               color="white"

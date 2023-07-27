@@ -143,7 +143,7 @@ const Navbar = () => {
             <AccountCircleIcon /> &nbsp; Sign in
           </Button>
         </Link>
-        <Link href="/get-started" underline="none">
+        <Link href="/get-started">
           <Button
             sx={{
               borderRadius: "2em",

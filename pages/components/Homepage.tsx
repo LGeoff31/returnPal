@@ -120,7 +120,7 @@ const Homepage = () => {
           >
             Returning has never <br /> been this hassle-free
           </Typography>
-          <Link href="/get-started">
+          <Link href="/get-started" underline="none">
             <Button
               sx={{
                 borderRadius: "50px", // Adjust the value as needed to get the desired oval shape
