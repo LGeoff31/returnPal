@@ -7,7 +7,6 @@ const Navbar = () => {
   return (
     <Grid
       container
-      direction={{ xs: "column", md: "row", lg: "row" }}
       justifyContent={{ xs: "center", md: "space-between" }}
       // paddingLeft="5%"
       sx={{
