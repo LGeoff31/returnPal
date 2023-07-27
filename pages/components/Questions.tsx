@@ -155,6 +155,7 @@ const Questions = () => {
           paddingTop="15rem"
           fontSize={"2rem"}
           paddingBottom="1rem"
+          align={"center"}
         >
           Frequently Asked Questions
         </Typography>
