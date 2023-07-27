@@ -61,7 +61,7 @@ const Homepage = () => {
               height="98"
             />
           </picture>
-          <Link href="get-started">
+          <Link href="get-started" underline="none">
             <Button
               sx={{
                 background: "#00bfff",
