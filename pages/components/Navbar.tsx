@@ -127,7 +127,7 @@ const Navbar = () => {
         </Link>
       </Stack>
       <Stack direction="row" spacing={2} marginRight={"4em"}>
-        <Link href="/sign-in">
+        <Link href="/sign-in" underline="none">
           <Button
             sx={{
               borderRadius: "1em",
@@ -143,7 +143,7 @@ const Navbar = () => {
             <AccountCircleIcon /> &nbsp; Sign in
           </Button>
         </Link>
-        <Link href="/get-started">
+        <Link href="/get-started" underline="none">
           <Button
             sx={{
               borderRadius: "2em",
