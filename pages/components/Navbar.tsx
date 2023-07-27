@@ -141,8 +141,9 @@ const Navbar = () => {
       <Stack
         direction="row"
         spacing={2}
-        marginRight={"4em"}
-        alignItems={"center"}
+        // marginRight={{ xs: "auto", md: "4em" }} // Use "auto" to center on mobile and "4em" on larger screens
+        alignItems="center"
+        justifyContent={{ xs: "center", md: "flex-start" }} // Center on mobile and align to the left on larger screens
       >
         <Link href="/sign-in" underline="none">
           <Button
@@ -166,6 +167,7 @@ const Navbar = () => {
               borderRadius: "2em",
               fontWeight: "bold",
               backgroundColor: "#00bfff",
+
               marginRight: "1.5rem",
               paddingLeft: "1.5rem",
               paddingRight: "1rem",
