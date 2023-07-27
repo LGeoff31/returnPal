@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "orig_poppins_regular"; */
 }
 
 .video-element {
@@ -16,7 +16,7 @@
 }
 .font {
   font-style: normal;
-  font-family: wfont_044ec0_8a940bae2f2740e789023089a84fc84d;
+  /* font-family: wfont_044ec0_8a940bae2f2740e789023089a84fc84d; */
 }
 
 .image-wrapper {

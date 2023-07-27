@@ -50,12 +50,11 @@ const InfoCard = ({
           {title}
         </Typography>
         <Typography
-          sx={{ color: "white" }}
+          sx={{ color: "white", fontFamily: "sans-serif" }}
           variant="body1"
           color="textSecondary"
-          className="font"
           fontWeight={300}
-          fontSize="1rem"
+          fontSize="1.25rem"
         >
           {description}
         </Typography>
