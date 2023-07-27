@@ -143,7 +143,7 @@ const Navbar = () => {
             <AccountCircleIcon /> &nbsp; Sign in
           </Button>
         </Link>
-        <Link href="/get-started">
+        <Link href="/get-started" underline="none">
           <Button
             sx={{
               borderRadius: "2em",
@@ -152,8 +152,8 @@ const Navbar = () => {
               marginRight: "1.5rem",
               paddingLeft: "1.5rem",
               paddingRight: "1rem",
-              paddingTop: "0.5rem",
-              paddingBottom: "0.5rem",
+              // paddingTop: "0.5rem",
+              // paddingBottom: "0.5rem",
               fontSize: { xs: "10px", md: "10px", lg: "15px" },
 
               "&:hover": {
