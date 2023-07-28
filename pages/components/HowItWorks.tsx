@@ -49,7 +49,7 @@ const HowItWorks = () => {
         >
           <InfoCard
             title="Request A Return"
-            description="From the comfort of your home, answer a few quick questions form us so that we can get to know your package a little more."
+            description="From the comfort of your home, answer a few quick questions from us so that we can get to know your package a little more."
             src="https://static.wixstatic.com/media/5834c13670304d0b92d43106194caf49.jpg/v1/fill/w_359,h_479,q_90/5834c13670304d0b92d43106194caf49.jpg"
           />
           <InfoCard
@@ -63,7 +63,7 @@ const HowItWorks = () => {
             src="https://static.wixstatic.com/media/cfb1f8f03ec948f2a3eb4e46890195a3.jpg/v1/fill/w_359,h_479,q_90/cfb1f8f03ec948f2a3eb4e46890195a3.jpg"
           />
         </Grid>
-        <Typography
+        {/* <Typography
           // maxWidth="20rem"
           className="font"
           // width="60%"
@@ -80,7 +80,7 @@ const HowItWorks = () => {
           possible. Our team works with trusted couriers to make sure your
           package is dropped off straight to them, eliminating extra steps and
           making it easier for you.
-        </Typography>
+        </Typography> */}
       </Paper>
     </div>
   );

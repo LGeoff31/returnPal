@@ -149,7 +149,7 @@ const Navbar = () => {
           <Button
             sx={{
               textTransform: "none",
-              borderRadius: "1em",
+              borderRadius: "1rem",
               color: "black",
               backgroundColor: "#f5f5f5",
               border: "none",

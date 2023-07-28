@@ -67,7 +67,9 @@ const About = () => {
               width="90%"
             >
               At ReturnPal, we strive to simplify every day returns, simplifying
-              your efforts to simplify your life.
+              your efforts to simplify your life. Our team works with trusted
+              couriers to make sure your package is dropped off straight to
+              them, eliminating extra steps and making it easier for you.
             </Typography>
             <Typography
               variant="body1"
