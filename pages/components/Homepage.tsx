@@ -24,64 +24,83 @@ const Homepage = () => {
           color={"white"}
           sx={{
             position: "absolute",
-            bottom: "40%",
+            bottom: "20%",
+            // width: "100%",
             left: "10%",
+            // textAlign: "center",
+            display: "flex", // Add display flex
+            flexDirection: "column", // Stack
             zIndex: 2,
+            // alignItems: "center",
           }}
         >
           <Typography
             position="relative"
-            variant="h2"
-            fontWeight="bold"
+            variant="h4"
+            fontWeight="500"
             zIndex={2}
-            sx={{ fontSize: { xs: "2rem", md: "4rem" } }}
+            sx={{ fontSize: { xs: "3rem", md: "4rem" } }}
           >
             Return Your Package <br /> The Easy Way.
           </Typography>
-        </Grid>
-        <Box
-          sx={{
-            position: "absolute",
-            bottom: "10%",
-            left: "10%",
-            display: "flex",
-            alignItems: "center",
-            background: "white",
-            zIndex: 3,
-            paddingLeft: 5,
-            paddingRight: 5,
-            borderRadius: 30,
-          }}
-        >
-          <picture>
-            <img
-              src="https://static.wixstatic.com/media/bf8e2b_68051fb7563f42079a1cd10f2b4b4b22~mv2.png/v1/fill/w_88,h_98,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/returnpalfinal%20logos_Transparent_Full%20Bl.png"
-              alt="ReturnPal Icon Logo"
-              width="88"
-              height="98"
-            />
-          </picture>
-          <Link href="get-started" underline="none">
-            <Button
-              sx={{
-                background: "#00bfff",
-                borderRadius: 50, // Adjust the value as needed to get the desired oval shape
-                padding: "0.5rem 36px", // Customize the padding to fit the content
-                fontSize: "1.15rem", // Set the font size to your preference
-                fontWeight: "bold", // Adjust font weight as needed
-                textTransform: "none", // Avoid uppercase transformation
-                color: "primary", // Set the text color to contrast with the background
-                "&:hover": {
-                  background: "#005DFF", // Set a darker background color on hover
-                },
-              }}
-              variant="contained"
-              endIcon={<NearMeIcon />}
+          <Box
+            sx={{
+              backgroundColor: "rgba(0, 191, 255, 0.2)", // Light transparent blue background
+              marginTop: "1.5%",
+              paddingLeft: "5%",
+
+              paddingTop: "1%",
+              paddingBottom: "1%",
+              width: { xs: "90%", md: "50%" },
+              borderRadius: "30px", // Add rounded corners to the box
+            }}
+          >
+            <Typography
+              variant="body1"
+              fontSize="1.1rem"
+              // Set the font weight to your desired boldness (e.g., 600)
             >
-              Return
-            </Button>
-          </Link>
-        </Box>
+              Seamless Contactless Returns
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              marginTop: "10%",
+              display: "flex",
+              alignItems: "center",
+              zIndex: 3,
+            }}
+          >
+            <picture>
+              <img
+                src="https://static.wixstatic.com/media/bf8e2b_68051fb7563f42079a1cd10f2b4b4b22~mv2.png/v1/fill/w_88,h_98,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/returnpalfinal%20logos_Transparent_Full%20Bl.png"
+                alt="ReturnPal Icon Logo"
+                width="88"
+                height="98"
+              />
+            </picture>
+            <Link href="get-started" underline="none">
+              <Button
+                sx={{
+                  background: "#00bfff",
+                  borderRadius: 50, // Adjust the value as needed to get the desired oval shape
+                  padding: "0.5rem 36px", // Customize the padding to fit the content
+                  fontSize: "1.15rem", // Set the font size to your preference
+                  fontWeight: "bold", // Adjust font weight as needed
+                  textTransform: "none", // Avoid uppercase transformation
+                  color: "primary", // Set the text color to contrast with the background
+                  "&:hover": {
+                    background: "#005DFF", // Set a darker background color on hover
+                  },
+                }}
+                variant="contained"
+                endIcon={<NearMeIcon />}
+              >
+                Return
+              </Button>
+            </Link>
+          </Box>
+        </Grid>
       </Grid>
       <Stack
         direction={{ sm: "column", md: "row" }}
