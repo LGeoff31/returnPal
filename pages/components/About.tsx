@@ -25,7 +25,7 @@ const About = () => {
               src="https://static.wixstatic.com/media/nsplsh_71386b525f696536576e49~mv2.jpg/v1/fill/w_1960,h_1166,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/nsplsh_71386b525f696536576e49~mv2.jpg"
               alt="Image by Claudio Schwarz"
               width="100%"
-              height="600vh"
+              height="550vh"
             />
           </picture>
         </div>
@@ -60,7 +60,7 @@ const About = () => {
             <Typography
               variant="body1"
               color="white"
-              fontSize={{ xs: "1.25rem", md: "1.5rem" }}
+              fontSize={{ xs: "1rem", md: "1.5rem" }}
               marginTop="2.5%"
               marginBottom="2.5%"
               textAlign={{ xs: "center", sm: "left" }}
@@ -68,13 +68,13 @@ const About = () => {
             >
               At ReturnPal, we strive to simplify every day returns, simplifying
               your efforts to simplify your life. Our team works with trusted
-              couriers to make sure your package is dropped off straight to
-              them, eliminating extra steps and making it easier for you.
+              couriers to ensure your package is dropped off straight to them,
+              eliminating extra steps and making it easier for you.
             </Typography>
             <Typography
               variant="body1"
               color="white"
-              fontSize={{ xs: "1.25rem", md: "1.5rem" }}
+              fontSize={{ xs: "1rem", md: "1.5rem" }}
               textAlign={{ xs: "center", sm: "left" }}
               width="90%"
             >
