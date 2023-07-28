@@ -62,7 +62,7 @@ const About = () => {
               color="white"
               fontSize={{ xs: "1rem", md: "1.5rem" }}
               marginTop="2.5%"
-              marginBottom="2.5%"
+              marginBottom="5%"
               textAlign={{ xs: "center", sm: "left" }}
               width="90%"
             >
@@ -220,7 +220,7 @@ const About = () => {
               fontWeight: "bold",
               borderRadius: "50px",
               background: "#00bfff",
-              padding: "1.5%",
+              padding: { md: "1.5%", xs: "3%" },
             }}
           >
             Our Process &nbsp; {<NearMeIcon />}
