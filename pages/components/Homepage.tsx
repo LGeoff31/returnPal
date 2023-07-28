@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Stack, Typography, Button, Link, Grid } from "@mui/material";
 import Image from "next/image";
 import NearMeIcon from "@mui/icons-material/NearMe";
+import { useScrollTrigger } from "@mui/material";
 
 const Homepage = () => {
+  // const trigger = useScrollTrigger();
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: hasAnimated ? 0 : 0,
+  });
+  if (trigger && !hasAnimated) {
+    setHasAnimated(true);
+  }
   return (
     <>
       <Grid
@@ -114,7 +124,12 @@ const Homepage = () => {
           marginLeft: { md: "10%" },
         }}
       >
-        <picture>
+        <picture
+          style={{
+            transform: trigger ? "translateX(0)" : "translateX(-100%)",
+            transition: "transform 0.75s ease-in-out",
+          }}
+        >
           <img
             src="https://static.wixstatic.com/media/cfb1f8f03ec948f2a3eb4e46890195a3.jpg/v1/fill/w_1022,h_682,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Box%20Delivery.jpg"
             alt="A girl receiving a box"
@@ -154,7 +169,13 @@ const Homepage = () => {
                 "&:hover": {
                   background: "#005DFF", // Set a darker background color on hover
                 },
+                transform: trigger ? "translateX(0)" : "translateX(-100%)",
+                transition: "transform 0.75s ease-in-out",
               }}
+              // style={{
+              //   transform: trigger ? "translateX(0)" : "translateX(-100%)",
+              //   transition: "transform 0.75s ease-in-out",
+              // }}
             >
               Learn More
             </Button>

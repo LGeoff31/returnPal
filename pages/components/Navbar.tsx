@@ -148,6 +148,7 @@ const Navbar = () => {
         <Link href="/sign-in" underline="none">
           <Button
             sx={{
+              textTransform: "none",
               borderRadius: "1em",
               color: "black",
               backgroundColor: "#f5f5f5",
@@ -167,7 +168,7 @@ const Navbar = () => {
               borderRadius: "2em",
               fontWeight: "bold",
               backgroundColor: "#00bfff",
-
+              textTransform: "none",
               marginRight: "1.5rem",
               paddingLeft: "1.5rem",
               paddingRight: "1rem",

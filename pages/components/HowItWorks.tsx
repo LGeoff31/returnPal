@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Grid, Paper, Stack, Typography } from "@mui/material";
 import InfoCard from "../sub_components/InfoCard";
+import { useScrollTrigger } from "@mui/material";
 
 const HowItWorks = () => {
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: hasAnimated ? 0 : 0,
+  });
+  if (trigger && !hasAnimated) {
+    setHasAnimated(true);
+  }
   return (
     <div id="how-it-works">
       <Paper
@@ -29,7 +38,15 @@ const HowItWorks = () => {
         <Typography variant="body1" align="center" fontSize="1.5rem">
           3 Simple steps to get you started
         </Typography>
-        <Grid container direction="row" justifyContent={"center"}>
+        <Grid
+          container
+          direction="row"
+          justifyContent={"center"}
+          style={{
+            transform: trigger ? "translateX(0)" : "translateX(-100%)",
+            transition: "transform 1.5s ease-in-out",
+          }}
+        >
           <InfoCard
             title="Request A Return"
             description="From the comfort of your home, answer a few quick questions form us so that we can get to know your package a little more."

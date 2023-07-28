@@ -27,7 +27,7 @@ const Contact = () => {
             paddingTop="2rem"
             color="#01314B"
           >
-            Contact me
+            Contact Us
           </Typography>
           <Typography
             variant="body2"

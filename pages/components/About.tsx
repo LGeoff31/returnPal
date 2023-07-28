@@ -7,7 +7,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import NearMeIcon from "@mui/icons-material/NearMe";
 
 const About = () => {
@@ -60,7 +60,7 @@ const About = () => {
             <Typography
               variant="body1"
               color="white"
-              fontSize="1.25rem"
+              fontSize={{ xs: "1.25rem", md: "1.5rem" }}
               marginTop="2.5%"
               marginBottom="2.5%"
               textAlign={{ xs: "center", sm: "left" }}
@@ -72,7 +72,7 @@ const About = () => {
             <Typography
               variant="body1"
               color="white"
-              fontSize="1.25rem"
+              fontSize={{ xs: "1.25rem", md: "1.5rem" }}
               textAlign={{ xs: "center", sm: "left" }}
               width="90%"
             >
@@ -176,9 +176,9 @@ const About = () => {
               color="#01314B"
               marginBottom="2rem"
             >
-              As a convenient one-stop service, We&apos;re bringing couriers to
-              your location, repackaging, and delivering your return to a
-              predefined location.
+              We&apos;re all over the GTA, with a local facility in Toronto
+              designed to ensure shipping labels are printed and the repackaging
+              of items can meet same-day return needs.
             </Typography>
             <Typography
               fontWeight="bold"
@@ -186,9 +186,10 @@ const About = () => {
               fontSize="1.5rem"
               color="#01314B"
             >
-              Our goal is to save you from having to repackage items, print
-              shipping labels, and take that long drive to the not so local post
-              office.
+              Returning your online shopping purchases has never been easier.
+              Unless you get the wrong size, in which case you&apos;ll be
+              returning it so many times you&apos;ll know the shipping label by
+              heart.
             </Typography>
           </Grid>
         </Stack>
