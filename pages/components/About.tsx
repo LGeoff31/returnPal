@@ -13,7 +13,7 @@ import NearMeIcon from "@mui/icons-material/NearMe";
 const About = () => {
   return (
     <>
-      <Grid
+      {/* <Grid
         sx={{
           position: "relative",
           overflow: "hidden",
@@ -85,7 +85,7 @@ const About = () => {
             </Typography>
           </Grid>
         </Grid>
-      </Grid>
+      </Grid> */}
       <Grid container>
         <Stack
           direction={{ xs: "column", md: "row", lg: "row" }}

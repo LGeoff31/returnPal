@@ -48,31 +48,36 @@ const Pricing = () => {
             >
               <Typography
                 variant="h6"
-                color="textSecondary"
-                sx={{ fontSize: "0.8rem", marginRight: "4px" }}
+                color="#01314B"
+                sx={{ fontSize: "1.25rem", marginRight: "5px" }}
               >
                 CA$
               </Typography>
-              <Typography variant="h3" color="black" fontWeight="bold">
+              <Typography variant="h3" color="#01314B" fontWeight="bold">
                 9.99
               </Typography>
             </Box>
-            <Typography variant="body2">Over Pay? Never.</Typography>
+            <Typography variant="body2" marginBottom="5%">
+              Over Pay? Never.
+            </Typography>
 
             <Button
               variant="contained"
               color="primary"
               sx={{
-                width: "60%",
-                padding: "4%",
+                width: "50%",
+                padding: "3%",
                 backgroundColor: "#00bfff",
+                marginBottom: "5%",
+
                 "&:hover": {
                   backgroundColor: "#0099ff", // Set the background color on hover
                 },
               }}
             >
-              Get Started &nbsp;
-              <NearMeIcon />
+              Select
+              {/* Get Started &nbsp;
+              <NearMeIcon /> */}
             </Button>
             <Typography variant="body2">- Add-On Packages</Typography>
             <Typography variant="body2">- Extra Pickups</Typography>
@@ -103,31 +108,39 @@ const Pricing = () => {
             >
               <Typography
                 variant="h6"
-                color="textSecondary"
-                sx={{ fontSize: "0.8rem", marginRight: "4px" }}
+                color="#01314B"
+                sx={{ fontSize: "1.25rem", marginRight: "5px" }}
               >
                 CA$
               </Typography>
-              <Typography variant="h3" fontWeight="bold" color="black">
+              <Typography variant="h3" color="#01314B" fontWeight="bold">
                 19
               </Typography>
+              <Typography variant="body2" color="textSecondary">
+                Every month
+              </Typography>
             </Box>
-            <Typography variant="body2">We&apos;ve Got You Handled</Typography>
+            {/* <Typography variant="body2">Every month</Typography> */}
+            <Typography variant="body2" marginBottom="5%">
+              We&apos;ve Got You Handled
+            </Typography>
 
             <Button
               variant="contained"
               color="primary"
               sx={{
-                width: "60%",
-                padding: "4%",
-                backgroundColor: "#1305ab",
+                width: "50%",
+                padding: "3%",
+                backgroundColor: "#4f5ee8",
                 "&:hover": {
                   backgroundColor: "#0099ff", // Set the background color on hover
                 },
+                marginBottom: "5%",
               }}
             >
-              Get Started &nbsp;
-              <NearMeIcon />
+              Select
+              {/* Get Started &nbsp;
+              <NearMeIcon /> */}
             </Button>
             <Typography variant="body2">- Unlimited Pickups</Typography>
             <Typography variant="body2">- Unlimited Packaging</Typography>
