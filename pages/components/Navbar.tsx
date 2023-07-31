@@ -142,7 +142,7 @@ const Navbar = () => {
         <Link href="/sign-in" underline="none">
           <Button
             sx={{
-              textTransform: "none",
+              // textTransform: "none",
               borderRadius: "1rem",
               color: "black",
               backgroundColor: "#f5f5f5",
