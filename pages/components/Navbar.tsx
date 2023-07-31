@@ -8,7 +8,6 @@ const Navbar = () => {
     <Grid
       container
       justifyContent={{ xs: "center", md: "space-between" }}
-      // paddingLeft="5%"
       sx={{
         width: "100%",
         position: "fixed",
@@ -40,15 +39,12 @@ const Navbar = () => {
               alt="returnpalfinal logos_WMK_BlackBlue_transparent.png"
               width="100%"
               style={{
-                // width: "auto", // The image will take the full width of its container on all screens
                 height: "auto", // The height will adjust proportionally based on the width
                 display: "block", // This ensures that any extra space around the image is removed
               }}
             />
           </picture>
         </ScrollLink>
-
-        {/* <Stack alignSelf="center" direction="row"> */}
         <ScrollLink
           to="section2"
           spy={true}
@@ -63,7 +59,7 @@ const Navbar = () => {
         >
           <Typography
             sx={{
-              fontSize: { xs: 13, md: 20, lg: 22 },
+              fontSize: { xs: 13, md: 18, lg: 20 },
               "&:hover": { color: "#1E90FF" },
             }}
           >
@@ -85,7 +81,7 @@ const Navbar = () => {
         >
           <Typography
             sx={{
-              fontSize: { xs: 13, md: 20, lg: 22 },
+              fontSize: { xs: 13, md: 18, lg: 20 },
               "&:hover": { color: "#1E90FF" },
             }}
           >
@@ -129,19 +125,17 @@ const Navbar = () => {
         >
           <Typography
             sx={{
-              fontSize: { xs: 13, md: 20, lg: 22 },
+              fontSize: { xs: 13, md: 18, lg: 20 },
               "&:hover": { color: "#1E90FF" },
             }}
           >
             Contact
           </Typography>
         </ScrollLink>
-        {/* </Stack> */}
       </Stack>
       <Stack
         direction="row"
         spacing={2}
-        // marginRight={{ xs: "auto", md: "4em" }} // Use "auto" to center on mobile and "4em" on larger screens
         alignItems="center"
         justifyContent={{ xs: "center", md: "flex-start" }} // Center on mobile and align to the left on larger screens
       >
@@ -172,8 +166,6 @@ const Navbar = () => {
               marginRight: "1.5rem",
               paddingLeft: "1.5rem",
               paddingRight: "1rem",
-              // paddingTop: "0.5rem",
-              // paddingBottom: "0.5rem",
               fontSize: { xs: "10px", md: "10px", lg: "15px" },
 
               "&:hover": {

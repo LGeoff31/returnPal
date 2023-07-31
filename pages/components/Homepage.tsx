@@ -5,7 +5,6 @@ import NearMeIcon from "@mui/icons-material/NearMe";
 import { useScrollTrigger } from "@mui/material";
 
 const Homepage = () => {
-  // const trigger = useScrollTrigger();
   const [hasAnimated, setHasAnimated] = useState(false);
   const trigger = useScrollTrigger({
     disableHysteresis: true,
@@ -35,13 +34,10 @@ const Homepage = () => {
           sx={{
             position: "absolute",
             bottom: "20%",
-            // width: "100%",
             left: "10%",
-            // textAlign: "center",
             display: "flex", // Add display flex
             flexDirection: "column", // Stack
             zIndex: 2,
-            // alignItems: "center",
           }}
         >
           <Typography
@@ -55,7 +51,7 @@ const Homepage = () => {
           </Typography>
           <Box
             sx={{
-              backgroundColor: "rgba(0, 191, 255, 0.2)", // Light transparent blue background
+              backgroundColor: "rgba(0, 191, 255, 0.1)", // Light transparent blue background
               marginTop: "1.5%",
               paddingLeft: "5%",
 
@@ -116,12 +112,11 @@ const Homepage = () => {
         direction={{ sm: "column", md: "row" }}
         alignItems="center"
         textAlign={"center"}
+        justifyContent={"center"}
         sx={{
-          width: "100%", // Make the Stack take the full width of its container
-          margin: "0 auto", // Center the Stack itself
           padding: { xs: "0.5rem", sm: "1rem", md: "2rem" }, // Add some padding for better spacing
           marginTop: "2rem",
-          marginLeft: { md: "10%" },
+          // marginLeft: { md: "10%" },
         }}
       >
         <picture
@@ -164,7 +159,6 @@ const Homepage = () => {
                 textTransform: "none", // Avoid uppercase transformation
                 background: "#00bfff", // Set the desired background color
                 marginBottom: "2rem",
-
                 color: "#fff", // Set the text color to contrast with the background
                 "&:hover": {
                   background: "#005DFF", // Set a darker background color on hover
@@ -172,10 +166,6 @@ const Homepage = () => {
                 transform: trigger ? "translateX(0)" : "translateX(-100%)",
                 transition: "transform 0.75s ease-in-out",
               }}
-              // style={{
-              //   transform: trigger ? "translateX(0)" : "translateX(-100%)",
-              //   transition: "transform 0.75s ease-in-out",
-              // }}
             >
               Learn More
             </Button>
