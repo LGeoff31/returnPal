@@ -174,6 +174,7 @@ const Navbar = () => {
             }}
             variant="contained"
             color="primary"
+            className="text-[#0099ff] hover:text-white"
           >
             Get Started &nbsp; <NearMeIcon />
           </Button>
