@@ -1,8 +1,42 @@
-import React from "react";
+import React, {useEffect,useState} from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import firebase from "firebase/app";
+import "firebase/auth"
 
 const signIn = () => {
+
+  const [email, setEmail] = useState("")
+  const [password,setPassword] = useState("")
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAfq9xlsoCWH68Ck2OvhWy-zROSEJXuRlg",
+    authDomain: "returnpal-42590.firebaseapp.com",
+    projectId: "returnpal-42590",
+    storageBucket: "returnpal-42590.appspot.com",
+    messagingSenderId: "91603158011",
+    appId: "1:91603158011:web:8fcea6f62d55b4dafa415e",
+    measurementId: "G-62XZP8TQ85",
+  };
+  // if (!firebase.apps.length) {
+  //   firebase.initializeApp(firebaseConfig);
+  // }
+
+  // const handleSignIn = (e:any) => {
+  //   e.preventDefault();
+  //   firebase
+  //     .auth()
+  //     .signInWithEmailAndPassword(email, password)
+  //     .then((userCredential:any) => {
+  //       // Handle successful sign-in here (e.g., redirect to another page)
+  //       console.log("Signed in successfully!");
+  //     })
+  //     .catch((error:any) => {
+  //       // Handle sign-in error here
+  //       console.error("Sign-in error:", error);
+  //     });
+  // };
+
   return (
     <div className="flex justify-center">
       <Navbar />
@@ -24,6 +58,8 @@ const signIn = () => {
                     <div className="relative mb-6" data-te-input-wrapper-init>
                       <input
                         type="text"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         className="peer block min-h-[auto] text-white border-b border-[#0099ff] w-full  bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-black dark:placeholder:text-black placeholder:opacity-100 placeholder:text-black [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                         id="exampleFormControlInput3"
                         placeholder="Email address"
@@ -38,6 +74,8 @@ const signIn = () => {
                     <div className="relative mb-6" data-te-input-wrapper-init>
                       <input
                         type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         className="peer block min-h-[auto] w-full  border-b  border-[#0099ff]  bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-black dark:placeholder:text-black [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                         id="exampleFormControlInput33"
                         placeholder="Password"
@@ -52,9 +90,9 @@ const signIn = () => {
                     <div className="mb-6 flex items-center justify-between">
                       <div className="flex items-center mr-4">
                         <input
-                          
                           id="green-checkbox"
                           type="checkbox"
+                          required
                           className="w-4 h-4 text-blue-600  rounded  focus:ring-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-blue-600"
                         />
                         <label
@@ -105,7 +143,7 @@ const signIn = () => {
                     </a>
                     <a
                       className="mb-3 flex w-full items-center justify-center rounded bg-red-500 px-7 pb-2.5 pt-3 text-center text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dd4b39] transition duration-150 ease-in-out hover:bg-red-600 hover:shadow-[0_8px_9px_-4px_rgba(221,75,57,0.3),0_4px_18px_0_rgba(221,75,57,0.2)] focus:bg-red-600 focus:shadow-[0_8px_9px_-4px_rgba(221,75,57,0.3),0_4px_18px_0_rgba(221,75,57,0.2)] focus:outline-none focus:ring-0 active:bg-red-700 active:shadow-[0_8px_9px_-4px_rgba(221,75,57,0.3),0_4px_18px_0_rgba(221,75,57,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(221,75,57,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(221,75,57,0.2),0_4px_18px_0_rgba(221,75,57,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(221,75,57,0.2),0_4px_18px_0_rgba(221,75,57,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(221,75,57,0.2),0_4px_18px_0_rgba(221,75,57,0.1)]"
-                      style={{ backgroundColor: "#dd4b39" }}
+                      style={{ backgroundColor: "white", color: "black" }}
                       href="#!"
                       role="button"
                       data-te-ripple-init
@@ -135,6 +173,27 @@ const signIn = () => {
                         />
                       </svg>
                       Continue with Google
+                    </a>
+                    <a
+                      className="mb-3 flex w-full items-center justify-center rounded bg-black px-7 pb-2.5 pt-3 text-center text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#000000] transition duration-150 ease-in-out hover:bg-gray-800 hover:shadow-[0_8px_9px_-4px_rgba(0, 0, 0, 0.3), 0_4px_18px_0_rgba(0, 0, 0, 0.2)] focus:bg-gray-800 focus:shadow-[0_8px_9px_-4px_rgba(0, 0, 0, 0.3), 0_4px_18px_0_rgba(0, 0, 0, 0.2)] focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-[0_8px_9px_-4px_rgba(0, 0, 0, 0.3), 0_4px_18px_0_rgba(0, 0, 0, 0.2)] dark:shadow-[0_4px_9px_-4px_rgba(0, 0, 0, 0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(0, 0, 0, 0.2), 0_4px_18px_0_rgba(0, 0, 0, 0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(0, 0, 0, 0.2), 0_4px_18px_0_rgba(0, 0, 0, 0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(0, 0, 0, 0.2), 0_4px_18px_0_rgba(0, 0, 0, 0.1)]"
+                      style={{ backgroundColor: "#000000" }}
+                      href="#!"
+                      role="button"
+                      data-te-ripple-init
+                      data-te-ripple-color="light"
+                    >
+                      {/* Apple */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="mr-2 h-3.5 w-3.5"
+                        viewBox="0 0 48 48"
+                      >
+                        <path
+                          fill="#A4A4A4"
+                          d="M33.826 19.985c0-5.282 2.94-9.794 7.294-12.134-2.666-4.325-6.529-7.064-11.12-7.064-6.733 0-12.521 4.272-14.76 10.25-6.668 1.145-11.676 6.12-11.676 12.258 0 6.605 5.32 11.985 11.927 11.985h.057c.17-.002.34-.015.508-.04.343.793.74 1.56 1.19 2.267-.29.43-.57.88-.83 1.342-2.207 4.232-.736 8.973 3.516 11.24 1.766 1.108 3.87 1.705 6.052 1.717 2.175-.01 4.218-.605 5.986-1.705 4.252-2.267 5.733-6.978 3.527-11.21-.25-.46-.54-.912-.86-1.34.45-.71.85-1.478 1.19-2.27.17.022.338.034.508.038 6.608 0 11.93-5.38 11.93-11.986 0-6.59-5.318-11.973-11.93-11.982h-.057c-.214 0-.426.012-.64.04-5.4 0-8.984 2.72-11.654 7.057 4.346 2.338 7.287 6.85 7.287 12.133 0 7.27-5.924 13.186-13.195 13.186C5.923 33.17 0 27.253 0 19.983 0 12.713 5.924 6.797 13.195 6.797c7.27 0 13.195 5.916 13.195 13.186zm0 0"
+                        />
+                      </svg>
+                      Continue with Apple
                     </a>
                   </form>
                 </div>
