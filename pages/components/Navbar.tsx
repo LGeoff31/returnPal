@@ -1,8 +1,9 @@
-import { Stack, Typography, Button, Link, Grid } from "@mui/material";
+import { Stack, Typography, Button, Grid } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import NearMeIcon from "@mui/icons-material/NearMe";
 import Image from "next/image";
 import { Link as ScrollLink, Element } from "react-scroll";
+import Link from "next/link";
 const Navbar = () => {
   return (
     <Grid
@@ -139,7 +140,7 @@ const Navbar = () => {
         alignItems="center"
         justifyContent={{ xs: "center", md: "flex-start" }} // Center on mobile and align to the left on larger screens
       >
-        <Link href="/sign-in" underline="none">
+        <Link href="/signUp" >
           <Button
             sx={{
               textTransform: "none",
@@ -156,7 +157,7 @@ const Navbar = () => {
             <AccountCircleIcon /> &nbsp; Sign in
           </Button>
         </Link>
-        <Link href="/get-started" underline="none">
+        <Link href="/get-started">
           <Button
             sx={{
               borderRadius: "2em",

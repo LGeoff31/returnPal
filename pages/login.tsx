@@ -1,13 +1,35 @@
-import React, {useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import firebase from "firebase/app";
-import "firebase/auth"
-
-const signIn = () => {
-
-  const [email, setEmail] = useState("")
-  const [password,setPassword] = useState("")
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import Link from "next/link";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { error } from "console";
+//  toast.error("🦄 Bid was not successfull", {
+//    position: "top-center",
+//    autoClose: 5000,
+//    hideProgressBar: false,
+//    closeOnClick: true,
+//    pauseOnHover: true,
+//    draggable: true,
+//    progress: undefined,
+//    theme: "light",
+//  });
+//   toast.success("Your Bid was Successfull....!", {
+//     position: "top-center",
+//     autoClose: 5000,
+//     hideProgressBar: false,
+//     closeOnClick: true,
+//     pauseOnHover: true,
+//     draggable: true,
+//     progress: undefined,
+//     theme: "light",
+//   });
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const firebaseConfig = {
     apiKey: "AIzaSyAfq9xlsoCWH68Ck2OvhWy-zROSEJXuRlg",
@@ -18,28 +40,134 @@ const signIn = () => {
     appId: "1:91603158011:web:8fcea6f62d55b4dafa415e",
     measurementId: "G-62XZP8TQ85",
   };
-  // if (!firebase.apps.length) {
-  //   firebase.initializeApp(firebaseConfig);
-  // }
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
 
-  // const handleSignIn = (e:any) => {
-  //   e.preventDefault();
-  //   firebase
-  //     .auth()
-  //     .signInWithEmailAndPassword(email, password)
-  //     .then((userCredential:any) => {
-  //       // Handle successful sign-in here (e.g., redirect to another page)
-  //       console.log("Signed in successfully!");
-  //     })
-  //     .catch((error:any) => {
-  //       // Handle sign-in error here
-  //       console.error("Sign-in error:", error);
-  //     });
-  // };
+  const handleSignIn = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((result: any) => {
+        console.log(result.user);
+        localStorage.setItem("userInfo", JSON.stringify(result.user));
+        toast.success("Authenticated Successfully....!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+          console.log("Login successfully!");
+        
+      })
+      .catch((error: any) => {
+          console.log(error.message);
+        toast.error(error.message.split(":")[1], {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      });
+  };
+
+  const googleAuth = () => {
+    console.log("hello");
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then((result) => {
+        toast.success("Login Successfully....!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        const user = result.user;
+        localStorage.setItem("userInfo", JSON.stringify(result.user));
+        console.log(user);
+      })
+      .catch((error) => {
+        toast.error("Authentication Failed....!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        console.error("Google sign-in error:", error);
+      });
+  };
+
+  const handleFacebookSignIn = () => {
+    const provider = new firebase.auth.FacebookAuthProvider();
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then((result) => {
+        // Handle successful Facebook sign-in here
+        const user = result.user;
+        toast.success("Authenticated Successfully....!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        console.log("Signed in with Facebook:", user);
+      })
+      .catch((error) => {
+        toast.error("Authentication Failed....!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        // Handle Facebook sign-in error here
+        console.error("Facebook sign-in error:", error);
+      });
+  };
 
   return (
     <div className="flex justify-center">
       <Navbar />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <div>
         <div className="mt-24">
           <section className="h-screen">
@@ -54,7 +182,10 @@ const signIn = () => {
                   />
                 </div>
                 <div className="md:w-8/12 lg:ml-6 lg:w-5/12 bg-blue-50 shadow-2xl shadow-blue-[#0099ff] rounded-lg   px-10 py-16">
-                  <form>
+                  <div className="text-center mb-3 animate-pulse text-3xl font-semibold -mt-10">
+                    Login Form
+                  </div>
+                  <form onSubmit={handleSignIn}>
                     <div className="relative mb-6" data-te-input-wrapper-init>
                       <input
                         type="text"
@@ -101,14 +232,15 @@ const signIn = () => {
                         >
                           Remember Me
                         </label>
-                      </div>
-
+                                          </div>
+                    <Link href="/forgetPassword" legacyBehavior>
                       <a
                         href="#!"
                         className="text-black hover:text-[#0099ff] transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
-                      >
+                        >
                         Forgot password?
                       </a>
+                          </Link>
                     </div>
                     <button
                       type="submit"
@@ -130,6 +262,7 @@ const signIn = () => {
                       role="button"
                       data-te-ripple-init
                       data-te-ripple-color="light"
+                      onClick={handleFacebookSignIn}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -148,6 +281,7 @@ const signIn = () => {
                       role="button"
                       data-te-ripple-init
                       data-te-ripple-color="light"
+                      onClick={googleAuth}
                     >
                       {/* Google */}
                       <svg
@@ -209,4 +343,4 @@ const signIn = () => {
   );
 };
 
-export default signIn;
+export default Login;
