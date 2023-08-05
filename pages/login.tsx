@@ -6,28 +6,13 @@ import "firebase/compat/auth";
 import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { error } from "console";
-//  toast.error("🦄 Bid was not successfull", {
-//    position: "top-center",
-//    autoClose: 5000,
-//    hideProgressBar: false,
-//    closeOnClick: true,
-//    pauseOnHover: true,
-//    draggable: true,
-//    progress: undefined,
-//    theme: "light",
-//  });
-//   toast.success("Your Bid was Successfull....!", {
-//     position: "top-center",
-//     autoClose: 5000,
-//     hideProgressBar: false,
-//     closeOnClick: true,
-//     pauseOnHover: true,
-//     draggable: true,
-//     progress: undefined,
-//     theme: "light",
-//   });
+import {useRouter} from "next/router";
+
+
 const Login = () => {
+
+  const router = useRouter()
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -63,7 +48,8 @@ const Login = () => {
           progress: undefined,
           theme: "light",
         });
-          console.log("Login successfully!");
+        console.log("Login successfully!");
+        router.push("/")
         
       })
       .catch((error: any) => {
@@ -101,6 +87,7 @@ const Login = () => {
         const user = result.user;
         localStorage.setItem("userInfo", JSON.stringify(result.user));
         console.log(user);
+        router.push("/");
       })
       .catch((error) => {
         toast.error("Authentication Failed....!", {
@@ -136,6 +123,7 @@ const Login = () => {
           theme: "light",
         });
         console.log("Signed in with Facebook:", user);
+          router.push("/");
       })
       .catch((error) => {
         toast.error("Authentication Failed....!", {

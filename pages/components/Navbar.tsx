@@ -2,9 +2,25 @@ import { Stack, Typography, Button, Grid } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import NearMeIcon from "@mui/icons-material/NearMe";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import { Link as ScrollLink, Element } from "react-scroll";
 import Link from "next/link";
 const Navbar = () => {
+type YourType = {
+  displayName: string;
+  email: string;
+  photoURL: string;
+};
+
+  const [userData, setUserData] = useState<YourType | null>();
+  
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("userInfo")!)
+    console.log(data)
+    setUserData(data)
+    },[])
+
+
   return (
     <Grid
       container
@@ -140,7 +156,7 @@ const Navbar = () => {
         alignItems="center"
         justifyContent={{ xs: "center", md: "flex-start" }} // Center on mobile and align to the left on larger screens
       >
-        <Link href="/signUp" >
+        <Link href="/signUp">
           <Button
             sx={{
               textTransform: "none",
@@ -154,7 +170,7 @@ const Navbar = () => {
             variant="outlined"
             color="primary"
           >
-            <AccountCircleIcon /> &nbsp; Sign in
+            <AccountCircleIcon /> &nbsp; {userData? userData.displayName : "Sign up"}
           </Button>
         </Link>
         <Link href="/get-started">
