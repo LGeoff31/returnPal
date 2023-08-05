@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-// import firebase from "firebase/app";
+import firebase from "firebase/app";
 import "firebase/auth";
 
 const signIn = () => {
@@ -38,8 +38,9 @@ const signIn = () => {
 
   return (
     <div className="flex justify-center">
+      <Navbar />
       <div>
-        <div className="mt-14">
+        <div className="mt-24">
           <section className="h-screen">
             <div className="container h-full px-6 py-24">
               <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
@@ -198,6 +199,9 @@ const signIn = () => {
               </div>
             </div>
           </section>
+        </div>
+        <div>
+          <Footer />
         </div>
       </div>
     </div>
