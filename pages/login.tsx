@@ -13,6 +13,10 @@ const Login = () => {
 
   const router = useRouter()
 
+import firebase from "firebase/app";
+import "firebase/auth";
+
+const signIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -48,8 +52,7 @@ const Login = () => {
           progress: undefined,
           theme: "light",
         });
-        console.log("Login successfully!");
-        router.push("/")
+          console.log("Login successfully!");
         
       })
       .catch((error: any) => {
@@ -87,7 +90,6 @@ const Login = () => {
         const user = result.user;
         localStorage.setItem("userInfo", JSON.stringify(result.user));
         console.log(user);
-        router.push("/");
       })
       .catch((error) => {
         toast.error("Authentication Failed....!", {
@@ -123,7 +125,6 @@ const Login = () => {
           theme: "light",
         });
         console.log("Signed in with Facebook:", user);
-          router.push("/");
       })
       .catch((error) => {
         toast.error("Authentication Failed....!", {
@@ -144,18 +145,6 @@ const Login = () => {
   return (
     <div className="flex justify-center">
       <Navbar />
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
       <div>
         <div className="mt-24">
           <section className="h-screen">
@@ -170,10 +159,7 @@ const Login = () => {
                   />
                 </div>
                 <div className="md:w-8/12 lg:ml-6 lg:w-5/12 bg-blue-50 shadow-2xl shadow-blue-[#0099ff] rounded-lg   px-10 py-16">
-                  <div className="text-center mb-3 animate-pulse text-3xl font-semibold -mt-10">
-                    Login Form
-                  </div>
-                  <form onSubmit={handleSignIn}>
+                  <form>
                     <div className="relative mb-6" data-te-input-wrapper-init>
                       <input
                         type="text"
@@ -220,15 +206,14 @@ const Login = () => {
                         >
                           Remember Me
                         </label>
-                                          </div>
-                    <Link href="/forgetPassword" legacyBehavior>
+                      </div>
+
                       <a
                         href="#!"
                         className="text-black hover:text-[#0099ff] transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
-                        >
+                      >
                         Forgot password?
                       </a>
-                          </Link>
                     </div>
                     <button
                       type="submit"
@@ -250,7 +235,6 @@ const Login = () => {
                       role="button"
                       data-te-ripple-init
                       data-te-ripple-color="light"
-                      onClick={handleFacebookSignIn}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -269,7 +253,6 @@ const Login = () => {
                       role="button"
                       data-te-ripple-init
                       data-te-ripple-color="light"
-                      onClick={googleAuth}
                     >
                       {/* Google */}
                       <svg
@@ -331,4 +314,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default signIn;

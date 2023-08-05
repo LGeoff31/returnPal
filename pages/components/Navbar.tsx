@@ -1,11 +1,16 @@
-import { Stack, Typography, Button, Grid } from "@mui/material";
+import react, { useState , useEffect } from "react";
+import { Stack, Typography, Button, Link, Grid } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import NearMeIcon from "@mui/icons-material/NearMe";
 import Image from "next/image";
-import { useState, useEffect } from "react";
 import { Link as ScrollLink, Element } from "react-scroll";
-import Link from "next/link";
+// import Link from "next/link";
 const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const handleMobileMenuToggle = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
 type YourType = {
   displayName: string;
   email: string;
@@ -28,6 +33,7 @@ type YourType = {
       sx={{
         width: "100%",
         position: "fixed",
+        top: 0,
         zIndex: 100,
         background: "white",
         paddingLeft: { md: "5%" },
@@ -38,11 +44,7 @@ type YourType = {
         spacing={{ xs: 1.5, md: 3, lg: 5 }}
         alignItems={"center"}
       >
-        <ScrollLink
-          to="section1"
-          spy={true}
-          smooth={true}
-          offset={-100}
+        <Link
           href="/"
           style={{
             marginTop: "0.5rem",
@@ -61,39 +63,16 @@ type YourType = {
               }}
             />
           </picture>
-        </ScrollLink>
-        <ScrollLink
-          to="section2"
-          spy={true}
-          smooth={true}
-          offset={-100}
-          style={{
-            marginTop: "0.5rem",
-            cursor: "pointer",
-            transition: "color 0.3s ease",
-            color: "#666d73",
-          }}
-        >
-          <Typography
-            sx={{
-              fontSize: { xs: 13, md: 18, lg: 20 },
-              "&:hover": { color: "#1E90FF" },
-            }}
-          >
-            Process
-          </Typography>
-        </ScrollLink>
+        </Link>
 
-        <ScrollLink
-          to="section3"
-          spy={true}
-          smooth={true}
-          offset={-100}
+        <Link
+          href="/about"
           style={{
             marginTop: "0.5rem",
             cursor: "pointer",
             transition: "color 0.3s ease",
             color: "#666d73",
+            textDecoration: "none",
           }}
         >
           <Typography
@@ -104,18 +83,16 @@ type YourType = {
           >
             About
           </Typography>
-        </ScrollLink>
+        </Link>
 
-        <ScrollLink
-          to="section4"
-          spy={true}
-          smooth={true}
-          offset={-100}
+        <Link
+          href="/pricing"
           style={{
             marginTop: "0.5rem",
             cursor: "pointer",
             transition: "color 0.3s ease",
             color: "#666d73",
+            textDecoration: "none",
           }}
         >
           <Typography
@@ -126,18 +103,54 @@ type YourType = {
           >
             Pricing
           </Typography>
-        </ScrollLink>
-
-        <ScrollLink
-          to="section5"
-          spy={true}
-          smooth={true}
-          offset={-100}
+        </Link>
+        <Link
+          href="/blog"
           style={{
             marginTop: "0.5rem",
             cursor: "pointer",
             transition: "color 0.3s ease",
             color: "#666d73",
+            textDecoration: "none",
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: { xs: 13, md: 18, lg: 20 },
+              "&:hover": { color: "#1E90FF" },
+            }}
+          >
+            Blog
+          </Typography>
+        </Link>
+
+        <Link
+          href="/demo"
+          style={{
+            marginTop: "0.5rem",
+            cursor: "pointer",
+            transition: "color 0.3s ease",
+            color: "#666d73",
+            textDecoration: "none",
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: { xs: 13, md: 18, lg: 20 },
+              "&:hover": { color: "#1E90FF" },
+            }}
+          >
+            Demo
+          </Typography>
+        </Link>
+        <Link
+          href="/contact"
+          style={{
+            marginTop: "0.5rem",
+            cursor: "pointer",
+            transition: "color 0.3s ease",
+            color: "#666d73",
+            textDecoration: "none",
           }}
         >
           <Typography
@@ -148,7 +161,7 @@ type YourType = {
           >
             Contact
           </Typography>
-        </ScrollLink>
+        </Link>
       </Stack>
       <Stack
         direction="row"
