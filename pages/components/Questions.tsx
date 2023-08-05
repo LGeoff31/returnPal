@@ -150,7 +150,7 @@ const Questions = () => {
       </Grid>
       <Grid container direction="column" marginLeft="10%" maxWidth="80%">
         <Typography
-          color={"blue"}
+          color={"#01314B"}
           variant="h3"
           paddingTop="15rem"
           fontSize={"2rem"}
@@ -164,8 +164,11 @@ const Questions = () => {
             <Accordion
               key={index}
               sx={{
-                borderRadius: "4px",
-                boxShadow: "0 8px 20px rgba(0, 0, 0, 0.2)",
+                border: "none",
+                boxShadow: "none", // Remove box shadow
+                "&.MuiAccordion-root:before": {
+                  display: "none", // Hide the border using pseudo-element
+                },
               }}
             >
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>

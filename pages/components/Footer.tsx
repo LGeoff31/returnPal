@@ -130,32 +130,32 @@ const Footer = () => {
           >
             Contact
           </Link>
-          <Grid></Grid>
-          <Link
-            href="https://www.linkedin.com/company/return-pal/"
-            target="_blank"
-            paddingRight={"0.5rem"}
-          >
-            <picture>
-              <img
-                alt="LinkedIn"
-                src="https://static.wixstatic.com/media/11062b_23e5890c2dfc4a04af80178b43ef66fd~mv2.png/v1/fill/w_78,h_78,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_23e5890c2dfc4a04af80178b43ef66fd~mv2.png"
-                width="10%"
-              />
-            </picture>
-          </Link>
-          <Link
-            href="https://www.instagram.com/playforever.ca/"
-            target="_blank"
-          >
-            <picture>
-              <img
-                alt="Instagram"
-                src="https://static.wixstatic.com/media/11062b_482d38aa2aaa49a5b45774ebe9a5b544~mv2.png/v1/fill/w_78,h_78,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_482d38aa2aaa49a5b45774ebe9a5b544~mv2.png"
-                width="10%"
-              />
-            </picture>
-          </Link>
+          <Grid container direction="row">
+            <Link
+              href="https://www.linkedin.com/company/return-pal/"
+              target="_blank"
+            >
+              <picture>
+                <img
+                  alt="LinkedIn"
+                  src="https://static.wixstatic.com/media/11062b_23e5890c2dfc4a04af80178b43ef66fd~mv2.png/v1/fill/w_78,h_78,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_23e5890c2dfc4a04af80178b43ef66fd~mv2.png"
+                  width="50%"
+                />
+              </picture>
+            </Link>
+            <Link
+              href="https://www.instagram.com/playforever.ca/"
+              target="_blank"
+            >
+              <picture>
+                <img
+                  alt="Instagram"
+                  src="https://static.wixstatic.com/media/11062b_482d38aa2aaa49a5b45774ebe9a5b544~mv2.png/v1/fill/w_78,h_78,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_482d38aa2aaa49a5b45774ebe9a5b544~mv2.png"
+                  width="50%"
+                />
+              </picture>
+            </Link>
+          </Grid>
         </Grid>
       </Grid>
       <Grid container direction="row" marginTop="5rem">

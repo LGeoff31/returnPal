@@ -13,7 +13,7 @@ import NearMeIcon from "@mui/icons-material/NearMe";
 const About = () => {
   return (
     <>
-      {/* <Grid
+      <Grid
         sx={{
           position: "relative",
           overflow: "hidden",
@@ -25,7 +25,9 @@ const About = () => {
               src="https://static.wixstatic.com/media/nsplsh_71386b525f696536576e49~mv2.jpg/v1/fill/w_1960,h_1166,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/nsplsh_71386b525f696536576e49~mv2.jpg"
               alt="Image by Claudio Schwarz"
               width="100%"
-              height="550vh"
+              // height="80vh"
+              // height="100%"
+              // height="550vh"
             />
           </picture>
         </div>
@@ -38,17 +40,12 @@ const About = () => {
             zIndex: 2,
           }}
         >
-          <Grid
-            container
-            alignItems="center"
-            justifyContent="center"
-            direction="column"
-          >
-            <Typography variant="h2" fontWeight="bold">
-              Our
-            </Typography>
-            <Typography variant="h2" fontWeight="bold" color="#279ce6">
-              Mission
+          <Grid container alignItems="center" justifyContent="center">
+            <Typography variant="h2">
+              <span style={{ fontWeight: "bold" }}>Our </span>
+              <span style={{ fontWeight: "bold", color: "#279ce6" }}>
+                Mission
+              </span>
             </Typography>
           </Grid>
           <Grid
@@ -64,7 +61,7 @@ const About = () => {
               marginTop="2.5%"
               marginBottom="5%"
               textAlign={{ xs: "center", sm: "left" }}
-              width="90%"
+              width="70%"
             >
               At ReturnPal, we strive to simplify every day returns, simplifying
               your efforts to simplify your life. Our team works with trusted
@@ -76,7 +73,7 @@ const About = () => {
               color="white"
               fontSize={{ xs: "1rem", md: "1.5rem" }}
               textAlign={{ xs: "center", sm: "left" }}
-              width="90%"
+              width="70%"
             >
               With the click of a button, ReturnPal automates the time-consuming
               process of returns. That way, you can get back to the important
@@ -85,7 +82,7 @@ const About = () => {
             </Typography>
           </Grid>
         </Grid>
-      </Grid> */}
+      </Grid>
       <Grid container>
         <Stack
           direction={{ xs: "column", md: "row", lg: "row" }}

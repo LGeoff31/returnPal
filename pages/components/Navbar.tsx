@@ -1,9 +1,16 @@
+import { useState } from "react";
+import CloseIcon from "@mui/icons-material/Close";
+import MenuIcon from "@mui/icons-material/Menu";
 import { Stack, Typography, Button, Link, Grid } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import NearMeIcon from "@mui/icons-material/NearMe";
 import Image from "next/image";
 import { Link as ScrollLink, Element } from "react-scroll";
 const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const handleMobileMenuToggle = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
   return (
     <Grid
       container
@@ -11,6 +18,7 @@ const Navbar = () => {
       sx={{
         width: "100%",
         position: "fixed",
+        top: 0,
         zIndex: 100,
         background: "white",
         paddingLeft: { md: "5%" },
@@ -21,11 +29,7 @@ const Navbar = () => {
         spacing={{ xs: 1.5, md: 3, lg: 5 }}
         alignItems={"center"}
       >
-        <ScrollLink
-          to="section1"
-          spy={true}
-          smooth={true}
-          offset={-100}
+        <Link
           href="/"
           style={{
             marginTop: "0.5rem",
@@ -44,39 +48,16 @@ const Navbar = () => {
               }}
             />
           </picture>
-        </ScrollLink>
-        <ScrollLink
-          to="section2"
-          spy={true}
-          smooth={true}
-          offset={-100}
-          style={{
-            marginTop: "0.5rem",
-            cursor: "pointer",
-            transition: "color 0.3s ease",
-            color: "#666d73",
-          }}
-        >
-          <Typography
-            sx={{
-              fontSize: { xs: 13, md: 18, lg: 20 },
-              "&:hover": { color: "#1E90FF" },
-            }}
-          >
-            Process
-          </Typography>
-        </ScrollLink>
+        </Link>
 
-        <ScrollLink
-          to="section3"
-          spy={true}
-          smooth={true}
-          offset={-100}
+        <Link
+          href="/about"
           style={{
             marginTop: "0.5rem",
             cursor: "pointer",
             transition: "color 0.3s ease",
             color: "#666d73",
+            textDecoration: "none",
           }}
         >
           <Typography
@@ -87,18 +68,16 @@ const Navbar = () => {
           >
             About
           </Typography>
-        </ScrollLink>
+        </Link>
 
-        <ScrollLink
-          to="section4"
-          spy={true}
-          smooth={true}
-          offset={-100}
+        <Link
+          href="/pricing"
           style={{
             marginTop: "0.5rem",
             cursor: "pointer",
             transition: "color 0.3s ease",
             color: "#666d73",
+            textDecoration: "none",
           }}
         >
           <Typography
@@ -109,18 +88,54 @@ const Navbar = () => {
           >
             Pricing
           </Typography>
-        </ScrollLink>
-
-        <ScrollLink
-          to="section5"
-          spy={true}
-          smooth={true}
-          offset={-100}
+        </Link>
+        <Link
+          href="/blog"
           style={{
             marginTop: "0.5rem",
             cursor: "pointer",
             transition: "color 0.3s ease",
             color: "#666d73",
+            textDecoration: "none",
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: { xs: 13, md: 18, lg: 20 },
+              "&:hover": { color: "#1E90FF" },
+            }}
+          >
+            Blog
+          </Typography>
+        </Link>
+
+        <Link
+          href="/demo"
+          style={{
+            marginTop: "0.5rem",
+            cursor: "pointer",
+            transition: "color 0.3s ease",
+            color: "#666d73",
+            textDecoration: "none",
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: { xs: 13, md: 18, lg: 20 },
+              "&:hover": { color: "#1E90FF" },
+            }}
+          >
+            Demo
+          </Typography>
+        </Link>
+        <Link
+          href="/contact"
+          style={{
+            marginTop: "0.5rem",
+            cursor: "pointer",
+            transition: "color 0.3s ease",
+            color: "#666d73",
+            textDecoration: "none",
           }}
         >
           <Typography
@@ -131,7 +146,7 @@ const Navbar = () => {
           >
             Contact
           </Typography>
-        </ScrollLink>
+        </Link>
       </Stack>
       <Stack
         direction="row"
