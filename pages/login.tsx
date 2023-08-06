@@ -1,6 +1,18 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import Link from "next/link";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import {useRouter} from "next/router";
+
+
+const Login = () => {
+
+  const router = useRouter()
+
 import firebase from "firebase/app";
 import "firebase/auth";
 
@@ -17,24 +29,118 @@ const signIn = () => {
     appId: "1:91603158011:web:8fcea6f62d55b4dafa415e",
     measurementId: "G-62XZP8TQ85",
   };
-  // if (!firebase.apps.length) {
-  //   firebase.initializeApp(firebaseConfig);
-  // }
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
 
-  // const handleSignIn = (e:any) => {
-  //   e.preventDefault();
-  //   firebase
-  //     .auth()
-  //     .signInWithEmailAndPassword(email, password)
-  //     .then((userCredential:any) => {
-  //       // Handle successful sign-in here (e.g., redirect to another page)
-  //       console.log("Signed in successfully!");
-  //     })
-  //     .catch((error:any) => {
-  //       // Handle sign-in error here
-  //       console.error("Sign-in error:", error);
-  //     });
-  // };
+  const handleSignIn = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((result: any) => {
+        console.log(result.user);
+        localStorage.setItem("userInfo", JSON.stringify(result.user));
+        toast.success("Authenticated Successfully....!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+          console.log("Login successfully!");
+        
+      })
+      .catch((error: any) => {
+          console.log(error.message);
+        toast.error(error.message.split(":")[1], {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      });
+  };
+
+  const googleAuth = () => {
+    console.log("hello");
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then((result) => {
+        toast.success("Login Successfully....!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        const user = result.user;
+        localStorage.setItem("userInfo", JSON.stringify(result.user));
+        console.log(user);
+      })
+      .catch((error) => {
+        toast.error("Authentication Failed....!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        console.error("Google sign-in error:", error);
+      });
+  };
+
+  const handleFacebookSignIn = () => {
+    const provider = new firebase.auth.FacebookAuthProvider();
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then((result) => {
+        // Handle successful Facebook sign-in here
+        const user = result.user;
+        toast.success("Authenticated Successfully....!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        console.log("Signed in with Facebook:", user);
+      })
+      .catch((error) => {
+        toast.error("Authentication Failed....!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        // Handle Facebook sign-in error here
+        console.error("Facebook sign-in error:", error);
+      });
+  };
 
   return (
     <div className="flex justify-center">
