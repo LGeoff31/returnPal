@@ -9,10 +9,11 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import NearMeIcon from "@mui/icons-material/NearMe";
+import Layout from "./components/Layout";
 
 const About = () => {
   return (
-    <>
+    <Layout>
       <Grid
         sx={{
           position: "relative",
@@ -224,7 +225,7 @@ const About = () => {
           </Button>
         </Box>
       </Grid>
-    </>
+    </Layout>
   );
 };
 
