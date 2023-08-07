@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import firebase from "firebase/compat/app";
+import "firebase/compat/auth"
 import "firebase/compat/auth";
 import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
@@ -9,14 +10,12 @@ import "react-toastify/dist/ReactToastify.css";
 import {useRouter} from "next/router";
 
 
+
 const Login = () => {
+
 
   const router = useRouter()
 
-import firebase from "firebase/app";
-import "firebase/auth";
-
-const signIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -41,7 +40,6 @@ const signIn = () => {
       .signInWithEmailAndPassword(email, password)
       .then((result: any) => {
         console.log(result.user);
-        localStorage.setItem("userInfo", JSON.stringify(result.user));
         toast.success("Authenticated Successfully....!", {
           position: "top-center",
           autoClose: 5000,
@@ -52,11 +50,14 @@ const signIn = () => {
           progress: undefined,
           theme: "light",
         });
-          console.log("Login successfully!");
+        
+        console.log("Login successfully!");
+        localStorage.setItem("userInfo", JSON.stringify(result.user));
+        router.push("/");
         
       })
       .catch((error: any) => {
-          console.log(error.message);
+        console.log(error.message);
         toast.error(error.message.split(":")[1], {
           position: "top-center",
           autoClose: 5000,
@@ -89,6 +90,7 @@ const signIn = () => {
         });
         const user = result.user;
         localStorage.setItem("userInfo", JSON.stringify(result.user));
+        router.push("/")
         console.log(user);
       })
       .catch((error) => {
@@ -124,6 +126,9 @@ const signIn = () => {
           progress: undefined,
           theme: "light",
         });
+
+        localStorage.setItem("userInfo", JSON.stringify(result.user));
+        router.push("/");
         console.log("Signed in with Facebook:", user);
       })
       .catch((error) => {
@@ -145,6 +150,18 @@ const signIn = () => {
   return (
     <div className="flex justify-center">
       <Navbar />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <div>
         <div className="mt-24">
           <section className="h-screen">
@@ -159,7 +176,7 @@ const signIn = () => {
                   />
                 </div>
                 <div className="md:w-8/12 lg:ml-6 lg:w-5/12 bg-blue-50 shadow-2xl shadow-blue-[#0099ff] rounded-lg   px-10 py-16">
-                  <form>
+                  <form onSubmit={handleSignIn}>
                     <div className="relative mb-6" data-te-input-wrapper-init>
                       <input
                         type="text"
@@ -207,13 +224,14 @@ const signIn = () => {
                           Remember Me
                         </label>
                       </div>
-
-                      <a
-                        href="#!"
-                        className="text-black hover:text-[#0099ff] transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
-                      >
-                        Forgot password?
-                      </a>
+                      <Link href={"/forgetPassword"} legacyBehavior>
+                        <a
+                          href="#!"
+                          className="text-black hover:text-[#0099ff] transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
+                        >
+                          Forgot password?
+                        </a>
+                      </Link>
                     </div>
                     <button
                       type="submit"
@@ -229,6 +247,7 @@ const signIn = () => {
                       </p>
                     </div>
                     <a
+                      onClick={handleFacebookSignIn}
                       className="mb-3 flex w-full items-center justify-center rounded bg-primary px-7 pb-2.5 pt-3 text-center text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
                       style={{ backgroundColor: "#3b5998" }}
                       href="#!"
@@ -247,6 +266,7 @@ const signIn = () => {
                       Continue with Facebook
                     </a>
                     <a
+                      onClick={googleAuth}
                       className="mb-3 flex w-full items-center justify-center rounded bg-red-500 px-7 pb-2.5 pt-3 text-center text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dd4b39] transition duration-150 ease-in-out hover:bg-red-600 hover:shadow-[0_8px_9px_-4px_rgba(221,75,57,0.3),0_4px_18px_0_rgba(221,75,57,0.2)] focus:bg-red-600 focus:shadow-[0_8px_9px_-4px_rgba(221,75,57,0.3),0_4px_18px_0_rgba(221,75,57,0.2)] focus:outline-none focus:ring-0 active:bg-red-700 active:shadow-[0_8px_9px_-4px_rgba(221,75,57,0.3),0_4px_18px_0_rgba(221,75,57,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(221,75,57,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(221,75,57,0.2),0_4px_18px_0_rgba(221,75,57,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(221,75,57,0.2),0_4px_18px_0_rgba(221,75,57,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(221,75,57,0.2),0_4px_18px_0_rgba(221,75,57,0.1)]"
                       style={{ backgroundColor: "white", color: "black" }}
                       href="#!"
@@ -312,6 +332,7 @@ const signIn = () => {
       </div>
     </div>
   );
-};
+}
 
-export default signIn;
+
+export default Login;

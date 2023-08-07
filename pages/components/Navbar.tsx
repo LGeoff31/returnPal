@@ -1,4 +1,4 @@
-import react, { useState , useEffect } from "react";
+import React, { useState , useEffect } from "react";
 import { Stack, Typography, Button, Link, Grid } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import NearMeIcon from "@mui/icons-material/NearMe";
@@ -18,12 +18,16 @@ type YourType = {
 };
 
   const [userData, setUserData] = useState<YourType | null>();
-  
+      
+
   useEffect(() => {
+
     const data = JSON.parse(localStorage.getItem("userInfo")!)
     console.log(data)
     setUserData(data)
-    },[])
+    
+  },[])
+    
 
 
   return (
