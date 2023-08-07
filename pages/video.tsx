@@ -1,17 +1,15 @@
-import React from "react";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import { Typography } from "@mui/material";
+import React from "react";
 import Layout from "./components/Layout";
 
-const Blog = () => {
+const Video = () => {
   return (
     <Layout>
       <Typography variant="h2" textAlign={"center"} paddingTop="5rem">
-        Blog Currently Unavailable
+        Demo Currently Unavailable
       </Typography>
     </Layout>
   );
 };
 
-export default Blog;
+export default Video;

@@ -8,10 +8,11 @@ import {
   Box,
 } from "@mui/material";
 import NearMeIcon from "@mui/icons-material/NearMe";
+import Layout from "./components/Layout";
 
 const Pricing = () => {
   return (
-    <>
+    <Layout>
       <Typography
         variant="h2"
         gutterBottom
@@ -150,7 +151,7 @@ const Pricing = () => {
           </Card>
         </Grid>
       </Grid>
-    </>
+    </Layout>
   );
 };
 

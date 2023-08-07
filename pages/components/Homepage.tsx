@@ -3,6 +3,7 @@ import { Box, Stack, Typography, Button, Link, Grid } from "@mui/material";
 import Image from "next/image";
 import NearMeIcon from "@mui/icons-material/NearMe";
 import { useScrollTrigger } from "@mui/material";
+import Layout from "./Layout";
 
 const Homepage = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -29,6 +30,7 @@ const Homepage = () => {
             />
           </video>
         </div>
+
         <Grid
           color={"white"}
           sx={{

@@ -7,16 +7,17 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
+import Layout from "./components/Layout";
 
 const Contact = () => {
   return (
-    <>
+    <Layout>
       <Card
         style={{
           maxWidth: 450,
           margin: "0 auto",
           padding: "20px 5px",
-          marginTop: "5%",
+          paddingTop: "5rem",
         }}
       >
         <CardContent>
@@ -92,7 +93,7 @@ const Contact = () => {
           </form>
         </CardContent>
       </Card>
-    </>
+    </Layout>
   );
 };
 
