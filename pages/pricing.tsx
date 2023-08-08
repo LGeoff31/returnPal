@@ -77,8 +77,6 @@ const Pricing = () => {
               }}
             >
               Select
-              {/* Get Started &nbsp;
-              <NearMeIcon /> */}
             </Button>
             <Typography variant="body2">- Add-On Packages</Typography>
             <Typography variant="body2">- Extra Pickups</Typography>
@@ -121,7 +119,6 @@ const Pricing = () => {
                 Every month
               </Typography>
             </Box>
-            {/* <Typography variant="body2">Every month</Typography> */}
             <Typography variant="body2" marginBottom="5%">
               We&apos;ve Got You Handled
             </Typography>
@@ -140,8 +137,6 @@ const Pricing = () => {
               }}
             >
               Select
-              {/* Get Started &nbsp;
-              <NearMeIcon /> */}
             </Button>
             <Typography variant="body2">- Unlimited Pickups</Typography>
             <Typography variant="body2">- Unlimited Packaging</Typography>

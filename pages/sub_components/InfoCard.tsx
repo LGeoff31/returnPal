@@ -28,7 +28,7 @@ const InfoCard = ({
             width: "100%",
             height: "auto",
             display: "block",
-            filter: "brightness(40%)", // Adjust the brightness value to make the image darker
+            filter: "brightness(20%)", // Adjust the brightness value to make the image darker
           }}
         />
       </picture>

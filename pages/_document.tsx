@@ -12,11 +12,9 @@ export default function Document() {
       </Head>
 
       <body>
-        {/* <Navbar /> */}
         <Stack>
           <Main />
         </Stack>
-        {/* <Footer /> */}
         <NextScript />
       </body>
     </Html>

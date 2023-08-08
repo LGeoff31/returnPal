@@ -10,6 +10,8 @@ import {
 import React, { useState } from "react";
 import NearMeIcon from "@mui/icons-material/NearMe";
 import Layout from "./components/Layout";
+import Image from "next/image";
+import MissionCard from "./sub_components/MissionCard";
 
 const About = () => {
   return (
@@ -21,23 +23,17 @@ const About = () => {
         }}
       >
         <div className="image-wrapper">
-          <picture>
-            <img
-              src="https://static.wixstatic.com/media/nsplsh_71386b525f696536576e49~mv2.jpg/v1/fill/w_1960,h_1166,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/nsplsh_71386b525f696536576e49~mv2.jpg"
-              alt="Image by Claudio Schwarz"
-              width="100%"
-              // height="80vh"
-              // height="100%"
-              // height="550vh"
-            />
-          </picture>
+          <img
+            src="https://static.wixstatic.com/media/nsplsh_71386b525f696536576e49~mv2.jpg/v1/fill/w_1960,h_1166,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/nsplsh_71386b525f696536576e49~mv2.jpg"
+            alt="Image by Claudio Schwarz"
+            width="100%"
+          />
         </div>
         <Grid
           color={"white"}
           sx={{
             position: "absolute",
             top: "15%",
-
             zIndex: 2,
           }}
         >
@@ -49,39 +45,24 @@ const About = () => {
               </span>
             </Typography>
           </Grid>
-          <Grid
-            container
-            alignItems="center"
-            justifyContent="center"
-            direction="column"
-          >
-            <Typography
-              variant="body1"
-              color="white"
-              fontSize={{ xs: "1rem", md: "1.5rem" }}
-              marginTop="2.5%"
-              marginBottom="5%"
-              textAlign={{ xs: "center", sm: "left" }}
-              width="70%"
-            >
-              At ReturnPal, we strive to simplify every day returns, simplifying
-              your efforts to simplify your life. Our team works with trusted
-              couriers to ensure your package is dropped off straight to them,
-              eliminating extra steps and making it easier for you.
-            </Typography>
-            <Typography
-              variant="body1"
-              color="white"
-              fontSize={{ xs: "1rem", md: "1.5rem" }}
-              textAlign={{ xs: "center", sm: "left" }}
-              width="70%"
-            >
-              With the click of a button, ReturnPal automates the time-consuming
-              process of returns. That way, you can get back to the important
-              things in life, like deciding which snacks to get at the grocery
-              store.
-            </Typography>
-          </Grid>
+          <MissionCard
+            description="From the comfort of your home, answer a few quick questions from us so that we can get to know your package a little more."
+            src="/images/returnpal-holding-box.png"
+          />
+          <MissionCard
+            description="With the click of a button, ReturnPal automates the time-consuming
+            process of returns. That way, you can get back to the important
+            things in life, like deciding which snacks to get at the grocery
+            store."
+            src="/images/returnpal-car.png"
+          />
+          <MissionCard
+            description="With the click of a button, ReturnPal automates the time-consuming
+            process of returns. That way, you can get back to the important
+            things in life, like deciding which snacks to get at the grocery
+            store."
+            src="/images/returnpal-getting-box.jpeg"
+          />
         </Grid>
       </Grid>
       <Grid container>

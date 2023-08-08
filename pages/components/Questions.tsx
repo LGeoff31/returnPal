@@ -73,7 +73,15 @@ const Questions = () => {
             its way to our assigned courier
           </Typography>
         </Grid>
-        <Grid item container xs={12} md={6} justifyContent="center" spacing={2}>
+        <Grid
+          item
+          container
+          xs={12}
+          md={6}
+          justifyContent="center"
+          spacing={2}
+          marginLeft="2rem"
+        >
           <Box
             sx={{
               boxShadow: "0 10px 20px rgba(4, 117, 208, 0.8)", // Increase the shadow intensity
@@ -155,9 +163,9 @@ const Questions = () => {
           paddingTop="15rem"
           fontSize={"2rem"}
           paddingBottom="1rem"
-          align={"center"}
+          fontWeight="bold"
         >
-          Frequently Asked Questions
+          FAQ's
         </Typography>
         <Grid item xs={12} md={6}>
           {faqs.map((faq, index) => (
@@ -171,16 +179,19 @@ const Questions = () => {
                 },
               }}
             >
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              <AccordionSummary
+                sx={{ padding: 0 }}
+                expandIcon={<ExpandMoreIcon />}
+              >
                 <Typography
                   fontSize="1.25rem"
                   fontWeight="bold"
-                  color="#01314B"
+                  color="#6e6d6b"
                 >
                   {faq.question}
                 </Typography>
               </AccordionSummary>
-              <AccordionDetails sx={{ padding: "16px" }}>
+              <AccordionDetails sx={{ padding: 0 }}>
                 <Typography color="#01314B">{faq.answer}</Typography>
               </AccordionDetails>
             </Accordion>

@@ -91,6 +91,11 @@
   padding: 0;
   align-items: center;
   justify-content: space-between;
+  font-weight: 500;
+}
+
+.navigation-links li:hover {
+  color: #2bb0ed;
 }
 
 .navigation-menu .navigation-links ul {

@@ -31,11 +31,11 @@ const HowItWorks = () => {
         paddingBottom={"1rem"}
       >
         {" "}
-        How It Works
+        Process in 3 Simple Steps
       </Typography>
-      <Typography variant="body1" align="center" fontSize="1.5rem">
+      {/* <Typography variant="body1" align="center" fontSize="1.5rem">
         3 Simple steps to get you started
-      </Typography>
+      </Typography> */}
       <Grid
         container
         direction="row"
@@ -46,17 +46,17 @@ const HowItWorks = () => {
         }}
       >
         <InfoCard
-          title="Request A Return"
+          title="1. Request A Return"
           description="From the comfort of your home, answer a few quick questions from us so that we can get to know your package a little more."
           src="https://static.wixstatic.com/media/5834c13670304d0b92d43106194caf49.jpg/v1/fill/w_359,h_479,q_90/5834c13670304d0b92d43106194caf49.jpg"
         />
         <InfoCard
-          title="Payment"
-          description="Receive an instant quote, and provide payment details."
+          title="2. Payment"
+          description="Provide your payment option and Receive an instant quote and Tracking ID to know the status of the delivery."
           src="https://static.wixstatic.com/media/11062b_557ca51cbbbc42c5828701e4c2d2e522~mv2.jpg/v1/fill/w_360,h_479,q_90/11062b_557ca51cbbbc42c5828701e4c2d2e522~mv2.jpg"
         />
         <InfoCard
-          title="We're On Our Way "
+          title="3. We're On Our Way "
           description="Sit back and relax, our couriers will be at your door ready to retrieve your package within 48 hours of less."
           src="https://static.wixstatic.com/media/cfb1f8f03ec948f2a3eb4e46890195a3.jpg/v1/fill/w_359,h_479,q_90/cfb1f8f03ec948f2a3eb4e46890195a3.jpg"
         />

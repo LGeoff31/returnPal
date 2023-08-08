@@ -1,38 +1,27 @@
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Stack, Typography, Button, Link, Grid } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import NearMeIcon from "@mui/icons-material/NearMe";
 import MenuIcon from "@mui/icons-material/Menu";
 const Navbar = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const handleMobileMenuToggle = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+  type YourType = {
+    displayName: string;
+    email: string;
+    photoURL: string;
   };
 
-type YourType = {
-  displayName: string;
-  email: string;
-  photoURL: string;
-};
-
   const [userData, setUserData] = useState<YourType | null>();
-      
 
   useEffect(() => {
-
-    const data = JSON.parse(localStorage.getItem("userInfo")!)
-    console.log(data)
-    setUserData(data)
-    
-  },[])
-    
-
+    const data = JSON.parse(localStorage.getItem("userInfo")!);
+    console.log(data);
+    setUserData(data);
+  }, []);
 
   const [isNavExpanded, setIsNavExpanded] = useState(false);
   return (
     <nav className="navigation">
       <Link href="/">
-        {/* <a href="/" className="brand-name"> */}
         <picture>
           <img
             src="https://static.wixstatic.com/media/bf8e2b_c85de989efb94a37b6648bf67621349b~mv2.png/v1/crop/x_0,y_845,w_2403,h_878/fill/w_193,h_70,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/returnpalfinal%20logos_WMK_BlackBlue_transparent.png"
@@ -40,7 +29,6 @@ type YourType = {
             width="100%"
           />
         </picture>
-        {/* </a> */}
       </Link>
       <button
         className="hamburger"
@@ -48,7 +36,6 @@ type YourType = {
           setIsNavExpanded(!isNavExpanded);
         }}
       >
-        {/* icon from Heroicons.com */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"
