@@ -100,7 +100,8 @@ type YourType = {
                   marginRight: "1rem",
                 }}
               >
-                <AccountCircleIcon /> &nbsp; Sign in
+                <AccountCircleIcon /> &nbsp;{" "}
+                {userData ? userData.displayName : "Sign In"}
               </Button>
             </a>
 
