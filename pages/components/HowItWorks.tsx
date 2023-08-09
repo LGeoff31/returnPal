@@ -15,26 +15,35 @@ const HowItWorks = () => {
   return (
     <Paper
       style={{
-        background: "linear-gradient(261deg, #3DAFC5 24.21875%, #3C53F4 100%)",
         padding: "2rem",
         borderRadius: "10px",
         color: "#fff",
+        background: "linear-gradient(315deg, #ffffff 0%, #5899e2 74%)",
       }}
     >
       <Typography
         variant="h5"
         fontSize="2.5rem"
-        fontWeight="bold"
-        justifyContent={"center"}
+        justifyContent="center"
         align="center"
-        paddingTop={"3rem"}
-        paddingBottom={"1rem"}
+        paddingTop="3rem"
+        paddingBottom="1rem"
+        fontWeight="bold"
       >
-        {" "}
-        Process in 3 Simple Steps
+        <span style={{ color: "#0244ad" }}>ReturnPal's</span>{" "}
+        <span style={{ color: "white" }}>Process</span>
       </Typography>
-      {/* <Typography variant="body1" align="center" fontSize="1.5rem">
-        3 Simple steps to get you started
+      {/* <Typography
+        variant="h5"
+        // fontSize="2.5rem"
+        justifyContent="center"
+        align="center"
+        paddingBottom="1rem"
+        fontWeight="bold"
+      >
+        <span style={{ color: "black" }}>In</span>{" "}
+        <span style={{ color: "blue" }}>three</span>
+        <span style={{ color: "black" }}>&nbsp; simple steps.</span>
       </Typography> */}
       <Grid
         container
@@ -61,24 +70,6 @@ const HowItWorks = () => {
           src="https://static.wixstatic.com/media/cfb1f8f03ec948f2a3eb4e46890195a3.jpg/v1/fill/w_359,h_479,q_90/cfb1f8f03ec948f2a3eb4e46890195a3.jpg"
         />
       </Grid>
-      {/* <Typography
-          // maxWidth="20rem"
-          className="font"
-          // width="60%"
-          fontSize={"1.4rem"}
-          marginLeft="10%"
-          maxWidth="80%"
-          sx={{ paddingTop: "3rem" }}
-          textAlign={"center"}
-          align="center"
-        >
-          At ReturnPal, we are passionate about offering our customers the
-          highest quality returns service. We understand that returning items
-          can be a hassle, so we strive to make the process as hassle-free as
-          possible. Our team works with trusted couriers to make sure your
-          package is dropped off straight to them, eliminating extra steps and
-          making it easier for you.
-        </Typography> */}
     </Paper>
   );
 };

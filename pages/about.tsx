@@ -17,54 +17,98 @@ const About = () => {
   return (
     <Layout>
       <Grid
+        container
+        alignItems="center"
+        // justifyContent="center"
+        paddingTop="12rem"
+        marginLeft="10%"
+        direction={{ sm: "column", md: "row" }}
+      >
+        <Typography variant="h2" paddingRight="5rem">
+          <span style={{ fontWeight: "bold" }}>
+            No Boxes. <br /> No Lines. <br />
+          </span>
+          <span style={{ fontWeight: "bold", color: "#279ce6" }}>
+            No Regrets. <br /> 100% Satisfaction
+          </span>
+        </Typography>
+
+        <Image
+          src={"/images/returnpal-waiting.jpeg"}
+          alt="Retailers"
+          width={600}
+          height={300}
+        />
+      </Grid>
+      <Button
         sx={{
-          position: "relative",
-          overflow: "hidden",
+          marginLeft: "10%",
+          borderRadius: "50px", // Adjust the value as needed to get the desired oval shape
+          padding: "0.5rem 36px", // Customize the padding to fit the content
+          fontSize: "1.15rem", // Set the font size to your preference
+          fontWeight: "bold", // Adjust font weight as needed
+          textTransform: "none", // Avoid uppercase transformation
+          background: "red", // Set the desired background color
+          marginBottom: "2rem",
+          color: "red", // Set the text color to contrast with the background
+          "&:hover": {
+            background: "#005DFF", // Set a darker background color on hover
+          },
+          transition: "transform 0.75s ease-in-out",
         }}
       >
-        <div className="image-wrapper">
-          <img
-            src="https://static.wixstatic.com/media/nsplsh_71386b525f696536576e49~mv2.jpg/v1/fill/w_1960,h_1166,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/nsplsh_71386b525f696536576e49~mv2.jpg"
-            alt="Image by Claudio Schwarz"
-            width="100%"
-          />
-        </div>
-        <Grid
-          color={"white"}
-          sx={{
-            position: "absolute",
-            top: "15%",
-            zIndex: 2,
-          }}
-        >
-          <Grid container alignItems="center" justifyContent="center">
-            <Typography variant="h2">
-              <span style={{ fontWeight: "bold" }}>Our </span>
-              <span style={{ fontWeight: "bold", color: "#279ce6" }}>
-                Mission
-              </span>
-            </Typography>
-          </Grid>
-          <MissionCard
-            description="From the comfort of your home, answer a few quick questions from us so that we can get to know your package a little more."
-            src="/images/returnpal-holding-box.png"
-          />
-          <MissionCard
-            description="With the click of a button, ReturnPal automates the time-consuming
-            process of returns. That way, you can get back to the important
-            things in life, like deciding which snacks to get at the grocery
-            store."
-            src="/images/returnpal-car.png"
-          />
-          <MissionCard
-            description="With the click of a button, ReturnPal automates the time-consuming
-            process of returns. That way, you can get back to the important
-            things in life, like deciding which snacks to get at the grocery
-            store."
-            src="/images/returnpal-getting-box.jpeg"
-          />
-        </Grid>
+        Learn More
+      </Button>
+      <Typography marginLeft="10%">
+        We will pick up your item, box it, and get it to the post office safely
+      </Typography>
+
+      <Grid
+        container
+        alignItems="center"
+        paddingTop="6rem"
+        marginLeft="10%"
+        direction={{ sm: "column", md: "row" }}
+      >
+        <Image
+          src="/images/returnpal-retailers.png"
+          alt="Retailers"
+          width={600}
+          height={300}
+          style={{ paddingRight: "5rem" }}
+        />
+        <Stack direction="column">
+          <Typography variant="h2" paddingRight="2rem">
+            <span style={{ fontWeight: "bold" }}>
+              Any retail store <br /> you purchused <br /> from{" "}
+            </span>
+            <span style={{ fontWeight: "bold", color: "#279ce6" }}>
+              we return
+            </span>
+          </Typography>
+          <Button
+            sx={{
+              color: "primary",
+              variant: "contained",
+              textTransform: "none",
+              borderRadius: "2rem",
+              fontWeight: "bold",
+              backgroundColor: "#00bfff",
+              paddingTop: "1rem",
+              width: "30%",
+              fontSize: "15px",
+
+              "&:hover": {
+                backgroundColor: "#0099ff", // Set the background color on hover
+              },
+            }}
+            className="text-[#0099ff] hover:text-white"
+          >
+            Get Started &nbsp; <NearMeIcon />
+          </Button>
+        </Stack>
       </Grid>
+
       <Grid container>
         <Stack
           direction={{ xs: "column", md: "row", lg: "row" }}

@@ -20,7 +20,6 @@ const MissionCard = ({
     <Grid container alignItems="center" justifyContent="center" direction="row">
       <Typography
         variant="body1"
-        color="white"
         fontSize={{ xs: "1rem", md: "1.5rem" }}
         marginTop="2.5%"
         marginBottom="5%"

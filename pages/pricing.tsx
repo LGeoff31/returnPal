@@ -78,7 +78,7 @@ const Pricing = () => {
             >
               Select
             </Button>
-            <Typography variant="body2">- Add-On Packages</Typography>
+            <Typography variant="body2">- Add-On Packages ($3.99)</Typography>
             <Typography variant="body2">- Extra Pickups</Typography>
             <Typography variant="body2">- Free Packaging</Typography>
           </Card>
