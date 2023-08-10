@@ -7,7 +7,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 const Footer = () => {
   return (
     <Grid sx={{ background: "#0b0140" }}>
-      <Grid marginTop={10} marginLeft="10%" maxWidth="80%">
+      <Grid marginLeft="10%" maxWidth="80%">
         <Image
           src={"/images/returnpal-logo.png"}
           width={300}

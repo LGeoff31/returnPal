@@ -5,6 +5,7 @@ import {
   AccordionDetails,
   Accordion,
   Box,
+  Button,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import React from "react";
@@ -57,6 +58,7 @@ const Questions = () => {
         marginLeft="10%"
         marginTop="10%"
         maxWidth="80%"
+        marginBottom="3rem"
       >
         <Grid item xs={12} md={3} sx={{ textAlign: { xs: "center" } }}>
           <Typography variant="h3" fontWeight={"bold"} color="#01314B">
@@ -156,11 +158,17 @@ const Questions = () => {
           </Box>
         </Grid>
       </Grid>
-      <Grid container direction="column" marginLeft="10%" maxWidth="80%">
+      <Grid
+        container
+        direction="column"
+        paddingLeft="15%"
+        paddingRight="15%"
+        sx={{ background: "#ebebeb" }}
+      >
         <Typography
           color={"#01314B"}
           variant="h3"
-          paddingTop="15rem"
+          paddingTop="2rem"
           fontSize={"2rem"}
           paddingBottom="1rem"
           fontWeight="bold"
@@ -172,6 +180,7 @@ const Questions = () => {
             <Accordion
               key={index}
               sx={{
+                background: "#ebebeb",
                 border: "none",
                 boxShadow: "none", // Remove box shadow
                 "&.MuiAccordion-root:before": {
@@ -197,6 +206,23 @@ const Questions = () => {
             </Accordion>
           ))}
         </Grid>
+        <Button
+          sx={{
+            borderRadius: "50px", // Adjust the value as needed to get the desired oval shape
+            padding: "0.5rem 36px", // Customize the padding to fit the content
+            fontSize: "1.15rem", // Set the font size to your preference
+            fontWeight: "bold", // Adjust font weight as needed
+            textTransform: "none", // Avoid uppercase transformation
+            background: "#00bfff", // Set the desired background color
+            marginBottom: "2rem",
+            color: "#fff", // Set the text color to contrast with the background
+            "&:hover": {
+              background: "#005DFF", // Set a darker background color on hover
+            },
+          }}
+        >
+          Learn More
+        </Button>
       </Grid>
     </>
   );

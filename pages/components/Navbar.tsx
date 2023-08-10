@@ -81,7 +81,7 @@ const Navbar = () => {
                   textTransform: "none",
                   borderRadius: "2rem",
                   fontWeight: "bold",
-                  backgroundColor: "#00bfff",
+                  backgroundColor: "#0099ff",
 
                   fontSize: "15px",
 

@@ -21,6 +21,7 @@ const Pricing = () => {
         color="#01314B"
         fontWeight="bold"
         sx={{ fontSize: { xs: "3rem" } }}
+        paddingTop="7rem"
       >
         Choose Your Pricing Plans
       </Typography>
@@ -39,7 +40,7 @@ const Pricing = () => {
             }}
           >
             <Typography variant="h4" color="#01314B" fontWeight="bold">
-              Pay as you go
+              Pay As You Go
             </Typography>
             <Box
               sx={{
@@ -97,7 +98,7 @@ const Pricing = () => {
             }}
           >
             <Typography variant="h4" fontWeight="bold" color="#01314B">
-              Pal membership
+              Pal Membership
             </Typography>
             <Box
               sx={{

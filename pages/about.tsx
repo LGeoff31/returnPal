@@ -11,213 +11,80 @@ import React, { useState } from "react";
 import NearMeIcon from "@mui/icons-material/NearMe";
 import Layout from "./components/Layout";
 import Image from "next/image";
-import MissionCard from "./sub_components/MissionCard";
+import LayoutOne from "./sub_components/LayoutOne";
+import QuoteBox from "./sub_components/QuoteBox";
+import LayoutTwo from "./sub_components/LayoutTwo";
 
 const About = () => {
   return (
     <Layout>
-      <Grid
-        container
-        alignItems="center"
-        // justifyContent="center"
-        paddingTop="12rem"
-        marginLeft="10%"
-        direction={{ sm: "column", md: "row" }}
-      >
-        <Typography variant="h2" paddingRight="5rem">
-          <span style={{ fontWeight: "bold" }}>
-            No Boxes. <br /> No Lines. <br />
-          </span>
-          <span style={{ fontWeight: "bold", color: "#279ce6" }}>
-            No Regrets. <br /> 100% Satisfaction
-          </span>
+      <Grid paddingTop="10rem">
+        <Typography variant="h3" sx={{ textAlign: "center" }}>
+          <span style={{ color: "#071048" }}>How</span>
+          <span style={{ color: "#03a9fc" }}>&nbsp;ReturnPal</span>
+          <span style={{ color: "#071048" }}>&nbsp;Started</span>
         </Typography>
-
+        <Typography
+          variant="body2"
+          maxWidth="40%"
+          textAlign="center"
+          margin="0 auto"
+          color="#798189"
+          fontSize="1rem"
+          sx={{ marginTop: "2rem", lineHeight: "25.6px" }}
+          marginBottom="1rem"
+        >
+          Returnmates was founded by two friends who were frustrated with their
+          online shopping experiences due to the hassle of online returns. One
+          day, after a 45 minute trip to the post office, they wondered "why
+          don’t we just pick up everyone’s returns?". The light bulb went off.
+          They called their friends -- they all had the same problem. 48 hours
+          later, Returnmates was born.
+        </Typography>
         <Image
-          src={"/images/returnpal-waiting.jpeg"}
+          src={"/images/returnpal-car.png"}
           alt="Retailers"
           width={600}
           height={300}
+          style={{
+            margin: "0 auto",
+            marginBottom: "1rem",
+          }}
         />
-      </Grid>
-      <Button
-        sx={{
-          marginLeft: "10%",
-          borderRadius: "50px", // Adjust the value as needed to get the desired oval shape
-          padding: "0.5rem 36px", // Customize the padding to fit the content
-          fontSize: "1.15rem", // Set the font size to your preference
-          fontWeight: "bold", // Adjust font weight as needed
-          textTransform: "none", // Avoid uppercase transformation
-          background: "red", // Set the desired background color
-          marginBottom: "2rem",
-          color: "red", // Set the text color to contrast with the background
-          "&:hover": {
-            background: "#005DFF", // Set a darker background color on hover
-          },
-          transition: "transform 0.75s ease-in-out",
-        }}
-      >
-        Learn More
-      </Button>
-      <Typography marginLeft="10%">
-        We will pick up your item, box it, and get it to the post office safely
-      </Typography>
-
-      <Grid
-        container
-        alignItems="center"
-        paddingTop="6rem"
-        marginLeft="10%"
-        direction={{ sm: "column", md: "row" }}
-      >
-        <Image
+        <QuoteBox />
+        <LayoutOne
+          description1="No Boxes."
+          description2="No Lines."
+          description3="No Regrets."
+          src="/images/returnpal-line.jpeg"
+          buttonDescription="Learn More"
+        />
+        <LayoutOne
+          description1="Any Retail Store"
+          description2="you purchased"
+          description3="from we return"
           src="/images/returnpal-retailers.png"
-          alt="Retailers"
-          width={600}
-          height={300}
-          style={{ paddingRight: "5rem" }}
+          buttonDescription="Get Started"
         />
-        <Stack direction="column">
-          <Typography variant="h2" paddingRight="2rem">
-            <span style={{ fontWeight: "bold" }}>
-              Any retail store <br /> you purchused <br /> from{" "}
-            </span>
-            <span style={{ fontWeight: "bold", color: "#279ce6" }}>
-              we return
-            </span>
-          </Typography>
-          <Button
-            sx={{
-              color: "primary",
-              variant: "contained",
-              textTransform: "none",
-              borderRadius: "2rem",
-              fontWeight: "bold",
-              backgroundColor: "#00bfff",
-              paddingTop: "1rem",
-              width: "30%",
-              fontSize: "15px",
-
-              "&:hover": {
-                backgroundColor: "#0099ff", // Set the background color on hover
-              },
-            }}
-            className="text-[#0099ff] hover:text-white"
-          >
-            Get Started &nbsp; <NearMeIcon />
-          </Button>
-        </Stack>
-      </Grid>
-
-      <Grid container>
-        <Stack
-          direction={{ xs: "column", md: "row", lg: "row" }}
-          marginLeft="10%"
-          marginTop="5%"
-          maxWidth="80%"
-          justifyContent="center"
-          alignItems={{ xs: "center", md: "flex-start", lg: "flex-start" }}
-          textAlign={{ xs: "center", md: "left", lg: "left" }}
-          spacing={2}
-        >
-          <Grid item xs={12} md={6} lg={6} marginRight={{ xs: 0, md: "5%" }}>
-            <Typography
-              fontWeight="bold"
-              variant="h6"
-              fontSize="1.5rem"
-              color="#01314B"
-              marginBottom="2rem"
-            >
-              As a convenient one-stop service, We&apos;re bringing couriers to
-              your location, repackaging, and delivering your return to a
-              predefined location.
-            </Typography>
-            <Typography
-              fontWeight="bold"
-              variant="h6"
-              fontSize="1.5rem"
-              color="#01314B"
-            >
-              Our goal is to save you from having to repackage items, print
-              shipping labels, and take that long drive to the not so local post
-              office.
-            </Typography>
-          </Grid>
-          <picture>
-            <img
-              src="https://static.wixstatic.com/media/nsplsh_dd2487edc88745488809acd16dde4375~mv2.jpg/v1/fill/w_1090,h_728,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Image%20by%20Bannon%20Morrissy.jpg"
-              alt="Image by Bannon Morrissy"
-              width="545"
-              height="364"
-              style={{
-                width: "100%",
-                height: "auto",
-                maxWidth: "100%",
-                maxHeight: "100%",
-              }}
-            />
-          </picture>
-        </Stack>
-      </Grid>
-
-      <Grid container>
-        <Stack
-          direction={{ xs: "column", md: "row", lg: "row" }}
-          margin="10%"
-          maxWidth="80%"
-          justifyContent="center"
-          alignItems={{ xs: "center", md: "flex-start", lg: "flex-start" }}
-          textAlign={{ xs: "center", md: "left", lg: "left" }}
-          spacing={2}
-        >
-          <Grid item xs={12} md={6} lg={6} order={{ xs: 1, md: 1 }}>
-            <picture>
-              <img
-                src="https://static.wixstatic.com/media/nsplsh_bc2f7d1dcade40e18eb4a24f959ae5e4~mv2.jpg/v1/fill/w_1092,h_728,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Image%20by%20Marcin%20Skalij.jpg"
-                alt="Image by Marcin Skalij"
-                width="546"
-                height="364"
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  maxWidth: "100%",
-                  maxHeight: "100%",
-                }}
-              />
-            </picture>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            md={6}
-            lg={6}
-            order={{ xs: 2, md: 2 }}
-            paddingLeft={{ xs: "0", md: "5%" }}
-          >
-            <Typography
-              fontWeight="bold"
-              variant="h6"
-              fontSize="1.5rem"
-              color="#01314B"
-              marginBottom="2rem"
-            >
-              We&apos;re all over the GTA, with a local facility in Toronto
-              designed to ensure shipping labels are printed and the repackaging
-              of items can meet same-day return needs.
-            </Typography>
-            <Typography
-              fontWeight="bold"
-              variant="h6"
-              fontSize="1.5rem"
-              color="#01314B"
-            >
-              Returning your online shopping purchases has never been easier.
-              Unless you get the wrong size, in which case you&apos;ll be
-              returning it so many times you&apos;ll know the shipping label by
-              heart.
-            </Typography>
-          </Grid>
-        </Stack>
+        <LayoutTwo
+          src="/images/returnpal-fedex.webp"
+          description1="As a convenient one-stop service, We're bringing couriers
+          to your location, repackaging, and delivering your return to a
+          predefined location."
+          description2="Our goal is to save you from having to repackage items, print
+          shipping labels, and take that long drive to the not so local
+          post office."
+        />
+        <LayoutTwo
+          src="/images/returnpal-gta.webp"
+          description1="We are all over the GTA, with a local facility in Toronto
+                designed to ensure shipping labels are printed and the
+                repackaging of items can meet same-day return needs."
+          description2="Returning your online shopping purchases has never been easier.
+                Unless you get the wrong size, in which case you will be
+                returning it so many times you'll know the shipping label
+                by heart."
+        />
         <Box
           sx={{
             backgroundColor: "#def8ff", // Light blue background color
