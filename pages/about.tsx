@@ -18,15 +18,23 @@ import LayoutTwo from "./sub_components/LayoutTwo";
 const About = () => {
   return (
     <Layout>
-      <Grid paddingTop="10rem">
-        <Typography variant="h3" sx={{ textAlign: "center" }}>
+      <Grid
+        paddingTop={{ xs: "7rem", md: "10rem" }}
+        sx={{ overflow: "hidden" }}
+      >
+        <Typography
+          variant="h3"
+          sx={{ textAlign: "center" }}
+          fontSize={{ xs: "30px" }}
+        >
           <span style={{ color: "#071048" }}>How</span>
           <span style={{ color: "#03a9fc" }}>&nbsp;ReturnPal</span>
           <span style={{ color: "#071048" }}>&nbsp;Started</span>
         </Typography>
         <Typography
           variant="body2"
-          maxWidth="40%"
+          maxWidth={{ xs: "80%", md: "40%" }}
+          // paddingLeft={{ xs: "2rem" }}
           textAlign="center"
           margin="0 auto"
           color="#798189"
@@ -49,6 +57,9 @@ const About = () => {
           style={{
             margin: "0 auto",
             marginBottom: "1rem",
+            borderRadius: "15%",
+            // marginRight: "5%",
+            // marginLeft: "1rem",
           }}
         />
         <QuoteBox />
@@ -58,13 +69,15 @@ const About = () => {
           description3="No Regrets."
           src="/images/returnpal-line.jpeg"
           buttonDescription="Learn More"
+          imagePosition={true}
         />
         <LayoutOne
-          description1="Any Retail Store"
-          description2="you purchased"
-          description3="from we return"
+          description1="Any Item"
+          description2="Any Store"
+          description3="We Return"
           src="/images/returnpal-retailers.png"
           buttonDescription="Get Started"
+          imagePosition={true}
         />
         <LayoutTwo
           src="/images/returnpal-fedex.webp"
@@ -74,6 +87,7 @@ const About = () => {
           description2="Our goal is to save you from having to repackage items, print
           shipping labels, and take that long drive to the not so local
           post office."
+          imagePosition={true}
         />
         <LayoutTwo
           src="/images/returnpal-gta.webp"
@@ -84,6 +98,7 @@ const About = () => {
                 Unless you get the wrong size, in which case you will be
                 returning it so many times you'll know the shipping label
                 by heart."
+          imagePosition={true}
         />
         <Box
           sx={{

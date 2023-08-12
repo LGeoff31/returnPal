@@ -15,10 +15,12 @@ const LayoutOne = ({
   description1,
   description2,
   src,
+  imagePosition,
 }: {
   description1: string;
   description2: string;
   src: string;
+  imagePosition: boolean;
 }) => {
   return (
     <Grid
@@ -31,7 +33,7 @@ const LayoutOne = ({
       textAlign={{ xs: "center", md: "left", lg: "left" }}
       spacing={2}
     >
-      <Grid item xs={12} md={6} lg={6} order={{ xs: 1, md: 1 }}>
+      {/* <Grid item xs={12} md={6} lg={6} order={{ xs: 1, md: 1 }}>
         <Image
           src={src}
           alt="Retailers"
@@ -39,15 +41,8 @@ const LayoutOne = ({
           height={300}
           style={{ paddingRight: "5rem" }}
         />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-        md={6}
-        lg={6}
-        order={{ xs: 2, md: 2 }}
-        paddingLeft={{ xs: "0", md: "5%" }}
-      >
+      </Grid> */}
+      <Grid item xs={12} md={6} lg={6} paddingLeft={{ xs: "0", md: "5%" }}>
         <Typography
           fontWeight="bold"
           variant="h6"
@@ -72,6 +67,15 @@ const LayoutOne = ({
             returning it so many times you&apos;ll know the shipping label
             by heart. */}
         </Typography>
+      </Grid>
+      <Grid item xs={12} md={6} lg={6}>
+        <Image
+          src={src}
+          alt="Retailers"
+          width={600}
+          height={300}
+          //   style={{ paddingRight: { xs: 0, md: 5 } }}
+        />
       </Grid>
     </Grid>
   );

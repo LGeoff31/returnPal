@@ -98,14 +98,25 @@ const Contact = () => {
             </Grid>
           </form>
         </CardContent>
-
-        <Image
+        {/* <Image
+          src={"/images/returnpal-unload-box.png"}
+          alt="Retailers"
+          width={400}
+          height={300}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignContent: "center",
+            margin: "0 auto",
+          }}
+        /> */}
+        {/* <Image
           src="/images/returnpal-boxing.webp"
           alt="pexels-photo-4247766.jpeg"
-          width="385"
+          width="300"
           height="100"
-          style={{ paddingTop: "12rem", paddingRight: "4rem" }}
-        />
+          // style={{ padding: 0 }}
+        /> */}
       </Grid>
     </Layout>
   );

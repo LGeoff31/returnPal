@@ -7,7 +7,12 @@ import Layout from "./components/Layout";
 const Blog = () => {
   return (
     <Layout>
-      <Typography variant="h2" textAlign={"center"} paddingTop="5rem">
+      <Typography
+        variant="h2"
+        textAlign={"center"}
+        paddingTop="5rem"
+        paddingBottom="30rem"
+      >
         Blog Currently Unavailable
       </Typography>
     </Layout>
