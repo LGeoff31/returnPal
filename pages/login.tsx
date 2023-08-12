@@ -152,6 +152,7 @@ const Login = () => {
       <Navbar />
       <ToastContainer
         position="top-center"
+        className={"mt-20 z-50"}
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}

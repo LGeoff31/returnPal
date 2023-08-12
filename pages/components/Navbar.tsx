@@ -73,6 +73,24 @@ const Navbar = () => {
             </li>
           </ul>
           <div className="navigation-buttons">
+            {/* <a href="/signUp">
+              <Button
+                sx={{
+                  variant: "outlined",
+                  color: "grey",
+                  textTransform: "none",
+                  borderRadius: "2rem",
+                  backgroundColor: "#f5f5f5",
+                  border: "none",
+                  fontSize: "15px",
+                  textAlign: "center",
+                  marginRight: "1rem",
+                }}
+              >
+                <AccountCircleIcon /> &nbsp; Sign in
+              </Button>
+            </a> */}
+
             <a href="/getstarted">
               <Button
                 sx={{

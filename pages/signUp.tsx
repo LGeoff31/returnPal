@@ -3,34 +3,18 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
-
+import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
 import Layout from "./components/Layout";
-//  toast.error("🦄 Bid was not successfull", {
-//    position: "top-center",
-//    autoClose: 5000,
-//    hideProgressBar: false,
-//    closeOnClick: true,
-//    pauseOnHover: true,
-//    draggable: true,
-//    progress: undefined,
-//    theme: "light",
-//  });
-//   toast.success("Your Bid was Successfull....!", {
-//     position: "top-center",
-//     autoClose: 5000,
-//     hideProgressBar: false,
-//     closeOnClick: true,
-//     pauseOnHover: true,
-//     draggable: true,
-//     progress: undefined,
-//     theme: "light",
-//   });
+import FacebookLogin from "react-facebook-login";
+
 const signIn = () => {
+  const router = useRouter()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [fbAuth,setfbAuth] = useState(false)
 
   const firebaseConfig = {
     apiKey: "AIzaSyAfq9xlsoCWH68Ck2OvhWy-zROSEJXuRlg",
@@ -100,6 +84,7 @@ const signIn = () => {
         });
         const user = result.user;
         localStorage.setItem("userInfo", JSON.stringify(result.user));
+        router.push("/");
         console.log(user);
       })
       .catch((error) => {
@@ -117,14 +102,9 @@ const signIn = () => {
       });
   };
 
-  const handleFacebookSignIn = () => {
-    const provider = new firebase.auth.FacebookAuthProvider();
-    firebase
-      .auth()
-      .signInWithPopup(provider)
-      .then((result) => {
-        // Handle successful Facebook sign-in here
-        const user = result.user;
+  const handleFacebookSignIn = (e:any) => {
+   
+        console.log(e)
         toast.success("Authenticated Successfully....!", {
           position: "top-center",
           autoClose: 5000,
@@ -135,22 +115,16 @@ const signIn = () => {
           progress: undefined,
           theme: "light",
         });
-        console.log("Signed in with Facebook:", user);
+    localStorage.setItem(
+      "userInfo",
+      JSON.stringify({
+        displayName: e.name,
+        photoURL: e.picture.data.url
       })
-      .catch((error) => {
-        toast.error("Authentication Failed....!", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-        // Handle Facebook sign-in error here
-        console.error("Facebook sign-in error:", error);
-      });
+    );
+        router.push("/");
+        // console.log("Signed in with Facebook:", user);
+      
   };
 
   return (
@@ -158,6 +132,7 @@ const signIn = () => {
       <div className="flex justify-center">
         <ToastContainer
           position="top-center"
+          className={"z-50 mt-20"}
           autoClose={5000}
           hideProgressBar={false}
           newestOnTop={false}
@@ -252,6 +227,14 @@ const signIn = () => {
                           OR
                         </p>
                       </div>
+                      <FacebookLogin
+                        appId="2153060351549383"
+                        autoLoad={fbAuth}
+                        fields="name,email,picture"
+                        buttonStyle={{display:"none"}}
+                        // onClick={componentClicked}
+                        callback={handleFacebookSignIn}
+                      />
                       <a
                         className="mb-3 flex w-full items-center justify-center rounded bg-primary px-7 pb-2.5 pt-3 text-center text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
                         style={{ backgroundColor: "#3b5998" }}
@@ -259,7 +242,7 @@ const signIn = () => {
                         role="button"
                         data-te-ripple-init
                         data-te-ripple-color="light"
-                        onClick={handleFacebookSignIn}
+                        onClick={()=> setfbAuth(true)}
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
