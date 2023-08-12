@@ -45,9 +45,9 @@ const About = () => {
           Returnmates was founded by two friends who were frustrated with their
           online shopping experiences due to the hassle of online returns. One
           day, after a 45 minute trip to the post office, they wondered "why
-          don’t we just pick up everyone’s returns?". The light bulb went off.
-          They called their friends -- they all had the same problem. 48 hours
-          later, Returnmates was born.
+          don&apos;t we just pick up everyone&apos;s returns?". The light bulb
+          went off. They called their friends -- they all had the same problem.
+          48 hours later, Returnmates was born.
         </Typography>
         <Image
           src={"/images/returnpal-car.png"}
