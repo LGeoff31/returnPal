@@ -195,3 +195,41 @@
     flex-direction: column;
   }
 }
+
+/* ...Day CSS  */
+
+.date-picker {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.day:hover {
+  background-color: #f0f0f0;
+}
+
+.sunday {
+  background-color: #ffcccc; /* or any other background color you prefer */
+  border-color: #ff9999; /* or any other border color you prefer */
+  /* Add more custom styles for Sundays */
+cursor: not-allowed;
+}
+
+
