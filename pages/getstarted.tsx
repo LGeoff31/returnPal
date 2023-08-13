@@ -9,6 +9,18 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
 import { startOfWeek, addDays, format } from "date-fns";
+import {submitFormData} from "../services/index"
+
+// mutation{
+// createPickupRequests(
+//   data:{
+//     name:"Muzammil"
+//   }
+// ) {
+//   id
+// }  
+// }
+
 
 const GetStarted = () => {
   type YourType = {
@@ -16,6 +28,11 @@ const GetStarted = () => {
     email: string;
     photoURL: string;
   };
+
+    
+   
+
+
 
   const [userData, setUserData] = useState<YourType | null>();
   const router = useRouter();
@@ -37,8 +54,11 @@ const GetStarted = () => {
   }
 
   const [multiStepForm, setMultiStepForm] = useState(1);
+  const [date, setDate] = useState(new Date())
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedPlan, setSelectedPlan] = useState("")
   const weekStart = startOfWeek(selectedDate);
+
 
   const renderWeek = () => {
     const days = [];
@@ -48,13 +68,14 @@ const GetStarted = () => {
       const dayLabel = format(currentDate, "iii"); // Format: Mon, Tue, etc.
       const dayNumber = format(currentDate, "d"); // Format: 1, 2, etc.
       const isSunday = format(currentDate, "iii") === "Sun";
-
       const dayClasses = isSunday
-        ? "day w-24 h-36 hover:cursor-pointer text-gray-500 font-bold tracking-wider text-2xl  shadow-lg flex justify-center sunday animate-pulse"
-        : "day w-24 h-36 hover:cursor-pointer ease-in duration-500  hover:scale-110 text-white font-bold tracking-wider text-2xl bg-gradient-to-b via-blue-400 from-blue-500 to-blue-500 shadow-lg flex justify-center";
-
+        ? "day w-24 h-36 cursor-disabled text-gray-500 font-bold tracking-wider text-2xl  shadow-lg flex justify-center shadow-lg shadow-red-400 sunday animate-pulse"
+        :  date.getTime()==currentDate.getTime()
+        ? "day w-24 h-36  hover:cursor-pointer ease-in duration-500  scale-110 text-white font-bold tracking-wider text-2xl bg-gradient-to-b via-blue-400 from-blue-500 to-blue-500 shadow-lg flex justify-center"
+        : "day w-24 h-36 hover:cursor-pointer ease-in duration-500  hover:scale-110  font-bold tracking-wider text-2xl border-blue-500 border-1 bg-gray-200  text-black shadow-lg shadow-blue-500 flex justify-center";
+      
       days.push(
-        <div key={i} className={dayClasses}>
+        <div onClick={() =>( isSunday? null: setDate(currentDate))} key={i} className={dayClasses}>
           <div className="day-label">{dayLabel}</div>
           <div className="day-number">{dayNumber}</div>
         </div>
@@ -64,6 +85,34 @@ const GetStarted = () => {
     return days;
   };
 
+   const [formData, setFormData] = useState({
+     name: "",
+     phoneNumber: "",
+     address: "",
+     apt: "",
+     city: "",
+     zip: "",
+     additionalInfo: "",
+     labelType: "", 
+     returnLabelFile: null,
+     description: "",
+   });
+
+  const handleInputChange = (fieldName: any, value: any) => {
+     console.log(formData)
+     setFormData((prevFormData) => ({
+       ...prevFormData,
+       [fieldName]: value,
+     }));
+   };
+
+  const formSubmit = async () => {
+    console.log(formData)
+    console.log(date)
+    console.log(selectedPlan)
+    const data = await submitFormData(formData, date, selectedPlan);
+    console.log(data)
+  }
   return (
     <div className="flex justify-center">
       <Navbar />
@@ -289,6 +338,10 @@ const GetStarted = () => {
                           aria-describedby="helper-text-explanation"
                           className=" border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[70%] p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           placeholder={userData?.displayName}
+                          value={formData.name}
+                          onChange={(e) =>
+                            handleInputChange("name", e.target.value)
+                          }
                           // value={userData?.displayName}
                         />
                         <div className="flex w-96 justify-center items-center">
@@ -301,6 +354,10 @@ const GetStarted = () => {
                             aria-describedby="helper-text-explanation"
                             className="border-l-0 rounded-l-none border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 w-[100%] focus:border-blue-500 block p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="(987) 654-3211"
+                            value={formData.phoneNumber}
+                            onChange={(e) =>
+                              handleInputChange("phoneNumber", e.target.value)
+                            }
                           />
                         </div>
                       </div>
@@ -317,42 +374,58 @@ const GetStarted = () => {
                       </p>
 
                       <label
-                        htmlFor="name"
+                        htmlFor="address"
                         className="block mt-5 mb-2 font-medium text-black text-xl"
                       >
                         What is your pickup address?
                       </label>
                       <div className="flex w-[72vw] space-x-10">
                         <input
-                          type="name"
-                          id="name"
+                          type="address"
+                          id="address"
                           aria-describedby="helper-text-explanation"
                           className=" border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[70%] p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           placeholder={userData?.displayName}
+                          value={formData.address}
+                          onChange={(e) =>
+                            handleInputChange("address", e.target.value)
+                          }
                           // value={userData?.displayName}
                         />
                       </div>
                       <div className="flex w-[70%] mt-5 space-x-10">
                         <input
-                          type="name"
-                          id="name"
+                          type="apt"
+                          id="apt"
                           aria-describedby="helper-text-explanation"
                           className=" border w-1/3 border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           placeholder="Office, Suite, Apt."
+                          value={formData.apt}
+                          onChange={(e) =>
+                            handleInputChange("apt", e.target.value)
+                          }
                         />
                         <input
                           type="text"
-                          id=""
+                          id="city"
                           aria-describedby="helper-text-explanation"
                           className=" border  w-1/3 border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500  focus:border-blue-500 block p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           placeholder="City"
+                          value={formData.city}
+                          onChange={(e) =>
+                            handleInputChange("city", e.target.value)
+                          }
                         />
                         <input
                           type="text"
-                          id=""
+                          id="zip"
                           aria-describedby="helper-text-explanation"
                           className=" border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 w-1/3 focus:border-blue-500 block p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           placeholder="Zip"
+                          value={formData.zip}
+                          onChange={(e) =>
+                            handleInputChange("zip", e.target.value)
+                          }
                         />
                       </div>
                       <label
@@ -364,10 +437,14 @@ const GetStarted = () => {
                       <div className="flex w-[72vw] space-x-10">
                         <textarea
                           rows={5}
-                          id="name"
+                          id="additionalInfo"
                           aria-describedby="helper-text-explanation"
                           className=" border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[70%] p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black "
                           placeholder="i.e. building access code, location of door, etc."
+                          value={formData.additionalInfo}
+                          onChange={(e) =>
+                            handleInputChange("additionalInfo", e.target.value)
+                          }
                         />
                       </div>
                     </div>
@@ -480,9 +557,10 @@ const GetStarted = () => {
                               </ol>
                               <div className="flex justify-center items-center mt-[4.5rem]">
                                 <button
-                                  onClick={() =>
-                                    setMultiStepForm(multiStepForm + 1)
-                                  }
+                                  onClick={() => {
+                                    setSelectedPlan("Non-Member");
+                                    setMultiStepForm(multiStepForm + 1);
+                                  }}
                                   type="button"
                                   className="bg-blue-500 text-xl self-center align-middle justify-center border-blue-500 ease-in duration-300 text-white font-semibold hover:text-blue-500 hover:bg-white  border-2 w-full py-3 rounded-xl"
                                 >
@@ -579,9 +657,10 @@ const GetStarted = () => {
                               </ol>
                               <div className="flex justify-center items-center mt-8">
                                 <button
-                                  onClick={() =>
-                                    setMultiStepForm(multiStepForm + 1)
-                                  }
+                                  onClick={() => {
+                                    setSelectedPlan("Member");
+                                    setMultiStepForm(multiStepForm + 1);
+                                  }}
                                   type="button"
                                   className="bg-blue-500 text-xl self-center align-middle justify-center border-blue-500 ease-in duration-300 text-white font-semibold hover:text-blue-500 hover:bg-white  border-2 w-full py-3 rounded-xl"
                                 >
@@ -632,6 +711,9 @@ const GetStarted = () => {
                           name="hosting"
                           defaultValue="hosting-small"
                           className="hidden peer"
+                          onChange={(e) =>
+                            handleInputChange("labelType", "Physical Label")
+                          }
                           required
                         />
                         <label
@@ -670,6 +752,9 @@ const GetStarted = () => {
                           name="hosting"
                           defaultValue="hosting-big"
                           className="hidden peer"
+                          onChange={(e) =>
+                            handleInputChange("labelType", "Digital label")
+                          }
                         />
                         <label
                           htmlFor="hosting-big"
@@ -707,6 +792,9 @@ const GetStarted = () => {
                           name="hosting"
                           defaultValue="hosting-medium"
                           className="hidden peer"
+                          onChange={(e) =>
+                            handleInputChange("labelType", "Amazon QR code")
+                          }
                         />
                         <label
                           htmlFor="hosting-medium"
@@ -749,6 +837,9 @@ const GetStarted = () => {
                         className="relative m-0 block w-fit min-w-0 flex-auto rounded border border-solid border-blue-500 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none "
                         type="file"
                         id="formFile"
+                        onChange={(e) =>
+                          handleInputChange("returnLabelFile", e.target.files)
+                        }
                       />
                     </div>
                   </div>
@@ -765,7 +856,10 @@ const GetStarted = () => {
                     rows={4}
                     className="block p-2.5 w-[60%] text-sm text-gray-900 bg-gray-50 rounded-lg border border-blue-500 focus:ring-blue-500 focus:border-blue-500"
                     placeholder="Write your thoughts here..."
-                    defaultValue={""}
+                    value={formData.description}
+                    onChange={(e) =>
+                      handleInputChange("description", e.target.value)
+                    }
                   />
                 </div>
 
@@ -798,14 +892,11 @@ const GetStarted = () => {
                 </h1>
                 <div className="flex justify-center items-center space-x-5">
                   <div>
-                    <div className="font-semibold"> (987) 654-3211</div>
-                    <div className="truncate w-fit">
-                      {" "}
-                      182/3 B-Block Punjab small society Near LUMS university
-                    </div>
+                    <div className="font-semibold">{formData.phoneNumber}</div>
+                    <div className="truncate w-fit"> {formData.address}</div>
                   </div>
 
-                  <div className="self-end text-blue-500 font-semibold text-xl">
+                  <div className="self-end text-blue-500 cursor-pointer font-semibold text-xl">
                     Edit
                   </div>
                 </div>
@@ -814,12 +905,12 @@ const GetStarted = () => {
                   <div>
                     <div>
                       {" "}
-                      <span className="font-semibold"> Pickup date:</span> Wed,
-                      Aug 16th
+                      <span className="font-semibold"> Pickup date:</span>{" "}
+                      {date.toLocaleDateString()}
                     </div>
                   </div>
 
-                  <div className="self-end text-blue-500 font-semibold text-xl">
+                  <div className="self-end text-blue-500 cursor-pointer font-semibold text-xl">
                     Edit
                   </div>
                 </div>
@@ -832,29 +923,17 @@ const GetStarted = () => {
                         {" "}
                         Pickup method:
                       </span>{" "}
-                      Direct handoff
+                      {formData.labelType}
                     </div>
                   </div>
 
-                  <div className="self-end text-blue-500 font-semibold text-xl">
+                  <div className="self-end text-blue-500 cursor-pointer font-semibold text-xl">
                     Edit
                   </div>
                 </div>
                 <hr className="border-1 border-black w-full my-5" />
               </div>
-              <div className="flex flex-col justify-around items-start">
-                <h1 className="font-semibold text-lg mb-5 ">Package summary</h1>
-                <div className="flex justify-center items-center space-x-5">
-                  <div>
-                    <div className="font-semibold"> Total packages: 1</div>
-                  </div>
 
-                  <div className="self-end text-blue-500 font-semibold text-xl">
-                    Edit
-                  </div>
-                </div>
-                <hr className="border-1 border-black w-full my-5" />
-              </div>
               <div className="flex flex-col justify-around items-start">
                 <h1 className="font-semibold text-lg mb-5 ">Payment Method</h1>
                 <div className="flex justify-center items-center space-x-5">
@@ -882,9 +961,9 @@ const GetStarted = () => {
                     </svg>
                   </label>
                 </div>
-                <button className="w-full my-5 border-blue-500 bg-blue-500 text-white text-2xl font-semibold py-2 rounded-lg border hover:text-blue-500 hover:bg-white ease-in duration-300">
-                    Confirm Pickup
-                  </button>
+                <button onClick={formSubmit} className="w-full my-5 border-blue-500 bg-blue-500 text-white text-2xl font-semibold py-2 rounded-lg border hover:text-blue-500 hover:bg-white ease-in duration-300">
+                  Confirm Pickup
+                </button>
               </div>
             </div>
           ) : null}
