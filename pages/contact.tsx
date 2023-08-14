@@ -8,25 +8,24 @@ import {
 } from "@mui/material";
 import React from "react";
 import Layout from "./components/Layout";
+import EmailIcon from "@mui/icons-material/Email";
+import Image from "next/image";
 
 const Contact = () => {
   return (
     <Layout>
-      <Card
-        style={{
-          maxWidth: 450,
-          margin: "0 auto",
-          padding: "20px 5px",
-          paddingTop: "5rem",
-        }}
+      <Grid
+        container
+        direction={{ md: "row", sm: "column" }}
+        justifyContent={"center"}
+        sx={{ background: "#f5f5f5" }}
       >
         <CardContent>
           <Typography
             gutterBottom
             variant="h3"
-            align={"center"}
-            paddingTop="2rem"
-            color="#01314B"
+            paddingTop="10rem"
+            color="primary"
           >
             Contact Us
           </Typography>
@@ -36,7 +35,14 @@ const Contact = () => {
             color="textSecondary"
             gutterBottom
           >
-            Fill the form and our team will get back to you within 24 hours.
+            <span style={{ fontWeight: "bold" }}>Have any questions?</span>
+            <span>
+              Email us or submit the form <br /> below. We will respond to your
+              inquiry within 24 hrs.
+            </span>
+          </Typography>
+          <Typography paddingTop="1rem" paddingBottom="1rem">
+            <EmailIcon /> info.returnpal@gmail.com
           </Typography>
           <form>
             <Grid container spacing={1}>
@@ -92,7 +98,26 @@ const Contact = () => {
             </Grid>
           </form>
         </CardContent>
-      </Card>
+        {/* <Image
+          src={"/images/returnpal-unload-box.png"}
+          alt="Retailers"
+          width={400}
+          height={300}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignContent: "center",
+            margin: "0 auto",
+          }}
+        /> */}
+        {/* <Image
+          src="/images/returnpal-boxing.webp"
+          alt="pexels-photo-4247766.jpeg"
+          width="300"
+          height="100"
+          // style={{ padding: 0 }}
+        /> */}
+      </Grid>
     </Layout>
   );
 };

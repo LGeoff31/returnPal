@@ -18,13 +18,14 @@ const Pricing = () => {
         gutterBottom
         align="center"
         marginBottom="6%"
-        color="#01314B"
+        color="#071048"
         fontWeight="bold"
         sx={{ fontSize: { xs: "3rem" } }}
+        paddingTop="7rem"
       >
         Choose Your Pricing Plans
       </Typography>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} paddingBottom="2rem">
         <Grid item xs={12} sm={6}>
           <Card
             sx={{
@@ -38,8 +39,8 @@ const Pricing = () => {
               marginLeft: { md: "20%" },
             }}
           >
-            <Typography variant="h4" color="#01314B" fontWeight="bold">
-              Pay as you go
+            <Typography variant="h4" color="#071048" fontWeight="bold">
+              Pay As You Go
             </Typography>
             <Box
               sx={{
@@ -49,12 +50,12 @@ const Pricing = () => {
             >
               <Typography
                 variant="h6"
-                color="#01314B"
+                color="#071048"
                 sx={{ fontSize: "1.25rem", marginRight: "5px" }}
               >
                 CA$
               </Typography>
-              <Typography variant="h3" color="#01314B" fontWeight="bold">
+              <Typography variant="h3" color="#071048" fontWeight="bold">
                 9.99
               </Typography>
             </Box>
@@ -77,10 +78,8 @@ const Pricing = () => {
               }}
             >
               Select
-              {/* Get Started &nbsp;
-              <NearMeIcon /> */}
             </Button>
-            <Typography variant="body2">- Add-On Packages</Typography>
+            <Typography variant="body2">- Add-On Packages ($3.99)</Typography>
             <Typography variant="body2">- Extra Pickups</Typography>
             <Typography variant="body2">- Free Packaging</Typography>
           </Card>
@@ -98,8 +97,8 @@ const Pricing = () => {
               marginRight: { md: "20%" },
             }}
           >
-            <Typography variant="h4" fontWeight="bold" color="#01314B">
-              Pal membership
+            <Typography variant="h4" fontWeight="bold" color="#071048">
+              Pal Membership
             </Typography>
             <Box
               sx={{
@@ -109,19 +108,18 @@ const Pricing = () => {
             >
               <Typography
                 variant="h6"
-                color="#01314B"
+                color="#071048"
                 sx={{ fontSize: "1.25rem", marginRight: "5px" }}
               >
                 CA$
               </Typography>
-              <Typography variant="h3" color="#01314B" fontWeight="bold">
+              <Typography variant="h3" color="#071048" fontWeight="bold">
                 19
               </Typography>
               <Typography variant="body2" color="textSecondary">
                 Every month
               </Typography>
             </Box>
-            {/* <Typography variant="body2">Every month</Typography> */}
             <Typography variant="body2" marginBottom="5%">
               We&apos;ve Got You Handled
             </Typography>
@@ -140,8 +138,6 @@ const Pricing = () => {
               }}
             >
               Select
-              {/* Get Started &nbsp;
-              <NearMeIcon /> */}
             </Button>
             <Typography variant="body2">- Unlimited Pickups</Typography>
             <Typography variant="body2">- Unlimited Packaging</Typography>
