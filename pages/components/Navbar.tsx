@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Stack, Typography, Button, Link, Grid } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import NearMeIcon from "@mui/icons-material/NearMe";
+import Popover from "@mui/material/Popover";
 import MenuIcon from "@mui/icons-material/Menu";
 const Navbar = () => {
   type YourType = {
@@ -18,7 +19,33 @@ const Navbar = () => {
     setUserData(data);
   }, []);
 
+   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+
+   const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
+     setAnchorEl(event.currentTarget);
+   };
+
+   const handlePopoverClose = () => {
+     setAnchorEl(null);
+   };
+
+   const open = Boolean(anchorEl);
+
+
   const [isNavExpanded, setIsNavExpanded] = useState(false);
+
+    const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  }
+
+  const logoutUser = () => {
+    localStorage.removeItem("userInfo");
+    setUserData(null)
+    toggleDropdown()
+  }
+
   return (
     <nav className="navigation">
       <Link href="/">
@@ -90,45 +117,80 @@ const Navbar = () => {
                 <AccountCircleIcon /> &nbsp; Sign in
               </Button>
             </a> */}
+            <div className="flex">
+              <Link href="/getstarted">
+                
+                <Button style={{border:"1px solid #0099ff"}} className="text-lg bg-blue-500 mr-5 text-white border-blue-500 border hover:bg-white hover:text-blue-500 ease-in duration-300 px-4 py-2 rounded-lg">
+                  Get Started &nbsp; <NearMeIcon />
+                </Button>
+              </Link>
 
-            <a href="/getstarted">
-              <Button
-                sx={{
-                  color: "primary",
-                  variant: "contained",
-                  textTransform: "none",
-                  borderRadius: "2rem",
-                  fontWeight: "bold",
-                  backgroundColor: "#0099ff",
-
-                  fontSize: "15px",
-
-                  "&:hover": {
-                    backgroundColor: "#0099ff", // Set the background color on hover
-                  },
-                }}
-                className="text-[#0099ff] hover:text-white"
-              >
-                Get Started &nbsp; <NearMeIcon />
-              </Button>
-            </a>
-            <a href="/signUp">
-              <Button
-                sx={{
-                  variant: "outlined",
-                  color: "black",
-                  textTransform: "none",
-                  borderRadius: "2rem",
-                  backgroundColor: "#f5f5f5",
-                  border: "none",
-                  fontSize: "15px",
-                  textAlign: "center",
-                  marginRight: "1rem",
-                }}
-              >
-                <AccountCircleIcon /> &nbsp; Sign in
-              </Button>
-            </a>
+              <div className="relative ">
+                {!userData ? (
+                  <Link className="no-underline"  href="/signUp">
+                  <div className="flex justify-center items-center">
+                    <button className="text-lg  bg-white text-blue-500 border-blue-500 border hover:bg-blue-500 hover:text-white ease-in duration-300 px-4 py-2 rounded-lg">
+                      Sign up
+                    </button>
+                  </div>
+                  </Link>
+                ) : (
+                  <>
+                    <button
+                      id="dropdownUserAvatarButton"
+                      data-dropdown-toggle="dropdownAvatar"
+                      className="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                      type="button"
+                      onClick={toggleDropdown}
+                    >
+                      <span className="sr-only">Open user menu</span>
+                      <img
+                        className="w-8 h-8 rounded-full"
+                        src={userData?.photoURL}
+                        alt="user photo"
+                      />
+                    </button>
+                  </>
+                )}
+                {/* Dropdown menu */}
+                {isDropdownOpen && (
+                  <div
+                    id="dropdownAvatar"
+                    className="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute right-0 mt-2"
+                  >
+                    <div className="px-4 text-center py-3 text-sm text-gray-900 dark:text-white">
+                      <div>{userData?.displayName}</div>
+                      {userData?.email && (
+                        <div className="font-medium truncate">
+                          {userData?.email}
+                        </div>
+                      )}
+                    </div>
+                    <ul
+                      className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                      aria-labelledby="dropdownUserAvatarButton"
+                    >
+                      <li>
+                        <a
+                          href="#"
+                          className="block w-full text-center px-5 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Dashboard
+                        </a>
+                      </li>
+                    </ul>
+                    <div onClick={logoutUser} className="py-2">
+                      <a
+                        href="#"
+                        className="block text-red-500 text-center px-4 py-2 text-sm  hover:bg-gray-100 w-full dark:hover:bg-gray-600  dark:hover:text-white"
+                      >
+                        Log Out
+                      </a>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </div>
