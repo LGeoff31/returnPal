@@ -135,7 +135,7 @@ const Navbar = () => {
                   </div>
                   </Link>
                 ) : (
-                  <>
+                  <div className="lg:mt-1 mt-0">
                     <button
                       id="dropdownUserAvatarButton"
                       data-dropdown-toggle="dropdownAvatar"
@@ -150,7 +150,7 @@ const Navbar = () => {
                         alt="user photo"
                       />
                     </button>
-                  </>
+                  </div>
                 )}
                 {/* Dropdown menu */}
                 {isDropdownOpen && (
