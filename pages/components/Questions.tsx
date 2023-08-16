@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import React from "react";
+import NearMeIcon from "@mui/icons-material/NearMe";
 
 const Questions = () => {
   const faqs = [
@@ -225,7 +226,7 @@ const Questions = () => {
               width: { xs: "80%", md: "30%" },
               marginTop: "2rem",
               borderRadius: "50px", // Adjust the value as needed to get the desired oval shape
-              padding: "0.75rem 3rem", // Customize the padding to fit the content
+              padding: "0.75rem 1rem", // Customize the padding to fit the content
               fontSize: "1.15rem", // Set the font size to your preference
               fontWeight: "bold", // Adjust font weight as needed
               textTransform: "none", // Avoid uppercase transformation
@@ -237,7 +238,7 @@ const Questions = () => {
               },
             }}
           >
-            Learn More
+            Learn More &nbsp; <NearMeIcon />
           </Button>
         </Grid>
       </Box>

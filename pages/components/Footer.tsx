@@ -159,12 +159,18 @@ const Footer = () => {
         </Grid>
         <Divider color="grey" sx={{ marginTop: "3%" }} />
         <Grid container direction="row" marginTop="1.5%">
-          <Typography color="grey" marginRight="2%" maxWidth="90%">
+          <Typography
+            color="grey"
+            marginRight="2%"
+            maxWidth="90%"
+            fontSize={{ xs: "13px", md: "15px" }}
+          >
             Copyright © 2023 ReturnPal
           </Typography>
           <Divider orientation="vertical" color="grey" flexItem />
 
           <Link
+            fontSize={{ xs: "13px", md: "15px" }}
             sx={{
               marginLeft: "2%",
               cursor: "pointer",

@@ -101,7 +101,7 @@ const Contact = () => {
                   placeholder="Enter email"
                   variant="outlined"
                   fullWidth
-                  required
+                  requiredç
                 />
               </Grid>
               <Grid xs={12} item>

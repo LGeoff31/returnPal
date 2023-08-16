@@ -69,7 +69,8 @@ const InfoCard = ({
       </picture>
       <Box
         position="absolute"
-        top="55%"
+        // top="5%"
+        top={{ xs: "5%", md: "55%" }}
         left="0%"
         color="white"
         margin="1.5rem"

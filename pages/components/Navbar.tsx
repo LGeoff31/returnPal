@@ -121,9 +121,25 @@ const Navbar = () => {
               {!userData ? (
                 <Link className="no-underline" href="/signUp">
                   <div className="flex justify-center items-center">
-                    <button className="text-lg  bg-white text-blue-500 border-blue-500 border hover:bg-blue-500 hover:text-white ease-in duration-300 px-4 py-2 rounded-lg">
+                    <Button
+                      variant="contained"
+                      sx={{
+                        variant: "outlined",
+                        textTransform: "none",
+                        borderRadius: "2rem",
+                        backgroundColor: "#20aae6",
+                        border: "none",
+                        fontSize: "15px",
+                        textAlign: "center",
+                        marginRight: "1rem",
+                        // border: "1px solid #0099ff",
+                      }}
+                    >
+                      <AccountCircleIcon /> &nbsp; Sign in
+                    </Button>
+                    {/* <button className="text-lg  bg-white text-blue-500 border-blue-500 border hover:bg-blue-500 hover:text-white ease-in duration-300 px-4 py-2 rounded-lg">
                       Sign up
-                    </button>
+                    </button> */}
                   </div>
                 </Link>
               ) : (
