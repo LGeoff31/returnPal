@@ -11,16 +11,6 @@ import { useRouter } from "next/router";
 import { startOfWeek, addDays, format } from "date-fns";
 import {submitFormData} from "../services/index"
 
-// mutation{
-// createPickupRequests(
-//   data:{
-//     name:"Muzammil"
-//   }
-// ) {
-//   id
-// }  
-// }
-
 
 const GetStarted = () => {
   type YourType = {
@@ -28,11 +18,6 @@ const GetStarted = () => {
     email: string;
     photoURL: string;
   };
-
-    
-   
-
-
 
   const [userData, setUserData] = useState<YourType | null>();
   const router = useRouter();
@@ -54,7 +39,7 @@ const GetStarted = () => {
   }
 
   const [multiStepForm, setMultiStepForm] = useState(1);
-  const [date, setDate] = useState(new Date())
+  const [date, setDate] = useState<Date>()
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedPlan, setSelectedPlan] = useState("")
   const weekStart = startOfWeek(selectedDate);
@@ -70,7 +55,7 @@ const GetStarted = () => {
       const isSunday = format(currentDate, "iii") === "Sun";
       const dayClasses = isSunday
         ? "day w-24 h-36 cursor-disabled text-gray-500 font-bold tracking-wider text-2xl  shadow-lg flex justify-center shadow-lg shadow-red-400 sunday animate-pulse"
-        :  date.getTime()==currentDate.getTime()
+        :  date?.getTime()==currentDate.getTime()
         ? "day w-24 h-36  hover:cursor-pointer ease-in duration-500  scale-110 text-white font-bold tracking-wider text-2xl bg-gradient-to-b via-blue-400 from-blue-500 to-blue-500 shadow-lg flex justify-center"
         : "day w-24 h-36 hover:cursor-pointer ease-in duration-500  hover:scale-110  font-bold tracking-wider text-2xl border-blue-500 border-1 bg-gray-200  text-black shadow-lg shadow-blue-500 flex justify-center";
       
@@ -113,6 +98,9 @@ const GetStarted = () => {
     const data = await submitFormData(formData, date, selectedPlan);
     console.log(data)
   }
+
+  console.log(date)
+
   return (
     <div className="flex justify-center">
       <Navbar />
@@ -302,7 +290,11 @@ const GetStarted = () => {
                   <div></div>
                   <div
                     onClick={() => setMultiStepForm(multiStepForm + 1)}
-                    className="bg-blue-500 py-2 px-4 cursor-pointer text-xl text-white shadow-sm shadow-black rounded-lg"
+                    className={
+                      date
+                        ? "bg-blue-500 py-2 px-4 cursor-pointer text-xl text-white shadow-sm shadow-black rounded-lg"
+                        : "bg-blue-300 py-2 px-4 cursor-not-allowed text-xl text-white shadow-sm shadow-black rounded-lg"
+                    }
                   >
                     Next
                   </div>
@@ -460,7 +452,16 @@ const GetStarted = () => {
 
                   <div
                     onClick={() => setMultiStepForm(multiStepForm + 1)}
-                    className="bg-blue-500 py-2 px-4 text-xl text-white shadow-sm cursor-pointer shadow-black rounded-lg"
+                    className={
+                      formData.name &&
+                      formData.phoneNumber &&
+                      formData.address &&
+                      formData.apt &&
+                      formData.city &&
+                      formData.zip
+                        ? "bg-blue-500 py-2 px-4 text-xl text-white shadow-sm cursor-pointer shadow-black rounded-lg"
+                        : "bg-blue-300 py-2 cursor-not-allowed px-4 text-xl text-white shadow-sm shadow-black rounded-lg"
+                    }
                   >
                     Next
                   </div>
@@ -483,20 +484,19 @@ const GetStarted = () => {
                     {/* Section: Design Block */}
                     <section className="mb-32">
                       <div
-                        className="grid gap-0 grid-col-1
-                       lg:grid-cols-2 lg:gap-x-0"
+                        className="grid  gap-0  grid-col-1
+                       lg:grid-cols-2 lg:gap-x-0 lg:gap-y-20"
                       >
                         <div className="mb-6 lg:mb-0">
                           <div className="block h-[105%] w-[80%] text-black rounded-lg bg-gray-100 shadow-xl border-blue-600 border-2 ">
                             <div className="border-b-2 border-neutral-100 border-opacity-100 p-6 text-center dark:border-opacity-10">
-                              <p className="mb-4 text-xl text-black uppercase">
+                              <p className="mb-4 text-blue-600 text-xl  uppercase">
                                 <strong>Pay as you go</strong>
                               </p>
                               <h3 className="mb-6 text-3xl flex justify-start items-center  ">
-                                <strong className="text-5xl ">$6</strong>
+                                <strong className="text-5xl ">$9.99</strong>
                                 <small className=" text-sm ml-5 text-black font-semibold text-start mt-2">
-                                  per pickup (incl. first package) +$2 each
-                                  addt’l package
+                                  + $3.99 additional boxes
                                 </small>
                               </h3>
                               <hr className="border-2 border-blue-500 mt-10" />
@@ -577,9 +577,9 @@ const GetStarted = () => {
                                 <strong>Membership</strong>
                               </p>
                               <h3 className="mb-6 text-3xl flex justify-start items-center ">
-                                <strong className="text-5xl w-full">$14</strong>
+                                <strong className="text-5xl w-full">$19</strong>
                                 <small className=" text-sm text-black w-full font-semibold text-start mt-2">
-                                  Per Month
+                                  Unlimited pickup for a Month
                                 </small>
                               </h3>
                               <hr className="border-2 border-blue-500 mt-10" />
@@ -658,13 +658,217 @@ const GetStarted = () => {
                               <div className="flex justify-center items-center mt-8">
                                 <button
                                   onClick={() => {
-                                    setSelectedPlan("Member");
+                                    setSelectedPlan("Monthly Package");
                                     setMultiStepForm(multiStepForm + 1);
                                   }}
                                   type="button"
                                   className="bg-blue-500 text-xl self-center align-middle justify-center border-blue-500 ease-in duration-300 text-white font-semibold hover:text-blue-500 hover:bg-white  border-2 w-full py-3 rounded-xl"
                                 >
-                                  Become a member
+                                  Monthly Package
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="mb-6 lg:mb-0">
+                          <div className="block h-[105%] w-[80%] text-black rounded-lg bg-gray-100 shadow-xl border-blue-600 border-2 ">
+                            <div className="border-b-2 border-neutral-100 border-opacity-100 p-6 text-center dark:border-opacity-10">
+                              <p className="mb-4 text-xl text-blue-600 uppercase">
+                                <strong>3 Months Package</strong>
+                              </p>
+                              <h3 className="mb-6 text-3xl flex justify-start items-center ">
+                                <strong className="text-5xl w-full">
+                                  $48.85
+                                </strong>
+                                <small className=" text-sm text-black w-full font-semibold text-start mt-2">
+                                  for 3 Months
+                                </small>
+                              </h3>
+                              <hr className="border-2 border-blue-500 mt-10" />
+                            </div>
+                            <div className="px-6">
+                              <ol className="list-inside">
+                                <li className="mb-4 flex">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth={2}
+                                    stroke="currentColor"
+                                    className="mr-3 h-5 w-5 text-green-500"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      d="M4.5 12.75l6 6 9-13.5"
+                                    />
+                                  </svg>
+                                  Unlimited pickups and packages
+                                </li>
+                                <li className="mb-4 flex">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth={2}
+                                    stroke="currentColor"
+                                    className="mr-3 h-5 w-5 text-green-500"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      d="M4.5 12.75l6 6 9-13.5"
+                                    />
+                                  </svg>
+                                  Free label printing
+                                </li>
+                                <li className="mb-4 flex">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth={2}
+                                    stroke="currentColor"
+                                    className="mr-3 h-5 w-5 text-xl font-bold text-green-500"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      d="M4.5 12.75l6 6 9-13.5"
+                                    />
+                                  </svg>
+                                  Free boxes
+                                </li>
+                                <li className="mb-4 flex">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth="{2}"
+                                    stroke="currentColor"
+                                    className="mr-3 h-5 w-5 text-xl font-bold text-green-500"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      d="M4.5 12.75l6 6 9-13.5"
+                                    />
+                                  </svg>
+                                  Email and phone support
+                                </li>
+                              </ol>
+                              <div className="flex justify-center items-center mt-8">
+                                <button
+                                  onClick={() => {
+                                    setSelectedPlan("3 Months Package");
+                                    setMultiStepForm(multiStepForm + 1);
+                                  }}
+                                  type="button"
+                                  className="bg-blue-500 text-xl self-center align-middle justify-center border-blue-500 ease-in duration-300 text-white font-semibold hover:text-blue-500 hover:bg-white  border-2 w-full py-3 rounded-xl"
+                                >
+                                  3 Month Subscription
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="mb-6 lg:mb-0">
+                          <div className="block h-[105%] w-[80%] text-black rounded-lg bg-gray-100 shadow-xl border-blue-600 border-2 ">
+                            <div className="border-b-2 border-neutral-100 border-opacity-100 p-6 text-center dark:border-opacity-10">
+                              <p className="mb-4 text-xl text-blue-600 uppercase">
+                                <strong>Yearly</strong>
+                              </p>
+                              <h3 className="mb-6 text-3xl flex justify-start items-center ">
+                                <strong className="text-5xl w-full">
+                                  $159.6
+                                </strong>
+                                <small className=" text-sm text-black w-full font-semibold text-start mt-2">
+                                  12 Months
+                                </small>
+                              </h3>
+                              <hr className="border-2 border-blue-500 mt-10" />
+                            </div>
+                            <div className="px-6">
+                              <ol className="list-inside">
+                                <li className="mb-4 flex">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth={2}
+                                    stroke="currentColor"
+                                    className="mr-3 h-5 w-5 text-green-500"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      d="M4.5 12.75l6 6 9-13.5"
+                                    />
+                                  </svg>
+                                  Unlimited pickups and packages
+                                </li>
+                                <li className="mb-4 flex">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth={2}
+                                    stroke="currentColor"
+                                    className="mr-3 h-5 w-5 text-green-500"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      d="M4.5 12.75l6 6 9-13.5"
+                                    />
+                                  </svg>
+                                  Free label printing
+                                </li>
+                                <li className="mb-4 flex">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth={2}
+                                    stroke="currentColor"
+                                    className="mr-3 h-5 w-5 text-xl font-bold text-green-500"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      d="M4.5 12.75l6 6 9-13.5"
+                                    />
+                                  </svg>
+                                  Free boxes
+                                </li>
+                                <li className="mb-4 flex">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth="{2}"
+                                    stroke="currentColor"
+                                    className="mr-3 h-5 w-5 text-xl font-bold text-green-500"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      d="M4.5 12.75l6 6 9-13.5"
+                                    />
+                                  </svg>
+                                  Email and phone support
+                                </li>
+                              </ol>
+                              <div className="flex justify-center items-center mt-8">
+                                <button
+                                  onClick={() => {
+                                    setSelectedPlan("Yearly");
+                                    setMultiStepForm(multiStepForm + 1);
+                                  }}
+                                  type="button"
+                                  className="bg-blue-500 text-xl self-center align-middle justify-center border-blue-500 ease-in duration-300 text-white font-semibold hover:text-blue-500 hover:bg-white  border-2 w-full py-3 rounded-xl"
+                                >
+                                  1 Year Subscription
                                 </button>
                               </div>
                             </div>
@@ -873,7 +1077,13 @@ const GetStarted = () => {
 
                   <div
                     onClick={() => setMultiStepForm(multiStepForm + 1)}
-                    className="bg-blue-500 py-2 px-4 text-xl text-white shadow-sm cursor-pointer shadow-black rounded-lg"
+                    className={
+                      formData.labelType &&
+                      formData.returnLabelFile &&
+                      formData.description
+                        ? "bg-blue-500 py-2 px-4 text-xl text-white shadow-sm cursor-pointer shadow-black rounded-lg"
+                        : "bg-blue-300 py-2 px-4 text-xl text-white shadow-sm cursor-not-allowed shadow-black rounded-lg"
+                    }
                   >
                     Next
                   </div>
@@ -906,7 +1116,7 @@ const GetStarted = () => {
                     <div>
                       {" "}
                       <span className="font-semibold"> Pickup date:</span>{" "}
-                      {date.toLocaleDateString()}
+                      {date?.toLocaleDateString()}
                     </div>
                   </div>
 
@@ -961,7 +1171,24 @@ const GetStarted = () => {
                     </svg>
                   </label>
                 </div>
-                <button onClick={formSubmit} className="w-full my-5 border-blue-500 bg-blue-500 text-white text-2xl font-semibold py-2 rounded-lg border hover:text-blue-500 hover:bg-white ease-in duration-300">
+                <button
+                  onClick={formSubmit}
+                  className={
+                    date &&
+                    formData.name &&
+                    formData.phoneNumber &&
+                    formData.address &&
+                    formData.apt &&
+                    formData.city &&
+                    formData.zip &&
+                    formData.labelType &&
+                    formData.returnLabelFile &&
+                    formData.description &&
+                    selectedPlan
+                      ? "w-full my-5 border-blue-500 bg-blue-500 text-white text-2xl font-semibold py-2 rounded-lg border hover:text-blue-500 hover:bg-white ease-in duration-300"
+                      : "w-full my-5 cursor-not-allowed border-blue-500 bg-blue-300 text-white text-2xl font-semibold py-2 rounded-lg border hover:text-blue-500 hover:bg-white ease-in duration-300"
+                  }
+                >
                   Confirm Pickup
                 </button>
               </div>
