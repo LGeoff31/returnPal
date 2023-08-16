@@ -127,7 +127,7 @@ const Navbar = () => {
                         variant: "outlined",
                         textTransform: "none",
                         borderRadius: "2rem",
-                        backgroundColor: "#20aae6",
+                        backgroundColor: "#dbdbdb",
                         border: "none",
                         fontSize: "15px",
                         textAlign: "center",
