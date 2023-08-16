@@ -197,17 +197,17 @@ const signIn = () => {
                           <input
                             id="green-checkbox"
                             type="checkbox"
-                            className="w-4 h-4 text-blue-600  rounded  focus:ring-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-blue-600"
+                            className="w-4 h-4 mt-2 text-blue-600  rounded  focus:ring-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-blue-600"
                           />
                           <label
                             htmlFor="green-checkbox"
-                            className="ml-2 text-sm font-medium text-black"
+                            className="ml-2 mt-2 text-sm font-medium text-black"
                           >
                             Remember Me
                           </label>
                         </div>
                         <Link href="login" legacyBehavior>
-                          <a className="text-lg font-semibold no-underline cursor-pointer ease-in duration-300 hover:scale-110 text-blue-500">
+                          <a className="text-lg mt-2 font-semibold no-underline cursor-pointer ease-in duration-300 hover:scale-110 text-blue-500">
                             Login Here
                           </a>
                         </Link>

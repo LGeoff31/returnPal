@@ -124,8 +124,10 @@ const Navbar = () => {
                     <Button
                       variant="contained"
                       sx={{
+                        color: "black",
                         variant: "outlined",
                         textTransform: "none",
+                        textDecoration: "none",
                         borderRadius: "2rem",
                         backgroundColor: "#dbdbdb",
                         border: "none",
