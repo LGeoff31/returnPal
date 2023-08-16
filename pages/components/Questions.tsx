@@ -163,72 +163,82 @@ const Questions = () => {
           </Box>
         </Grid>
       </Grid>
-      <Grid
-        container
-        direction="column"
-        paddingLeft="15%"
-        paddingRight="15%"
-        sx={{ background: "#ebebeb" }}
+      <Box
+        sx={{
+          background: `url('/images/courier.jpg') center top / 100% auto no-repeat`,
+          // borderRadius: "200px 200px 20px 20px", // Apply border-radius to the bottom corners
+          // overflow: "hidden", // Hide any content overflowing from the curved area
+          marginTop: "1rem", // Add some spacing at the top
+          // background: "#ebebeb",
+        }}
       >
-        <Typography
-          color={"#01314B"}
-          variant="h3"
-          paddingTop="2rem"
-          fontSize={"2rem"}
-          paddingBottom="1rem"
-          fontWeight="bold"
+        <Grid
+          container
+          direction="column"
+          paddingLeft="15%"
+          paddingRight="15%"
+          sx={{ background: "#ebebeb" }}
         >
-          FAQ's
-        </Typography>
-        <Grid item xs={12} md={6}>
-          {faqs.map((faq, index) => (
-            <Accordion
-              key={index}
-              sx={{
-                background: "#ebebeb",
-                border: "none",
-                boxShadow: "none", // Remove box shadow
-                "&.MuiAccordion-root:before": {
-                  display: "none", // Hide the border using pseudo-element
-                },
-              }}
-            >
-              <AccordionSummary
-                sx={{ padding: 0 }}
-                expandIcon={<ExpandMoreIcon />}
+          <Typography
+            color={"#01314B"}
+            variant="h3"
+            paddingTop="2rem"
+            fontSize={"2rem"}
+            paddingBottom="1rem"
+            fontWeight="bold"
+          >
+            FAQ's
+          </Typography>
+          <Grid item xs={12} md={6}>
+            {faqs.map((faq, index) => (
+              <Accordion
+                key={index}
+                sx={{
+                  background: "#ebebeb",
+                  border: "none",
+                  boxShadow: "none", // Remove box shadow
+                  "&.MuiAccordion-root:before": {
+                    display: "none", // Hide the border using pseudo-element
+                  },
+                }}
               >
-                <Typography
-                  fontSize="1.25rem"
-                  fontWeight="bold"
-                  color="#6e6d6b"
+                <AccordionSummary
+                  sx={{ padding: 0 }}
+                  expandIcon={<ExpandMoreIcon />}
                 >
-                  {faq.question}
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails sx={{ padding: 0 }}>
-                <Typography color="#01314B">{faq.answer}</Typography>
-              </AccordionDetails>
-            </Accordion>
-          ))}
+                  <Typography
+                    fontSize="1.25rem"
+                    fontWeight="bold"
+                    color="#6e6d6b"
+                  >
+                    {faq.question}
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails sx={{ padding: 0 }}>
+                  <Typography color="#01314B">{faq.answer}</Typography>
+                </AccordionDetails>
+              </Accordion>
+            ))}
+          </Grid>
+          <Button
+            sx={{
+              borderRadius: "50px", // Adjust the value as needed to get the desired oval shape
+              padding: "0.5rem 36px", // Customize the padding to fit the content
+              fontSize: "1.15rem", // Set the font size to your preference
+              fontWeight: "bold", // Adjust font weight as needed
+              textTransform: "none", // Avoid uppercase transformation
+              background: "#00bfff", // Set the desired background color
+              marginBottom: "2rem",
+              color: "#fff", // Set the text color to contrast with the background
+              "&:hover": {
+                background: "#005DFF", // Set a darker background color on hover
+              },
+            }}
+          >
+            Learn More
+          </Button>
         </Grid>
-        <Button
-          sx={{
-            borderRadius: "50px", // Adjust the value as needed to get the desired oval shape
-            padding: "0.5rem 36px", // Customize the padding to fit the content
-            fontSize: "1.15rem", // Set the font size to your preference
-            fontWeight: "bold", // Adjust font weight as needed
-            textTransform: "none", // Avoid uppercase transformation
-            background: "#00bfff", // Set the desired background color
-            marginBottom: "2rem",
-            color: "#fff", // Set the text color to contrast with the background
-            "&:hover": {
-              background: "#005DFF", // Set a darker background color on hover
-            },
-          }}
-        >
-          Learn More
-        </Button>
-      </Grid>
+      </Box>
     </>
   );
 };

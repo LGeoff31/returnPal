@@ -6,15 +6,59 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+// import React, {useRef} from "react";
 import Layout from "./components/Layout";
 import EmailIcon from "@mui/icons-material/Email";
 import Image from "next/image";
 
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+
 const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_3o5mcdb",
+        "template_xwxfc8f",
+        form.current,
+        "moDPWbTnW1z7oYc1i"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          console.log("message sent");
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+  // e.target.reset()
   return (
-    <Layout>
-      <Grid
+    // <Layout>
+    <>
+      <form ref={form} onSubmit={sendEmail}>
+        <label>Name</label>
+        <input type="text" name="user_name" />
+        <label>Email</label>
+        <input type="email" name="user_email" />
+        <label>Message</label>
+        <textarea name="message" />
+        <input type="submit" value="Send" />
+      </form>
+    </>
+  );
+};
+export default Contact;
+
+// Styles
+
+{
+  /* <Grid
         container
         direction={{ md: "row", sm: "column" }}
         justifyContent={"center"}
@@ -97,8 +141,10 @@ const Contact = () => {
               </Grid>
             </Grid>
           </form>
-        </CardContent>
-        {/* <Image
+        </CardContent> */
+}
+{
+  /* <Image
           src={"/images/returnpal-unload-box.png"}
           alt="Retailers"
           width={400}
@@ -109,17 +155,18 @@ const Contact = () => {
             alignContent: "center",
             margin: "0 auto",
           }}
-        /> */}
-        {/* <Image
+        /> */
+}
+{
+  /* <Image
           src="/images/returnpal-boxing.webp"
           alt="pexels-photo-4247766.jpeg"
           width="300"
           height="100"
           // style={{ padding: 0 }}
-        /> */}
-      </Grid>
-    </Layout>
-  );
-};
-
-export default Contact;
+        /> */
+}
+{
+  /* </Grid> */
+}
+// </Layout>

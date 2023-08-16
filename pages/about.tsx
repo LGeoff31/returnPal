@@ -18,14 +18,11 @@ import LayoutTwo from "./sub_components/LayoutTwo";
 const About = () => {
   return (
     <Layout>
-      <Grid
-        paddingTop={{ xs: "7rem", md: "10rem" }}
-        sx={{ overflow: "hidden" }}
-      >
+      <Grid paddingTop={{ xs: "7rem", md: "8rem" }} sx={{ overflow: "hidden" }}>
         <Typography
           variant="h3"
           sx={{ textAlign: "center" }}
-          fontSize={{ xs: "30px" }}
+          fontSize={{ xs: "30px", md: "50px" }}
         >
           <span style={{ color: "#071048" }}>How</span>
           <span style={{ color: "#03a9fc" }}>&nbsp;ReturnPal</span>
@@ -107,7 +104,7 @@ const About = () => {
             textAlign: "center",
             width: "100%",
             mx: "auto", // Center the box horizontally
-            marginBottom: "5%",
+            // marginBottom: "5%",
           }}
         >
           <Typography
