@@ -89,7 +89,8 @@ const GetStarted = () => {
        ...prevFormData,
        [fieldName]: value,
      }));
-   };
+  };
+  const [formSubmited,setFormSubmitted] = useState(false)
 
   const formSubmit = async () => {
     console.log(formData)
@@ -97,6 +98,9 @@ const GetStarted = () => {
     console.log(selectedPlan)
     const data = await submitFormData(formData, date, selectedPlan);
     console.log(data)
+    if (data) {
+        setFormSubmitted(true)
+    }
   }
 
   console.log(date)
@@ -130,7 +134,7 @@ const GetStarted = () => {
             <span className="flex items-center justify-center w-5 h-5 mr-2 text-xs border  rounded-full shrink-0 border-blue-500">
               1
             </span>
-            Pickup <span className="hidden sm:inline-flex sm:ml-2">Date</span>
+            <span className="hidden sm:inline-flex sm:ml-2">Pickup Date</span>
             <svg
               className="w-3 h-3 ml-2 sm:ml-4"
               aria-hidden="true"
@@ -157,9 +161,10 @@ const GetStarted = () => {
           >
             <span className="flex items-center justify-center w-5 h-5 mr-2 text-xs border  rounded-full shrink-0 border-gray-400">
               2
+            </span>{" "}
+            <span className="hidden sm:inline-flex sm:ml-2">
+              Pickup Details
             </span>
-            Pickup{" "}
-            <span className="hidden sm:inline-flex sm:ml-2">Details</span>
             <svg
               className="w-3 h-3 ml-2 sm:ml-4"
               aria-hidden="true"
@@ -187,7 +192,7 @@ const GetStarted = () => {
             <span className="flex items-center justify-center w-5 h-5 mr-2 text-xs border  rounded-full shrink-0 border-gray-400">
               3
             </span>
-            Choose <span className="hidden sm:inline-flex sm:ml-2">Plan</span>
+            <span className="hidden sm:inline-flex sm:ml-2">Choose Plan</span>
             <svg
               className="w-3 h-3 ml-2 sm:ml-4"
               aria-hidden="true"
@@ -215,7 +220,7 @@ const GetStarted = () => {
             <span className="flex items-center justify-center w-5 h-5 mr-2 text-xs border  rounded-full shrink-0 border-gray-400">
               4
             </span>
-            Package <span className="hidden sm:inline-flex sm:ml-2">Plan</span>
+            <span className="hidden sm:inline-flex sm:ml-2">Package Plan</span>
             <svg
               className="w-3 h-3 ml-2 sm:ml-4"
               aria-hidden="true"
@@ -243,7 +248,7 @@ const GetStarted = () => {
             <span className="flex items-center justify-center w-5 h-5 mr-2 text-xs border  rounded-full shrink-0 border-gray-400">
               5
             </span>
-            Checkout
+            <span className="hidden sm:inline-flex sm:ml-2">Checkout</span>
           </li>
         </ol>
 
@@ -252,12 +257,12 @@ const GetStarted = () => {
             <div className="flex justify-around">
               <div>
                 <div className="date-picker">
-                  <div className="flex flex-col items-start justify-start mb-10">
-                    <div className="text-black text-5xl mb-2">
+                  <div className="flex flex-col lg:items-start lg:justify-start mb-10">
+                    <div className="text-black lg:text-5xl md:text-2xl text-2xl mb-2">
                       Select a pickup{" "}
                       <span className="text-blue-600"> date</span>
                     </div>
-                    <div className="text-gray-500 text-start">
+                    <div className="text-gray-500 md:text-start text-center">
                       We pick up Monday-Saturday. We'll text you the morning of
                       your pickup with an <br /> estimated arrival time.
                     </div>
@@ -279,11 +284,11 @@ const GetStarted = () => {
                     &gt;
                   </button> */}
                   </div>
-                  <div className="week flex justify-between mt-5">
+                  <div className="week md:flex grid gap-y-5 grid-cols-3 md:ml-0 ml-5 lg:justify-between   mt-5">
                     {renderWeek()}
                   </div>
                 </div>
-                <div className="mt-10 flex justify-end">
+                <div className="mt-10 mb-10 flex md:justify-end justify-center">
                   {/* <div className="bg-gray-200  py-2 px-4 text-xl shadow-sm shadow-black rounded-lg">
                     Back
                   </div> */}
@@ -302,7 +307,7 @@ const GetStarted = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-blue-100 w-[20%] h-fit border-blue-500 border text-gray-900 rounded-xl p-5">
+              <div className="hidden md:block bg-blue-100 w-[20%] h-fit border-blue-500 border text-gray-900 rounded-xl p-5">
                 <div className="text-xl font-bold">
                   How Much is your time Worth?
                 </div>
@@ -329,30 +334,30 @@ const GetStarted = () => {
           ) : null}
           {multiStepForm == 2 ? (
             <div className="flex justify-around">
-              <div className="w-[50%] mb-32">
+              <div className="md:w-[50%] w-full md:mb-32 mb-10">
                 <div>
-                  <div className="flex flex-col items-start justify-start mb-10">
-                    <div className="text-black text-5xl mb-2">
+                  <div className="flex flex-col md:items-start items-center justify-center md:justify-start mb-10">
+                    <div className="text-black md:text-5xl text-3xl mb-2">
                       Pickup details
                     </div>
-                    <div className="text-gray-500 text-start">
+                    <div className="text-gray-500 text-center md:text-start">
                       Tell us more about yourself and your pickup address
                     </div>
                   </div>
                   <div>
-                    <div>
+                    <div className="px-5 md:px-0">
                       <label
                         htmlFor="name"
-                        className="block mb-2 font-medium text-black text-xl"
+                        className="block mb-2 font-medium text-black md:text-xl text-lg"
                       >
                         What are your contact details?
                       </label>
-                      <div className="flex w-[50vw] space-x-10">
+                      <div className="flex  md:flex-row md:space-y-0 space-y-5 space-x-0 flex-col md:w-[50vw] w-full md:space-x-10">
                         <input
                           type="name"
                           id="name"
                           aria-describedby="helper-text-explanation"
-                          className=" border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[70%] p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          className=" border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block md:w-[70%] w-full p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           placeholder={userData?.displayName}
                           value={formData.name}
                           onChange={(e) =>
@@ -360,7 +365,7 @@ const GetStarted = () => {
                           }
                           // value={userData?.displayName}
                         />
-                        <div className="flex w-96 justify-center items-center">
+                        <div className="flex md:w-96 w-full justify-center items-center">
                           <div className="border border-gray-300 rounded-r-none text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500rounded-lg p-2.5">
                             +1
                           </div>
@@ -379,7 +384,7 @@ const GetStarted = () => {
                       </div>
                       <p
                         id="helper-text-explanation"
-                        className="mt-2 text-sm text-gray-500 "
+                        className="mt-2 md:text-sm text-xs text-gray-500 "
                       >
                         You will receive text/email notifications from
                         Returnmates. Standard messaging rates apply.
@@ -395,12 +400,12 @@ const GetStarted = () => {
                       >
                         What is your pickup address?
                       </label>
-                      <div className="flex w-[72vw] space-x-10">
+                      <div className="flex md:flex-row flex-col md:w-[72vw] w-full space-x-0 md:space-x-10">
                         <input
                           type="address"
                           id="address"
                           aria-describedby="helper-text-explanation"
-                          className=" border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[70%] p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          className=" border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block md:w-[70%] w-full p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           placeholder={userData?.displayName}
                           value={formData.address}
                           onChange={(e) =>
@@ -409,7 +414,7 @@ const GetStarted = () => {
                           // value={userData?.displayName}
                         />
                       </div>
-                      <div className="flex w-[70%] mt-5 space-x-10">
+                      <div className="flex md:flex-row flex-col w-full md:w-[70%] mt-5 space-y-5 md:space-y-0 space-x-0 md:space-x-10">
                         <input
                           type="apt"
                           id="apt"
@@ -448,14 +453,14 @@ const GetStarted = () => {
                         htmlFor="name"
                         className="block mt-5 mb-2 font-medium text-black text-xl"
                       >
-                        What is your pickup address?
+                        Additional Information?
                       </label>
-                      <div className="flex w-[72vw] space-x-10">
+                      <div className="flex w-full md:w-[72vw] space-x-10">
                         <textarea
                           rows={5}
                           id="additionalInfo"
                           aria-describedby="helper-text-explanation"
-                          className=" border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[70%] p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black "
+                          className=" border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-[70%] p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black "
                           placeholder="i.e. building access code, location of door, etc."
                           value={formData.additionalInfo}
                           onChange={(e) =>
@@ -500,7 +505,7 @@ const GetStarted = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-blue-100 w-[20%] h-fit border-blue-500 border text-gray-900 rounded-xl p-5">
+              <div className="hidden sm:block bg-blue-100 w-[20%] h-fit border-blue-500 border text-gray-900 rounded-xl p-5">
                 <div className="text-xl font-bold">
                   How Much is your time Worth?
                 </div>
@@ -526,23 +531,25 @@ const GetStarted = () => {
             </div>
           ) : null}
           {multiStepForm == 3 ? (
-            <div className="flex justify-around">
-              <div className="mb-32">
+            <div className="flex justify-around md:mt-0 -mt-10">
+              <div className="md:mb-32 mb-10">
                 <div>
-                  <div className="flex flex-col items-start justify-start mb-10">
-                    <div className="text-black text-5xl mb-2">Choose plan</div>
+                  <div className="flex flex-col md:items-start items-center justify-center md:justify-start mb-10">
+                    <div className="text-black md:text-5xl text-3xl mb-2">
+                      Choose plan
+                    </div>
                     <div className="text-gray-500 text-start">
                       Say "Goodbye" to the Post Office
                     </div>
                   </div>
-                  <div className="container my-24 mx-auto ">
+                  <div className="container md:my-24 my-5 mx-auto ">
                     {/* Section: Design Block */}
-                    <section className="mb-32">
+                    <section className="md:mb-32 mb-10">
                       <div
-                        className="grid  gap-0  grid-col-1
+                        className="grid gap-0  grid-col-1
                        lg:grid-cols-2 lg:gap-x-0 lg:gap-y-20"
                       >
-                        <div className="mb-6 lg:mb-0">
+                        <div className="mb-6 md:block flex justify-center items-center lg:mb-0">
                           <div className="block h-[105%] w-[80%] text-black rounded-lg bg-gray-100 shadow-xl border-blue-600 border-2 ">
                             <div className="border-b-2 border-neutral-100 border-opacity-100 p-6 text-center dark:border-opacity-10">
                               <p className="mb-4 text-blue-600 text-xl  uppercase">
@@ -625,7 +632,7 @@ const GetStarted = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="mb-6 lg:mb-0">
+                        <div className="mb-6 md:mt-0 mt-5  md:block flex justify-center items-center lg:mb-0">
                           <div className="block h-[105%] w-[80%] text-black rounded-lg bg-gray-100 shadow-xl border-blue-600 border-2 ">
                             <div className="border-b-2 border-neutral-100 border-opacity-100 p-6 text-center dark:border-opacity-10">
                               <p className="mb-4 text-xl text-blue-600 uppercase">
@@ -725,7 +732,7 @@ const GetStarted = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="mb-6 lg:mb-0">
+                        <div className="mb-6 md:mt-0 mt-5  md:block flex justify-center items-center lg:mb-0">
                           <div className="block h-[105%] w-[80%] text-black rounded-lg bg-gray-100 shadow-xl border-blue-600 border-2 ">
                             <div className="border-b-2 border-neutral-100 border-opacity-100 p-6 text-center dark:border-opacity-10">
                               <p className="mb-4 text-xl text-blue-600 uppercase">
@@ -827,7 +834,7 @@ const GetStarted = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="mb-6 lg:mb-0">
+                        <div className="mb-6 md:mt-0 mt-5  md:block flex justify-center items-center lg:mb-0">
                           <div className="block h-[105%] w-[80%] text-black rounded-lg bg-gray-100 shadow-xl border-blue-600 border-2 ">
                             <div className="border-b-2 border-neutral-100 border-opacity-100 p-6 text-center dark:border-opacity-10">
                               <p className="mb-4 text-xl text-blue-600 uppercase">
@@ -943,7 +950,7 @@ const GetStarted = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-blue-100 w-[20%] h-fit border-blue-500 border text-gray-900 rounded-xl p-5">
+              <div className="hidden sm:block bg-blue-100 w-[20%] h-fit border-blue-500 border text-gray-900 rounded-xl p-5">
                 <div className="text-xl font-bold">
                   How Much is your time Worth?
                 </div>
@@ -970,22 +977,24 @@ const GetStarted = () => {
           ) : null}
           {multiStepForm == 4 ? (
             <div className="flex justify-around">
-              <div className="w-[50%]">
+              <div className="md:w-[50%] w-full">
                 <div>
-                  <div className="flex flex-col items-start justify-start mb-10">
-                    <div className="text-black text-5xl mb-2">Package info</div>
-                    <div className="text-gray-500 text-start">
+                  <div className="flex flex-col md:items-start items-center md:justify-start justify-center mb-10">
+                    <div className="text-black md:text-5xl text-3xl mb-2">
+                      Package info
+                    </div>
+                    <div className="text-gray-500 md:text-start text-center">
                       Describe your returns and we'll handle the label printing
                       and repackaging
                     </div>
                   </div>
 
-                  <div>
-                    <h3 className="mb-5 text-lg font-medium text-gray-900 ">
+                  <div className="md:block flex flex-col justify-center items-center md:space-y-0">
+                    <h3 className="mb-5 md:text-lg text-xl font-medium text-gray-900 ">
                       Select label type
                     </h3>
-                    <ul className="grid w-full md:grid-cols-3">
-                      <li>
+                    <ul className="md:grid flex flex-col md:space-y-0 space-y-5  justify-center items-center w-full   md:grid-cols-3">
+                      <li className="flex justify-center items-center">
                         <input
                           type="radio"
                           id="hosting-small"
@@ -1026,7 +1035,7 @@ const GetStarted = () => {
                           </svg>
                         </label>
                       </li>
-                      <li>
+                      <li className="flex justify-center items-center">
                         <input
                           type="radio"
                           id="hosting-big"
@@ -1066,7 +1075,7 @@ const GetStarted = () => {
                           </svg>
                         </label>
                       </li>
-                      <li>
+                      <li className="flex justify-center items-center">
                         <input
                           type="radio"
                           id="hosting-medium"
@@ -1125,7 +1134,7 @@ const GetStarted = () => {
                     </div>
                   </div>
                 </div>
-                <div>
+                <div className="flex flex-col md:px-0 px-9 justify-center items-center">
                   <label
                     htmlFor="message"
                     className="block mb-2 text-lg font-semibold text-black mt-5 "
@@ -1135,7 +1144,7 @@ const GetStarted = () => {
                   <textarea
                     id="message"
                     rows={4}
-                    className="block p-2.5 w-[60%] text-sm text-gray-900 bg-gray-50 rounded-lg border border-blue-500 focus:ring-blue-500 focus:border-blue-500"
+                    className="block p-2.5  md:w-[60%] w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-blue-500 focus:ring-blue-500 focus:border-blue-500"
                     placeholder="Write your thoughts here..."
                     value={formData.description}
                     onChange={(e) =>
@@ -1144,7 +1153,7 @@ const GetStarted = () => {
                   />
                 </div>
 
-                <div className="mt-10 flex justify-evenly">
+                <div className="mt-10 md:mb-0 mb-5 flex justify-evenly">
                   <div
                     onClick={() => setMultiStepForm(multiStepForm - 1)}
                     className="bg-gray-200 cursor-pointer  py-2 px-4 text-xl shadow-sm shadow-black rounded-lg"
@@ -1172,7 +1181,7 @@ const GetStarted = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-blue-100 w-[20%] h-fit border-blue-500 border text-gray-900 rounded-xl p-5">
+              <div className="hidden sm:block bg-blue-100 w-[20%] h-fit border-blue-500 border text-gray-900 rounded-xl p-5">
                 <div className="text-xl font-bold">
                   How Much is your time Worth?
                 </div>
@@ -1198,104 +1207,187 @@ const GetStarted = () => {
             </div>
           ) : null}
           {multiStepForm == 5 ? (
-            <div className="w-[50%] ml-20">
-              <div className="text-2xl font-bold mb-2">Checkout</div>
+            <div className="md:w-fit w-full md:ml-20 ml-0 flex md:flex-row flex-col justify-between">
+              <div className="md:w-[50vw] w-full px-5 md:px-0 ">
+                <div className="text-2xl font-bold mb-2">Checkout</div>
 
-              <div className="flex flex-col justify-around items-start">
-                <h1 className="font-semibold text-lg mb-5 ">
-                  Pickup Information
-                </h1>
-                <div className="flex justify-center items-center space-x-5">
-                  <div>
-                    <div className="font-semibold">{formData.phoneNumber}</div>
-                    <div className="truncate w-fit"> {formData.address}</div>
-                  </div>
-
-                  <div className="self-end text-blue-500 cursor-pointer font-semibold text-xl">
-                    Edit
-                  </div>
-                </div>
-                <hr className="border-1 border-black w-full my-5" />
-                <div className="flex justify-center items-center space-x-5">
-                  <div>
+                <div className="flex flex-col justify-around items-start">
+                  <h1 className="font-semibold text-lg mb-5 ">
+                    Pickup Information
+                  </h1>
+                  <div className="flex justify-center items-center space-x-5">
                     <div>
-                      {" "}
-                      <span className="font-semibold"> Pickup date:</span>{" "}
-                      {date?.toLocaleDateString()}
+                      <div className="font-semibold">
+                        {formData.phoneNumber}
+                      </div>
+                      <div className="truncate md:w-fit w-[75vw]"> {formData.address}</div>
+                    </div>
+
+                    <div className="self-end text-blue-500 cursor-pointer font-semibold text-xl">
+                      Edit
                     </div>
                   </div>
-
-                  <div className="self-end text-blue-500 cursor-pointer font-semibold text-xl">
-                    Edit
-                  </div>
-                </div>
-                <hr className="border-1 border-black w-full my-5" />
-                <div className="flex justify-center items-center space-x-5">
-                  <div>
+                  <hr className="border-1 border-black w-full my-5" />
+                  <div className="flex justify-center items-center space-x-5">
                     <div>
-                      {" "}
-                      <span className="font-semibold">
+                      <div>
                         {" "}
-                        Pickup method:
-                      </span>{" "}
-                      {formData.labelType}
+                        <span className="font-semibold">
+                          {" "}
+                          Pickup date:
+                        </span>{" "}
+                        {date?.toLocaleDateString()}
+                      </div>
+                    </div>
+
+                    <div className="self-end text-blue-500 cursor-pointer font-semibold text-xl">
+                      Edit
                     </div>
                   </div>
+                  <hr className="border-1 border-black w-full my-5" />
+                  <div className="flex justify-center items-center space-x-5">
+                    <div>
+                      <div>
+                        {" "}
+                        <span className="font-semibold">
+                          {" "}
+                          Pickup method:
+                        </span>{" "}
+                        {formData.labelType}
+                      </div>
+                    </div>
 
-                  <div className="self-end text-blue-500 cursor-pointer font-semibold text-xl">
-                    Edit
+                    <div className="self-end text-blue-500 cursor-pointer font-semibold text-xl">
+                      Edit
+                    </div>
+                  </div>
+                  <hr className="border-1 border-black w-full my-5" />
+                </div>
+
+                <div className="flex flex-col justify-around items-start">
+                  <h1 className="font-semibold text-lg mb-5 ">
+                    Payment Method
+                  </h1>
+                  <div className="flex justify-center items-center space-x-5">
+                    <label className="relative w-full flex flex-col">
+                      <span className="font-bold mb-3">Card number</span>
+                      <input
+                        className="rounded-md peer pl-12 pr-2 py-2 border-2 border-blue-500 placeholder-gray-500"
+                        type="text"
+                        name="card_number"
+                        placeholder="0000 0000 0000"
+                      />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="absolute bottom-0 left-0 -mb-0.5 transform translate-x-1/2 -translate-y-1/2 text-black peer-placeholder-shown:text-gray-300 h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                        />
+                      </svg>
+                    </label>
+                  </div>
+                  <button
+                    onClick={() =>
+                      date &&
+                      formData.name &&
+                      formData.phoneNumber &&
+                      formData.address &&
+                      formData.apt &&
+                      formData.city &&
+                      formData.zip &&
+                      formData.labelType &&
+                      formData.returnLabelFile &&
+                      formData.description &&
+                      selectedPlan &&
+                      !formSubmited
+                        ? formSubmit()
+                        : null
+                    }
+                    className={
+                      date &&
+                      formData.name &&
+                      formData.phoneNumber &&
+                      formData.address &&
+                      formData.apt &&
+                      formData.city &&
+                      formData.zip &&
+                      formData.labelType &&
+                      formData.returnLabelFile &&
+                      formData.description &&
+                      selectedPlan
+                        ? formSubmited==false
+                          ? "w-full my-5 border-blue-500 bg-blue-500 text-white text-2xl font-semibold py-2 rounded-lg border hover:text-blue-500 hover:bg-white ease-in duration-300"
+                          : "w-full my-5  bg-green-500 cursor-not-allowed text-white text-2xl font-semibold py-2 rounded-lg border hover:text-blue-500 hover:bg-white ease-in duration-300"
+                        : "w-full my-5 cursor-not-allowed border-blue-500 bg-blue-300 text-white text-2xl font-semibold py-2 rounded-lg border hover:text-blue-500 hover:bg-white ease-in duration-300"
+                    }
+                  >
+                    {formSubmited==true ? "Success" : " Confirm Pickup"}
+                  </button>
+                </div>
+              </div>
+              <div className="md:w-[50vw] md:mb-0 mb-10 w-full md:px-0 px-5   flex justify-center items-center">
+                <div className="border-blue-500 border-2 rounded-lg bg-blue-200 px-5 py-20">
+                  <div className="text-3xl font-bold tracking-wide">
+                    {" "}
+                    Order summary{" "}
+                  </div>
+                  <hr className="border-gray-500 my-5 border" />
+                  <form>
+                    <h1 className="text-xl mb-1 ml-1">Enter Promo Code</h1>
+                    <label
+                      htmlFor="search"
+                      className="mb-2 text-sm font-medium text-gray-900 sr-only "
+                    >
+                      Search
+                    </label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <svg
+                          className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            stroke="currentColor"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                          />
+                        </svg>
+                      </div>
+                      <input
+                        type="search"
+                        id="search"
+                        className="block w-full py-4 px-20 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                        placeholder="Promo Code"
+                        required
+                      />
+                      <button
+                        type="submit"
+                        className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 "
+                      >
+                        Apply
+                      </button>
+                    </div>
+                  </form>
+                  <div className="mt-5">
+                    Upgrade to unlimited pickups for $14.99 /month.{" "}
+                    <span className="text-blue-500 font-bold text-lg underline">
+                      {" "}
+                      Upgrade now{" "}
+                    </span>
                   </div>
                 </div>
-                <hr className="border-1 border-black w-full my-5" />
-              </div>
-
-              <div className="flex flex-col justify-around items-start">
-                <h1 className="font-semibold text-lg mb-5 ">Payment Method</h1>
-                <div className="flex justify-center items-center space-x-5">
-                  <label className="relative w-full flex flex-col">
-                    <span className="font-bold mb-3">Card number</span>
-                    <input
-                      className="rounded-md peer pl-12 pr-2 py-2 border-2 border-blue-500 placeholder-gray-500"
-                      type="text"
-                      name="card_number"
-                      placeholder="0000 0000 0000"
-                    />
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="absolute bottom-0 left-0 -mb-0.5 transform translate-x-1/2 -translate-y-1/2 text-black peer-placeholder-shown:text-gray-300 h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
-                      />
-                    </svg>
-                  </label>
-                </div>
-                <button
-                  onClick={formSubmit}
-                  className={
-                    date &&
-                    formData.name &&
-                    formData.phoneNumber &&
-                    formData.address &&
-                    formData.apt &&
-                    formData.city &&
-                    formData.zip &&
-                    formData.labelType &&
-                    formData.returnLabelFile &&
-                    formData.description &&
-                    selectedPlan
-                      ? "w-full my-5 border-blue-500 bg-blue-500 text-white text-2xl font-semibold py-2 rounded-lg border hover:text-blue-500 hover:bg-white ease-in duration-300"
-                      : "w-full my-5 cursor-not-allowed border-blue-500 bg-blue-300 text-white text-2xl font-semibold py-2 rounded-lg border hover:text-blue-500 hover:bg-white ease-in duration-300"
-                  }
-                >
-                  Confirm Pickup
-                </button>
               </div>
             </div>
           ) : null}
