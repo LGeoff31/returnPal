@@ -6,12 +6,38 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+// import React, {useRef} from "react";
 import Layout from "./components/Layout";
 import EmailIcon from "@mui/icons-material/Email";
 import Image from "next/image";
 
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+
 const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_3o5mcdb",
+        "template_xwxfc8f",
+        form.current,
+        "moDPWbTnW1z7oYc1i"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          console.log("message sent");
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    e.target.reset();
+  };
   return (
     <Layout>
       <Grid
@@ -44,10 +70,12 @@ const Contact = () => {
           <Typography paddingTop="1rem" paddingBottom="1rem">
             <EmailIcon /> info.returnpal@gmail.com
           </Typography>
-          <form>
+          <form ref={form} onSubmit={sendEmail}>
             <Grid container spacing={1}>
               <Grid xs={12} sm={6} item>
                 <TextField
+                  type="text"
+                  name="first_name"
                   label="First Name"
                   placeholder="Enter first name"
                   variant="outlined"
@@ -57,6 +85,7 @@ const Contact = () => {
               </Grid>
               <Grid xs={12} sm={6} item>
                 <TextField
+                  name="last_name"
                   label="Last Name"
                   placeholder="Enter last name"
                   variant="outlined"
@@ -66,6 +95,7 @@ const Contact = () => {
               </Grid>
               <Grid xs={12} item>
                 <TextField
+                  name="user_email"
                   type="email"
                   label="Email"
                   placeholder="Enter email"
@@ -76,6 +106,7 @@ const Contact = () => {
               </Grid>
               <Grid xs={12} item>
                 <TextField
+                  name="message"
                   label="Message"
                   multiline
                   rows={4}
@@ -98,28 +129,8 @@ const Contact = () => {
             </Grid>
           </form>
         </CardContent>
-        {/* <Image
-          src={"/images/returnpal-unload-box.png"}
-          alt="Retailers"
-          width={400}
-          height={300}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignContent: "center",
-            margin: "0 auto",
-          }}
-        /> */}
-        {/* <Image
-          src="/images/returnpal-boxing.webp"
-          alt="pexels-photo-4247766.jpeg"
-          width="300"
-          height="100"
-          // style={{ padding: 0 }}
-        /> */}
       </Grid>
     </Layout>
   );
 };
-
 export default Contact;
