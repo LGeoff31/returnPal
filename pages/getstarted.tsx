@@ -102,7 +102,7 @@ const GetStarted = () => {
   console.log(date)
 
   return (
-    <div className="flex justify-center">
+    <div className="flex h-screen w-full justify-center">
       <Navbar />
       <ToastContainer
         position="top-center"
@@ -117,8 +117,8 @@ const GetStarted = () => {
         pauseOnHover
         theme="light"
       />
-      <div className="mt-32">
-        <ol className="flex items-center justify-center w-full p-3 space-x-2 text-sm font-medium text-center rounded-lg shadow-lg border-r-2 text-gray-400 sm:text-base bg-transparent border-b-2 border-0  sm:p-4 sm:space-x-4">
+      <div className="mt-24 w-full">
+        <ol className="flex items-center bg-blue-100  shadow-gray-400  justify-center w-full p-3 space-x-2 text-sm font-medium text-center rounded-lg shadow-lg border-r-2 text-gray-400 sm:text-base border-b-2  sm:p-4 sm:space-x-4">
           <li
             onClick={() => setMultiStepForm(1)}
             className={
@@ -283,13 +283,15 @@ const GetStarted = () => {
                     {renderWeek()}
                   </div>
                 </div>
-                <div className="mt-10 flex justify-around">
+                <div className="mt-10 flex justify-end">
                   {/* <div className="bg-gray-200  py-2 px-4 text-xl shadow-sm shadow-black rounded-lg">
                     Back
                   </div> */}
                   <div></div>
                   <div
-                    onClick={() => setMultiStepForm(multiStepForm + 1)}
+                    onClick={() =>
+                      date ? setMultiStepForm(multiStepForm + 1) : null
+                    }
                     className={
                       date
                         ? "bg-blue-500 py-2 px-4 cursor-pointer text-xl text-white shadow-sm shadow-black rounded-lg"
@@ -300,12 +302,34 @@ const GetStarted = () => {
                   </div>
                 </div>
               </div>
-              <div>SideBar Section</div>
+              <div className="bg-blue-100 w-[20%] h-fit border-blue-500 border text-gray-900 rounded-xl p-5">
+                <div className="text-xl font-bold">
+                  How Much is your time Worth?
+                </div>
+                <div className="mt-4">
+                  The average online shopper spends <br />{" "}
+                  <span className="text-blue-500 font-bold text-lg">
+                    {" "}
+                    5 hours/month{" "}
+                  </span>{" "}
+                  dealing with returns
+                </div>
+                <div className="text-xl mt-10 font-bold">
+                  Get your money back!
+                </div>
+                <div className="mt-4">
+                  The average online shopper wastes <br />{" "}
+                  <span className="text-blue-500 font-bold text-lg">
+                    $300/year
+                  </span>{" "}
+                  on unwanted purchases
+                </div>
+              </div>
             </div>
           ) : null}
           {multiStepForm == 2 ? (
             <div className="flex justify-around">
-              <div>
+              <div className="w-[50%] mb-32">
                 <div>
                   <div className="flex flex-col items-start justify-start mb-10">
                     <div className="text-black text-5xl mb-2">
@@ -442,7 +466,7 @@ const GetStarted = () => {
                     </div>
                   </div>
                 </div>
-                <div className="mt-10 flex justify-around">
+                <div className="mt-10 flex justify-evenly">
                   <div
                     onClick={() => setMultiStepForm(multiStepForm - 1)}
                     className="bg-gray-200 cursor-pointer  py-2 px-4 text-xl shadow-sm shadow-black rounded-lg"
@@ -451,7 +475,16 @@ const GetStarted = () => {
                   </div>
 
                   <div
-                    onClick={() => setMultiStepForm(multiStepForm + 1)}
+                    onClick={() =>
+                      formData.name &&
+                      formData.phoneNumber &&
+                      formData.address &&
+                      formData.apt &&
+                      formData.city &&
+                      formData.zip
+                        ? setMultiStepForm(multiStepForm + 1)
+                        : null
+                    }
                     className={
                       formData.name &&
                       formData.phoneNumber &&
@@ -467,12 +500,34 @@ const GetStarted = () => {
                   </div>
                 </div>
               </div>
-              <div>SideBar Section</div>
+              <div className="bg-blue-100 w-[20%] h-fit border-blue-500 border text-gray-900 rounded-xl p-5">
+                <div className="text-xl font-bold">
+                  How Much is your time Worth?
+                </div>
+                <div className="mt-4">
+                  The average online shopper spends <br />{" "}
+                  <span className="text-blue-500 font-bold text-lg">
+                    {" "}
+                    5 hours/month{" "}
+                  </span>{" "}
+                  dealing with returns
+                </div>
+                <div className="text-xl mt-10 font-bold">
+                  Get your money back!
+                </div>
+                <div className="mt-4">
+                  The average online shopper wastes <br />{" "}
+                  <span className="text-blue-500 font-bold text-lg">
+                    $300/year
+                  </span>{" "}
+                  on unwanted purchases
+                </div>
+              </div>
             </div>
           ) : null}
           {multiStepForm == 3 ? (
             <div className="flex justify-around">
-              <div>
+              <div className="mb-32">
                 <div>
                   <div className="flex flex-col items-start justify-start mb-10">
                     <div className="text-black text-5xl mb-2">Choose plan</div>
@@ -888,12 +943,34 @@ const GetStarted = () => {
                   </div>
                 </div>
               </div>
-              <div>SideBar Section</div>
+              <div className="bg-blue-100 w-[20%] h-fit border-blue-500 border text-gray-900 rounded-xl p-5">
+                <div className="text-xl font-bold">
+                  How Much is your time Worth?
+                </div>
+                <div className="mt-4">
+                  The average online shopper spends <br />{" "}
+                  <span className="text-blue-500 font-bold text-lg">
+                    {" "}
+                    5 hours/month{" "}
+                  </span>{" "}
+                  dealing with returns
+                </div>
+                <div className="text-xl mt-10 font-bold">
+                  Get your money back!
+                </div>
+                <div className="mt-4">
+                  The average online shopper wastes <br />{" "}
+                  <span className="text-blue-500 font-bold text-lg">
+                    $300/year
+                  </span>{" "}
+                  on unwanted purchases
+                </div>
+              </div>
             </div>
           ) : null}
           {multiStepForm == 4 ? (
             <div className="flex justify-around">
-              <div>
+              <div className="w-[50%]">
                 <div>
                   <div className="flex flex-col items-start justify-start mb-10">
                     <div className="text-black text-5xl mb-2">Package info</div>
@@ -1067,7 +1144,7 @@ const GetStarted = () => {
                   />
                 </div>
 
-                <div className="mt-10 flex justify-around">
+                <div className="mt-10 flex justify-evenly">
                   <div
                     onClick={() => setMultiStepForm(multiStepForm - 1)}
                     className="bg-gray-200 cursor-pointer  py-2 px-4 text-xl shadow-sm shadow-black rounded-lg"
@@ -1076,7 +1153,13 @@ const GetStarted = () => {
                   </div>
 
                   <div
-                    onClick={() => setMultiStepForm(multiStepForm + 1)}
+                    onClick={() =>
+                      formData.labelType &&
+                      formData.returnLabelFile &&
+                      formData.description
+                        ? setMultiStepForm(multiStepForm + 1)
+                        : null
+                    }
                     className={
                       formData.labelType &&
                       formData.returnLabelFile &&
@@ -1089,11 +1172,33 @@ const GetStarted = () => {
                   </div>
                 </div>
               </div>
-              <div>SideBar Section</div>
+              <div className="bg-blue-100 w-[20%] h-fit border-blue-500 border text-gray-900 rounded-xl p-5">
+                <div className="text-xl font-bold">
+                  How Much is your time Worth?
+                </div>
+                <div className="mt-4">
+                  The average online shopper spends <br />{" "}
+                  <span className="text-blue-500 font-bold text-lg">
+                    {" "}
+                    5 hours/month{" "}
+                  </span>{" "}
+                  dealing with returns
+                </div>
+                <div className="text-xl mt-10 font-bold">
+                  Get your money back!
+                </div>
+                <div className="mt-4">
+                  The average online shopper wastes <br />{" "}
+                  <span className="text-blue-500 font-bold text-lg">
+                    $300/year
+                  </span>{" "}
+                  on unwanted purchases
+                </div>
+              </div>
             </div>
           ) : null}
           {multiStepForm == 5 ? (
-            <div>
+            <div className="w-[50%] ml-20">
               <div className="text-2xl font-bold mb-2">Checkout</div>
 
               <div className="flex flex-col justify-around items-start">

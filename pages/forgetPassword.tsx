@@ -91,28 +91,28 @@ const forgetPassword = () => {
                     alt="Phone image"
                   />
                 </div>
-                <div className="md:w-8/12 lg:ml-6 h-[30vh] lg:w-5/12 bg-blue-50 shadow-2xl shadow-blue-[#0099ff] rounded-lg   px-10 py-16">
-                  <div className="text-center mb-3 animate-pulse text-3xl font-semibold -mt-10">
+                <div className="md:w-8/12 lg:ml-6 h-[40vh] lg:w-5/12 bg-blue-50 shadow-2xl shadow-blue-[#0099ff] rounded-lg   px-10">
+                  <form onSubmit={handleSignIn}>
+                   
+                  <div className="text-center mt-5 mb-3 animate-pulse text-3xl font-semibold">
                     Recover Password
                   </div>
-                  <form onSubmit={handleSignIn}>
-                    <div className="relative mb-6" data-te-input-wrapper-init>
+                    <div className="my-5">
+                      <label
+                        htmlFor="email"
+                        className="block mb-2 text-xl font-medium text-gray-900 "
+                      >
+                        Password
+                      </label>
                       <input
-                        type="text"
+                        id="email"
+                        type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="peer block min-h-[auto] text-white border-b border-[#0099ff] w-full  bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-black dark:placeholder:text-black placeholder:opacity-100 placeholder:text-black [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                        id="exampleFormControlInput3"
-                        placeholder="Email address"
+                        className="bg-gray-50 border border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        required
                       />
-                      <label
-                        htmlFor="exampleFormControlInput3"
-                        className="pointer-events-none text-xl font-semibold absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-black transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-[#0099ff] dark:peer-focus:text-primary"
-                      >
-                        Enter Your Email address
-                      </label>
                     </div>
-                
                     <button
                       type="submit"
                       className="inline-block w-full rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-[#0099ff] hover:bg-[#0099ff] hover:text-white border border-[#0099ff] shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
@@ -121,7 +121,6 @@ const forgetPassword = () => {
                     >
                       Submit
                     </button>
-                   
                   </form>
                 </div>
               </div>
