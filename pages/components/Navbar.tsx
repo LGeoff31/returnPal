@@ -99,7 +99,7 @@ const Navbar = () => {
             </li>
           </ul>
           <div className="navigation-buttons">
-            <a href="/signUp">
+            <a href="/getstarted">
               <Button
                 variant="contained"
                 sx={{
