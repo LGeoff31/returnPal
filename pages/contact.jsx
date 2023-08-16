@@ -36,29 +36,11 @@ const Contact = () => {
           console.log(error.text);
         }
       );
+    e.target.reset();
   };
-  // e.target.reset()
   return (
-    // <Layout>
-    <>
-      <form ref={form} onSubmit={sendEmail}>
-        <label>Name</label>
-        <input type="text" name="user_name" />
-        <label>Email</label>
-        <input type="email" name="user_email" />
-        <label>Message</label>
-        <textarea name="message" />
-        <input type="submit" value="Send" />
-      </form>
-    </>
-  );
-};
-export default Contact;
-
-// Styles
-
-{
-  /* <Grid
+    <Layout>
+      <Grid
         container
         direction={{ md: "row", sm: "column" }}
         justifyContent={"center"}
@@ -88,10 +70,12 @@ export default Contact;
           <Typography paddingTop="1rem" paddingBottom="1rem">
             <EmailIcon /> info.returnpal@gmail.com
           </Typography>
-          <form>
+          <form ref={form} onSubmit={sendEmail}>
             <Grid container spacing={1}>
               <Grid xs={12} sm={6} item>
                 <TextField
+                  type="text"
+                  name="first_name"
                   label="First Name"
                   placeholder="Enter first name"
                   variant="outlined"
@@ -101,6 +85,7 @@ export default Contact;
               </Grid>
               <Grid xs={12} sm={6} item>
                 <TextField
+                  name="last_name"
                   label="Last Name"
                   placeholder="Enter last name"
                   variant="outlined"
@@ -110,6 +95,7 @@ export default Contact;
               </Grid>
               <Grid xs={12} item>
                 <TextField
+                  name="user_email"
                   type="email"
                   label="Email"
                   placeholder="Enter email"
@@ -120,6 +106,7 @@ export default Contact;
               </Grid>
               <Grid xs={12} item>
                 <TextField
+                  name="message"
                   label="Message"
                   multiline
                   rows={4}
@@ -141,32 +128,9 @@ export default Contact;
               </Grid>
             </Grid>
           </form>
-        </CardContent> */
-}
-{
-  /* <Image
-          src={"/images/returnpal-unload-box.png"}
-          alt="Retailers"
-          width={400}
-          height={300}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignContent: "center",
-            margin: "0 auto",
-          }}
-        /> */
-}
-{
-  /* <Image
-          src="/images/returnpal-boxing.webp"
-          alt="pexels-photo-4247766.jpeg"
-          width="300"
-          height="100"
-          // style={{ padding: 0 }}
-        /> */
-}
-{
-  /* </Grid> */
-}
-// </Layout>
+        </CardContent>
+      </Grid>
+    </Layout>
+  );
+};
+export default Contact;
