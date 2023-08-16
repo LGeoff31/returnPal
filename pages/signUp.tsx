@@ -11,10 +11,10 @@ import Layout from "./components/Layout";
 import FacebookLogin from "react-facebook-login";
 
 const signIn = () => {
-  const router = useRouter()
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [fbAuth,setfbAuth] = useState(false)
+  const [fbAuth, setfbAuth] = useState(false);
 
   const firebaseConfig = {
     apiKey: "AIzaSyAfq9xlsoCWH68Ck2OvhWy-zROSEJXuRlg",
@@ -102,29 +102,27 @@ const signIn = () => {
       });
   };
 
-  const handleFacebookSignIn = (e:any) => {
-   
-        console.log(e)
-        toast.success("Authenticated Successfully....!", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+  const handleFacebookSignIn = (e: any) => {
+    console.log(e);
+    toast.success("Authenticated Successfully....!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
     localStorage.setItem(
       "userInfo",
       JSON.stringify({
         displayName: e.name,
-        photoURL: e.picture.data.url
+        photoURL: e.picture.data.url,
       })
     );
-        router.push("/");
-        // console.log("Signed in with Facebook:", user);
-      
+    router.push("/");
+    // console.log("Signed in with Facebook:", user);
   };
 
   return (
@@ -199,7 +197,6 @@ const signIn = () => {
                           <input
                             id="green-checkbox"
                             type="checkbox"
-                            
                             className="w-4 h-4 text-blue-600  rounded  focus:ring-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-blue-600"
                           />
                           <label

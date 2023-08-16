@@ -73,6 +73,10 @@
   z-index: 100;
 }
 
+.navigation-buttons {
+  display: flex;
+  flex-direction: row;
+}
 /* .brand-name {
   text-decoration: none;
   color: black;
@@ -241,7 +245,5 @@
   background-color: #ffcccc; /* or any other background color you prefer */
   border-color: #ff9999; /* or any other border color you prefer */
   /* Add more custom styles for Sundays */
-cursor: not-allowed;
+  cursor: not-allowed;
 }
-
-
