@@ -417,7 +417,7 @@ const GetStarted = () => {
                           // value={userData?.displayName}
                         />
                       </div>
-                      <div className="flex md:flex-row flex-col w-full md:w-[70%] mt-5 space-y-5 md:space-y-0 space-x-0 md:space-x-10">
+                      <div className="flex md:flex-row flex-col w-full md:w-[100%] mt-5 space-y-5 md:space-y-0 space-x-0 md:space-x-10">
                         <input
                           type="apt"
                           id="apt"
