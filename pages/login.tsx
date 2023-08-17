@@ -159,7 +159,7 @@ const Login = () => {
         theme="light"
       />
       <div>
-        <div className="mt-24">
+        <div className="md:mt-24 -mt-5 md:mb-0 mb-36">
           <section className="h-screen">
             <div className="container h-full px-6 py-24">
               <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
@@ -173,7 +173,7 @@ const Login = () => {
                 </div>
                 <div className="md:w-8/12 lg:ml-6 lg:w-5/12 bg-blue-50 shadow-2xl shadow-blue-[#0099ff] rounded-lg   px-10 py-8">
                   <form onSubmit={handleSignIn}>
-                    <div className="flex justify-center items-center mb-5 text-3xl text-blue-500 font-semibold animate-pulse">
+                    <div className="flex justify-center items-center mb-5 text-2xl md:text-3xl text-blue-500 font-semibold animate-pulse">
                       <p>Login to ReturnPAL</p>{" "}
                     </div>
                     <div className="relative mb-6" data-te-input-wrapper-init>
@@ -279,7 +279,11 @@ const Login = () => {
                       </p>
                     </div>
                     <div className="flex items-center w-[100%] justify-center bg-gray-100">
-                      <button type="button" onClick={googleAuth} className="flex w-full mb-4 items-center justify-center bg-white border border-gray-300 rounded-lg shadow-md px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                      <button
+                        type="button"
+                        onClick={googleAuth}
+                        className="flex w-full mb-4 items-center justify-center bg-white border border-gray-300 rounded-lg shadow-md px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                      >
                         <svg
                           className="h-6 w-6 mr-2"
                           xmlns="http://www.w3.org/2000/svg"

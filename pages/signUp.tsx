@@ -142,7 +142,7 @@ const signIn = () => {
           theme="light"
         />
         <div>
-          <div className="mt-24">
+          <div className="md:mt-24 -mt-5 md:mb-0 mb-36">
             <section className="h-screen">
               <div className="container h-full px-6 py-24">
                 <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
@@ -155,7 +155,7 @@ const signIn = () => {
                     />
                   </div>
                   <div className="md:w-8/12 lg:ml-6 lg:w-5/12 bg-blue-50 shadow-2xl shadow-blue-[#0099ff] rounded-lg   px-10 py-16">
-                    <div className="text-center text-blue-500 mb-3 animate-pulse text-3xl font-semibold -mt-10">
+                    <div className="text-center text-blue-500 mb-3 animate-pulse text-2xl md:text-3xl font-semibold -mt-10">
                       Registration Form
                     </div>
                     <form onSubmit={handleSignIn}>

@@ -24,6 +24,7 @@ export const submitFormData = async (formData, date, selectedPlan) => {
       specialInstructions: formData.additionalInfo,
       street: formData.apt,
       zipCode: formData.zip,
+      pickupMethod: formData.pickupType,
       returnLabelImage: formData.returnLabelFile[0],
     },
   };

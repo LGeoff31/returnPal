@@ -79,7 +79,7 @@ const forgetPassword = () => {
         theme="light"
       />
       <div>
-        <div className="mt-24">
+        <div className="md:mt-24 -mt-5 ">
           <section className="h-screen">
             <div className="container h-full px-6 py-24">
               <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
@@ -93,10 +93,9 @@ const forgetPassword = () => {
                 </div>
                 <div className="md:w-8/12 lg:ml-6 h-[40vh] lg:w-5/12 bg-blue-50 shadow-2xl shadow-blue-[#0099ff] rounded-lg   px-10">
                   <form onSubmit={handleSignIn}>
-                   
-                  <div className="text-center mt-5 mb-3 animate-pulse text-3xl font-semibold">
-                    Recover Password
-                  </div>
+                    <div className="text-center mt-5 mb-3 animate-pulse text-2xl md:text-3xl font-semibold">
+                      Recover Password
+                    </div>
                     <div className="my-5">
                       <label
                         htmlFor="email"

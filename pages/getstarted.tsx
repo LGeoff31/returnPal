@@ -9,8 +9,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
 import { startOfWeek, addDays, format } from "date-fns";
-import {submitFormData} from "../services/index"
-
+import { submitFormData } from "../services/index";
 
 const GetStarted = () => {
   type YourType = {
@@ -39,11 +38,10 @@ const GetStarted = () => {
   }
 
   const [multiStepForm, setMultiStepForm] = useState(1);
-  const [date, setDate] = useState<Date>()
+  const [date, setDate] = useState<Date>();
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [selectedPlan, setSelectedPlan] = useState("")
+  const [selectedPlan, setSelectedPlan] = useState("");
   const weekStart = startOfWeek(selectedDate);
-
 
   const renderWeek = () => {
     const days = [];
@@ -55,12 +53,16 @@ const GetStarted = () => {
       const isSunday = format(currentDate, "iii") === "Sun";
       const dayClasses = isSunday
         ? "day w-24 h-36 cursor-disabled text-gray-500 font-bold tracking-wider text-2xl  shadow-lg flex justify-center shadow-lg shadow-red-400 sunday animate-pulse"
-        :  date?.getTime()==currentDate.getTime()
+        : date?.getTime() == currentDate.getTime()
         ? "day w-24 h-36  hover:cursor-pointer ease-in duration-500  scale-110 text-white font-bold tracking-wider text-2xl bg-gradient-to-b via-blue-400 from-blue-500 to-blue-500 shadow-lg flex justify-center"
         : "day w-24 h-36 hover:cursor-pointer ease-in duration-500  hover:scale-110  font-bold tracking-wider text-2xl border-blue-500 border-1 bg-gray-200  text-black shadow-lg shadow-blue-500 flex justify-center";
-      
+
       days.push(
-        <div onClick={() =>( isSunday? null: setDate(currentDate))} key={i} className={dayClasses}>
+        <div
+          onClick={() => (isSunday ? null : setDate(currentDate))}
+          key={i}
+          className={dayClasses}
+        >
           <div className="day-label">{dayLabel}</div>
           <div className="day-number">{dayNumber}</div>
         </div>
@@ -70,40 +72,41 @@ const GetStarted = () => {
     return days;
   };
 
-   const [formData, setFormData] = useState({
-     name: "",
-     phoneNumber: "",
-     address: "",
-     apt: "",
-     city: "",
-     zip: "",
-     additionalInfo: "",
-     labelType: "", 
-     returnLabelFile: null,
-     description: "",
-   });
+  const [formData, setFormData] = useState({
+    name: "",
+    phoneNumber: "",
+    address: "",
+    apt: "",
+    city: "",
+    zip: "",
+    additionalInfo: "",
+    labelType: "",
+    pickupType: "",
+    returnLabelFile: null,
+    description: "",
+  });
 
   const handleInputChange = (fieldName: any, value: any) => {
-     console.log(formData)
-     setFormData((prevFormData) => ({
-       ...prevFormData,
-       [fieldName]: value,
-     }));
+    console.log(formData);
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [fieldName]: value,
+    }));
   };
-  const [formSubmited,setFormSubmitted] = useState(false)
+  const [formSubmited, setFormSubmitted] = useState(false);
 
   const formSubmit = async () => {
-    console.log(formData)
-    console.log(date)
-    console.log(selectedPlan)
+    console.log(formData);
+    console.log(date);
+    console.log(selectedPlan);
     const data = await submitFormData(formData, date, selectedPlan);
-    console.log(data)
+    console.log(data);
     if (data) {
-        setFormSubmitted(true)
+      setFormSubmitted(true);
     }
-  }
+  };
 
-  console.log(date)
+  console.log(date);
 
   return (
     <div className="flex h-screen w-full justify-center">
@@ -442,12 +445,97 @@ const GetStarted = () => {
                           id="zip"
                           aria-describedby="helper-text-explanation"
                           className=" border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 w-1/3 focus:border-blue-500 block p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          placeholder="Zip"
+                          placeholder="Postal Code"
                           value={formData.zip}
                           onChange={(e) =>
                             handleInputChange("zip", e.target.value)
                           }
                         />
+                      </div>
+                      <div className="md:block mt-5 flex flex-col justify-center items-center md:space-y-0">
+                        <h3 className="mb-5 md:text-lg text-xl font-medium text-gray-900 ">
+                          Select Pickup Method
+                        </h3>
+                        <ul className="md:grid flex flex-col md:space-y-0 space-y-5  justify-center items-center w-full   md:grid-cols-3">
+                          <li className="flex justify-center items-center">
+                            <input
+                              type="radio"
+                              id="hosting-small1"
+                              name="hosting1"
+                              defaultValue="hosting-small1"
+                              className="hidden peer"
+                              onChange={(e) =>
+                                handleInputChange(
+                                  "pickupType",
+                                  "Direct handoff"
+                                )
+                              }
+                              required
+                            />
+                            <label
+                              htmlFor="hosting-small1"
+                              className="inline-flex items-center justify-between w-[80%] p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 "
+                            >
+                              <div className="block">
+                                <div className="w-full text-lg font-bold">
+                                  Direct handoff
+                                </div>
+                                <div className="w-full">
+                                  Meet your Returnmate at the door to ensure a
+                                  secure handoff
+                                </div>
+                              </div>
+                            </label>
+                          </li>
+                          <li className="flex justify-center items-center">
+                            <input
+                              type="radio"
+                              id="hosting-medium1"
+                              name="hosting1"
+                              defaultValue="hosting-medium1"
+                              className="hidden peer"
+                              onChange={(e) =>
+                                handleInputChange(
+                                  "pickupType",
+                                  "Leave on doorstep"
+                                )
+                              }
+                            />
+                            <label
+                              htmlFor="hosting-medium1"
+                              className="inline-flex items-center justify-between w-[80%] p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100  "
+                            >
+                              <div className="block">
+                                <div className="w-full text-lg font-bold">
+                                  Leave on doorstep
+                                </div>
+                                <div className="">
+                                  Place items outside your door in advance of
+                                  your pickup window
+                                </div>
+                              </div>
+                            </label>
+                          </li>
+                        </ul>
+                        <div className="mb-3 flex flex-col justify-start items-start">
+                          <label
+                            htmlFor="formFile"
+                            className="mb-2 mt-5 inline-block text-black font-semibold"
+                          >
+                            Upload Return Label
+                          </label>
+                          <input
+                            className="relative m-0 block w-fit min-w-0 flex-auto rounded border border-solid border-blue-500 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none "
+                            type="file"
+                            id="formFile"
+                            onChange={(e) =>
+                              handleInputChange(
+                                "returnLabelFile",
+                                e.target.files
+                              )
+                            }
+                          />
+                        </div>
                       </div>
                       <label
                         htmlFor="name"
@@ -486,7 +574,9 @@ const GetStarted = () => {
                       formData.address &&
                       formData.apt &&
                       formData.city &&
-                      formData.zip
+                      formData.zip &&
+                        formData.returnLabelFile &&
+                        formData.pickupType
                         ? setMultiStepForm(multiStepForm + 1)
                         : null
                     }
@@ -496,7 +586,9 @@ const GetStarted = () => {
                       formData.address &&
                       formData.apt &&
                       formData.city &&
-                      formData.zip
+                      formData.zip &&
+                      formData.returnLabelFile &&
+                      formData.pickupType
                         ? "bg-blue-500 py-2 px-4 text-xl text-white shadow-sm cursor-pointer shadow-black rounded-lg"
                         : "bg-blue-300 py-2 cursor-not-allowed px-4 text-xl text-white shadow-sm shadow-black rounded-lg"
                     }
@@ -1116,25 +1208,9 @@ const GetStarted = () => {
                         </label>
                       </li>
                     </ul>
-                    <div className="mb-3">
-                      <label
-                        htmlFor="formFile"
-                        className="mb-2 mt-5 inline-block text-black font-semibold"
-                      >
-                        Upload Return Label
-                      </label>
-                      <input
-                        className="relative m-0 block w-fit min-w-0 flex-auto rounded border border-solid border-blue-500 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none "
-                        type="file"
-                        id="formFile"
-                        onChange={(e) =>
-                          handleInputChange("returnLabelFile", e.target.files)
-                        }
-                      />
-                    </div>
                   </div>
                 </div>
-                <div className="flex flex-col md:px-0 px-9 justify-center items-center">
+                <div className="flex flex-col md:px-0 px-9 md:justify-start justify-center items-center md:items-start">
                   <label
                     htmlFor="message"
                     className="block mb-2 text-lg font-semibold text-black mt-5 "
@@ -1220,7 +1296,10 @@ const GetStarted = () => {
                       <div className="font-semibold">
                         {formData.phoneNumber}
                       </div>
-                      <div className="truncate md:w-fit w-[75vw]"> {formData.address}</div>
+                      <div className="truncate md:w-fit w-[75vw]">
+                        {" "}
+                        {formData.address}
+                      </div>
                     </div>
 
                     <div className="self-end text-blue-500 cursor-pointer font-semibold text-xl">
@@ -1306,6 +1385,7 @@ const GetStarted = () => {
                       formData.returnLabelFile &&
                       formData.description &&
                       selectedPlan &&
+                      formData.pickupType &&
                       !formSubmited
                         ? formSubmit()
                         : null
@@ -1321,14 +1401,15 @@ const GetStarted = () => {
                       formData.labelType &&
                       formData.returnLabelFile &&
                       formData.description &&
+                      formData.pickupType &&
                       selectedPlan
-                        ? formSubmited==false
+                        ? formSubmited == false
                           ? "w-full my-5 border-blue-500 bg-blue-500 text-white text-2xl font-semibold py-2 rounded-lg border hover:text-blue-500 hover:bg-white ease-in duration-300"
                           : "w-full my-5  bg-green-500 cursor-not-allowed text-white text-2xl font-semibold py-2 rounded-lg border hover:text-blue-500 hover:bg-white ease-in duration-300"
                         : "w-full my-5 cursor-not-allowed border-blue-500 bg-blue-300 text-white text-2xl font-semibold py-2 rounded-lg border hover:text-blue-500 hover:bg-white ease-in duration-300"
                     }
                   >
-                    {formSubmited==true ? "Success" : " Confirm Pickup"}
+                    {formSubmited == true ? "Success" : " Confirm Pickup"}
                   </button>
                 </div>
               </div>
