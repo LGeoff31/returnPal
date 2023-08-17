@@ -422,7 +422,7 @@ const GetStarted = () => {
                           type="apt"
                           id="apt"
                           aria-describedby="helper-text-explanation"
-                          className=" border w-1/3 border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          className=" border md:w-1/3 w-full border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           placeholder="Office, Suite, Apt."
                           value={formData.apt}
                           onChange={(e) =>
@@ -433,7 +433,7 @@ const GetStarted = () => {
                           type="text"
                           id="city"
                           aria-describedby="helper-text-explanation"
-                          className=" border  w-1/3 border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500  focus:border-blue-500 block p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          className=" border  md:w-1/3 w-full border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500  focus:border-blue-500 block p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           placeholder="City"
                           value={formData.city}
                           onChange={(e) =>
@@ -444,7 +444,7 @@ const GetStarted = () => {
                           type="text"
                           id="zip"
                           aria-describedby="helper-text-explanation"
-                          className=" border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 w-1/3 focus:border-blue-500 block p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          className=" border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 md:w-1/3 w-full focus:border-blue-500 block p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           placeholder="Postal Code"
                           value={formData.zip}
                           onChange={(e) =>
@@ -452,7 +452,7 @@ const GetStarted = () => {
                           }
                         />
                       </div>
-                      <div className="md:block mt-5 flex flex-col justify-center items-center md:space-y-0">
+                      <div className="md:block mt-5 flex flex-col justify-start items-start md:space-y-0">
                         <h3 className="mb-5 md:text-lg text-xl font-medium text-gray-900 ">
                           Select Pickup Method
                         </h3>
@@ -575,8 +575,8 @@ const GetStarted = () => {
                       formData.apt &&
                       formData.city &&
                       formData.zip &&
-                        formData.returnLabelFile &&
-                        formData.pickupType
+                      formData.returnLabelFile &&
+                      formData.pickupType
                         ? setMultiStepForm(multiStepForm + 1)
                         : null
                     }
