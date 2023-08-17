@@ -223,7 +223,7 @@ const Questions = () => {
           </Grid>
           <Button
             sx={{
-              width: { xs: "80%", md: "30%" },
+              width: { xs: "60%", md: "20%" },
               marginTop: "2rem",
               borderRadius: "50px", // Adjust the value as needed to get the desired oval shape
               padding: "0.75rem 1rem", // Customize the padding to fit the content
