@@ -85,6 +85,14 @@ const GetStarted = () => {
     returnLabelFile: null,
     description: "",
   });
+const [labelfilerequires,setlaberlfilerequires] = useState(false)
+  useEffect(() => {
+    if(formData.labelType == "Physical Label" || formData.returnLabelFile)  {
+      setlaberlfilerequires(true)
+    } else {
+      setlaberlfilerequires(false)
+            }
+  },[formData])
 
   const handleInputChange = (fieldName: any, value: any) => {
     console.log(formData);
@@ -103,6 +111,24 @@ const GetStarted = () => {
     console.log(data);
     if (data) {
       setFormSubmitted(true);
+    }
+  };
+  const [validatePhNumber, setValidatePHNumber] = useState(false);
+
+  const validatePhoneNumber = (phoneNumber: any) => {
+    // Define a regular expression pattern for valid phone numbers
+    const phonePattern = /^\d{10}$/;
+    console.log(phonePattern.test(phoneNumber));
+    return phonePattern.test(phoneNumber);
+  };
+  const handlePhoneNumberChange = (e: any) => {
+    const newPhoneNumber = e.target.value;
+    console.log(newPhoneNumber);
+    setValidatePHNumber(false);
+    handleInputChange("phoneNumber", newPhoneNumber);
+    if (validatePhoneNumber(newPhoneNumber)) {
+      console.log(e.target.value);
+      setValidatePHNumber(true);
     }
   };
 
@@ -155,7 +181,7 @@ const GetStarted = () => {
             </svg>
           </li>
           <li
-            onClick={() => setMultiStepForm(2)}
+            onClick={() => (date ? setMultiStepForm(2) : null)}
             className={
               multiStepForm >= 2
                 ? "flex items-center cursor-pointer text-blue-500"
@@ -185,7 +211,18 @@ const GetStarted = () => {
             </svg>
           </li>
           <li
-            onClick={() => setMultiStepForm(3)}
+            onClick={() =>
+              date &&
+              formData.name &&
+              formData.phoneNumber &&
+              validatePhNumber &&
+              formData.address &&
+              formData.zip &&
+              formData.apt &&
+              formData.pickupType
+                ? setMultiStepForm(3)
+                : null
+            }
             className={
               multiStepForm >= 3
                 ? "flex items-center cursor-pointer  text-blue-500"
@@ -213,7 +250,19 @@ const GetStarted = () => {
             </svg>
           </li>
           <li
-            onClick={() => setMultiStepForm(4)}
+            onClick={() =>
+              date &&
+              formData.name &&
+              formData.phoneNumber &&
+              validatePhNumber &&
+              formData.address &&
+              formData.zip &&
+              formData.apt &&
+              formData.pickupType &&
+              selectedPlan
+                ? setMultiStepForm(4)
+                : null
+            }
             className={
               multiStepForm >= 4
                 ? "flex items-center cursor-pointer  text-blue-500"
@@ -241,7 +290,21 @@ const GetStarted = () => {
             </svg>
           </li>
           <li
-            onClick={() => setMultiStepForm(5)}
+            onClick={() =>
+              formData.name &&
+              formData.phoneNumber &&
+              validatePhNumber &&
+              formData.address &&
+              formData.zip &&
+              formData.apt &&
+              formData.pickupType &&
+              selectedPlan &&
+              formData.labelType &&
+              formData.description &&
+              labelfilerequires
+                ? setMultiStepForm(5)
+                : null
+            }
             className={
               multiStepForm >= 5
                 ? "flex items-center cursor-pointer text-blue-500"
@@ -369,19 +432,21 @@ const GetStarted = () => {
                           // value={userData?.displayName}
                         />
                         <div className="flex md:w-96 w-full justify-center items-center">
-                          <div className="border border-gray-300 rounded-r-none text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500rounded-lg p-2.5">
+                          <div className="border border-gray-300 rounded-r-none text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500  p-2.5">
                             +1
                           </div>
                           <input
                             type="text"
                             id=""
                             aria-describedby="helper-text-explanation"
-                            className="border-l-0 rounded-l-none border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 w-[100%] focus:border-blue-500 block p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className={
+                              validatePhNumber
+                                ? "border-l-0 rounded-l-none border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 w-[100%] focus:border-blue-500 block p-2.5 bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                : "border-2 rounded-l-none  border-red-600 text-black text-sm rounded-lg focus:ring-red-500 w-[100%] focus:border-red-500 block p-2.5 bg-white dark:border-red-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-red-500 dark:focus:border-red-500"
+                            }
                             placeholder="(987) 654-3211"
                             value={formData.phoneNumber}
-                            onChange={(e) =>
-                              handleInputChange("phoneNumber", e.target.value)
-                            }
+                            onChange={handlePhoneNumberChange}
                           />
                         </div>
                       </div>
@@ -456,8 +521,8 @@ const GetStarted = () => {
                         <h3 className="mb-5 md:text-lg text-xl font-medium text-gray-900 ">
                           Select Pickup Method
                         </h3>
-                        <ul className="md:grid flex flex-col md:space-y-0 space-y-5  justify-center items-center w-full   md:grid-cols-3">
-                          <li className="flex justify-center items-center">
+                        <ul className="md:grid flex flex-col md:space-y-0 space-y-5  justify-start items-start w-full   md:grid-cols-3">
+                          <li className="flex md:justify-start justify-center items-center  md:items-start">
                             <input
                               type="radio"
                               id="hosting-small1"
@@ -487,7 +552,7 @@ const GetStarted = () => {
                               </div>
                             </label>
                           </li>
-                          <li className="flex justify-center items-center">
+                          <li className="flex justify-center md:justify-start md:items-start items-center">
                             <input
                               type="radio"
                               id="hosting-medium1"
@@ -517,25 +582,6 @@ const GetStarted = () => {
                             </label>
                           </li>
                         </ul>
-                        <div className="mb-3 flex flex-col justify-start items-start">
-                          <label
-                            htmlFor="formFile"
-                            className="mb-2 mt-5 inline-block text-black font-semibold"
-                          >
-                            Upload Return Label
-                          </label>
-                          <input
-                            className="relative m-0 block w-fit min-w-0 flex-auto rounded border border-solid border-blue-500 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none "
-                            type="file"
-                            id="formFile"
-                            onChange={(e) =>
-                              handleInputChange(
-                                "returnLabelFile",
-                                e.target.files
-                              )
-                            }
-                          />
-                        </div>
                       </div>
                       <label
                         htmlFor="name"
@@ -575,8 +621,8 @@ const GetStarted = () => {
                       formData.apt &&
                       formData.city &&
                       formData.zip &&
-                      formData.returnLabelFile &&
-                      formData.pickupType
+                      formData.pickupType &&
+                      validatePhNumber
                         ? setMultiStepForm(multiStepForm + 1)
                         : null
                     }
@@ -587,8 +633,8 @@ const GetStarted = () => {
                       formData.apt &&
                       formData.city &&
                       formData.zip &&
-                      formData.returnLabelFile &&
-                      formData.pickupType
+                      formData.pickupType &&
+                      validatePhNumber
                         ? "bg-blue-500 py-2 px-4 text-xl text-white shadow-sm cursor-pointer shadow-black rounded-lg"
                         : "bg-blue-300 py-2 cursor-not-allowed px-4 text-xl text-white shadow-sm shadow-black rounded-lg"
                     }
@@ -1210,6 +1256,25 @@ const GetStarted = () => {
                     </ul>
                   </div>
                 </div>
+                {formData.labelType == "Amazon QR code" ||
+                formData.labelType == "Digital label" ? (
+                  <div className="mb-3 flex flex-col justify-start items-start">
+                    <label
+                      htmlFor="formFile"
+                      className="mb-2 mt-5 inline-block text-black font-semibold"
+                    >
+                      Upload Return Label
+                    </label>
+                    <input
+                      className="relative m-0 block w-fit min-w-0 flex-auto rounded border border-solid border-blue-500 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none "
+                      type="file"
+                      id="formFile"
+                      onChange={(e) =>
+                        handleInputChange("returnLabelFile", e.target.files)
+                      }
+                    />
+                  </div>
+                ) : null}
                 <div className="flex flex-col md:px-0 px-9 md:justify-start justify-center items-center md:items-start">
                   <label
                     htmlFor="message"
@@ -1240,15 +1305,15 @@ const GetStarted = () => {
                   <div
                     onClick={() =>
                       formData.labelType &&
-                      formData.returnLabelFile &&
-                      formData.description
+                      formData.description &&
+                      labelfilerequires
                         ? setMultiStepForm(multiStepForm + 1)
                         : null
                     }
                     className={
                       formData.labelType &&
-                      formData.returnLabelFile &&
-                      formData.description
+                      formData.description &&
+                      labelfilerequires
                         ? "bg-blue-500 py-2 px-4 text-xl text-white shadow-sm cursor-pointer shadow-black rounded-lg"
                         : "bg-blue-300 py-2 px-4 text-xl text-white shadow-sm cursor-not-allowed shadow-black rounded-lg"
                     }
@@ -1302,7 +1367,10 @@ const GetStarted = () => {
                       </div>
                     </div>
 
-                    <div className="self-end text-blue-500 cursor-pointer font-semibold text-xl">
+                    <div
+                      onClick={() => setMultiStepForm(2)}
+                      className="self-end text-blue-500 cursor-pointer font-semibold text-xl"
+                    >
                       Edit
                     </div>
                   </div>
@@ -1319,7 +1387,10 @@ const GetStarted = () => {
                       </div>
                     </div>
 
-                    <div className="self-end text-blue-500 cursor-pointer font-semibold text-xl">
+                    <div
+                      onClick={() => setMultiStepForm(1)}
+                      className="self-end text-blue-500 cursor-pointer font-semibold text-xl"
+                    >
                       Edit
                     </div>
                   </div>
@@ -1336,7 +1407,10 @@ const GetStarted = () => {
                       </div>
                     </div>
 
-                    <div className="self-end text-blue-500 cursor-pointer font-semibold text-xl">
+                    <div
+                      onClick={() => setMultiStepForm(4)}
+                      className="self-end text-blue-500 cursor-pointer font-semibold text-xl"
+                    >
                       Edit
                     </div>
                   </div>
@@ -1420,6 +1494,21 @@ const GetStarted = () => {
                     Order summary{" "}
                   </div>
                   <hr className="border-gray-500 my-5 border" />
+                  <div className="flex justify-between text-2xl font-semibold mb-5">
+                    <div>{selectedPlan}</div>
+                    <div>
+                      $
+                      {selectedPlan == "Non-Member"
+                        ? 9.99
+                        : selectedPlan == "Monthly Package"
+                        ? 19
+                        : selectedPlan == "3 Months Package"
+                        ? 48.85
+                        : selectedPlan == "Yearly"
+                        ? 159.6
+                        : 0}
+                    </div>
+                  </div>
                   <form>
                     <h1 className="text-xl mb-1 ml-1">Enter Promo Code</h1>
                     <label
