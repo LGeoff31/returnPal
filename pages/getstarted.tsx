@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
 import { startOfWeek, addDays, format } from "date-fns";
 import { submitFormData } from "../services/index";
+import { Button } from "@mui/material";
 
 const GetStarted = () => {
   type YourType = {
@@ -42,6 +43,23 @@ const GetStarted = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedPlan, setSelectedPlan] = useState("");
   const weekStart = startOfWeek(selectedDate);
+
+  const handleCheckout = async () => {
+    const response = await fetch("/api/checkout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const dataResponse = await response.json();
+    // const b = dataResponse.dataResponse; // Replace 'redirectUrl' with the actual key in your response
+
+    // Redirect to the new page
+    // window.location.href = b;
+    //data response has my redirect url now i want to redirect
+    window.location.href = dataResponse.UrlToRedirect;
+    // console.log(dataResponse.UrlToRedirect);
+  };
 
   const renderWeek = () => {
     const days = [];
@@ -85,14 +103,14 @@ const GetStarted = () => {
     returnLabelFile: null,
     description: "",
   });
-const [labelfilerequires,setlaberlfilerequires] = useState(false)
+  const [labelfilerequires, setlaberlfilerequires] = useState(false);
   useEffect(() => {
-    if(formData.labelType == "Physical Label" || formData.returnLabelFile)  {
-      setlaberlfilerequires(true)
+    if (formData.labelType == "Physical Label" || formData.returnLabelFile) {
+      setlaberlfilerequires(true);
     } else {
-      setlaberlfilerequires(false)
-            }
-  },[formData])
+      setlaberlfilerequires(false);
+    }
+  }, [formData]);
 
   const handleInputChange = (fieldName: any, value: any) => {
     console.log(formData);
@@ -1416,8 +1434,26 @@ const [labelfilerequires,setlaberlfilerequires] = useState(false)
                   </div>
                   <hr className="border-1 border-black w-full my-5" />
                 </div>
-
-                <div className="flex flex-col justify-around items-start">
+                <Button
+                  variant="contained"
+                  sx={{
+                    background: "#1976D2",
+                    color: "#FFFFFF",
+                    // fontFamily: "Arial, sans-serif", // Custom font family
+                    fontSize: "16px", // Custom font size
+                    // fontWeight: 400, // Custom font weight
+                    // textTransform: "uppercase", // Uppercase text
+                    textTransform: "none",
+                    borderRadius: "8px", // Rounded corners
+                    "&:hover": {
+                      background: "#1565C0",
+                    },
+                  }}
+                  onClick={handleCheckout}
+                >
+                  Checkout
+                </Button>
+                {/* <div className="flex flex-col justify-around items-start">
                   <h1 className="font-semibold text-lg mb-5 ">
                     Payment Method
                   </h1>
@@ -1485,7 +1521,7 @@ const [labelfilerequires,setlaberlfilerequires] = useState(false)
                   >
                     {formSubmited == true ? "Success" : " Confirm Pickup"}
                   </button>
-                </div>
+                </div> */}
               </div>
               <div className="md:w-[50vw] md:mb-0 mb-10 w-full md:px-0 px-5   flex justify-center items-center">
                 <div className="border-blue-500 border-2 rounded-lg bg-blue-200 px-5 py-20">
