@@ -25,8 +25,8 @@ export default async function handler(
         },
       ],
       mode: "payment",
-      success_url: `http://localhost:3000`,
-      cancel_url: `http://localhost:3000`,
+      success_url: `http://return-pal.vercel.app/`,
+      cancel_url: `http://return-pal.vercel.app/`,
     });
     console.log("BEFORE REDIRECT STILL WORKING");
     res.status(200).json({ UrlToRedirect: session.url });
