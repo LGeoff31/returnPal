@@ -43,7 +43,7 @@ const GetStarted = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedPlan, setSelectedPlan] = useState("");
   const weekStart = startOfWeek(selectedDate);
-
+  const [today, settoday] = useState<Date>(new Date());
   const handleCheckout = async () => {
     const response = await fetch("/api/checkout", {
       method: "POST",
@@ -69,15 +69,17 @@ const GetStarted = () => {
       const dayLabel = format(currentDate, "iii"); // Format: Mon, Tue, etc.
       const dayNumber = format(currentDate, "d"); // Format: 1, 2, etc.
       const isSunday = format(currentDate, "iii") === "Sun";
-      const dayClasses = isSunday
-        ? "day w-24 h-36 cursor-disabled text-gray-500 font-bold tracking-wider text-2xl  shadow-lg flex justify-center shadow-lg shadow-red-400 sunday animate-pulse"
-        : date?.getTime() == currentDate.getTime()
-        ? "day w-24 h-36  hover:cursor-pointer ease-in duration-500  scale-110 text-white font-bold tracking-wider text-2xl bg-gradient-to-b via-blue-400 from-blue-500 to-blue-500 shadow-lg flex justify-center"
-        : "day w-24 h-36 hover:cursor-pointer ease-in duration-500  hover:scale-110  font-bold tracking-wider text-2xl border-blue-500 border-1 bg-gray-200  text-black shadow-lg shadow-blue-500 flex justify-center";
+
+      const dayClasses =
+        date?.getTime() == currentDate.getTime()
+          ? "day w-24 h-36 hover:text-black hover:bg-blue-100  hover:cursor-pointer ease-in duration-500  scale-110 text-white font-bold tracking-wider text-2xl bg-blue-500 shadow-lg flex justify-center"
+          : currentDate?.getDate() == today?.getDate()
+          ? "day w-24 h-36  bg-white hover:cursor-not-allowed ease-in duration-500  rounded-5xl text-gray-700 font-bold tracking-wider text-2xl  shadow-lg flex justify-center shadow-lg"
+          : "day w-24 h-36 bg-blue-100 hover:text-white ease-in duration-500 hover:bg-blue-500 rounded-5xl text-gray-700 font-bold tracking-wider text-2xl  shadow-lg flex justify-center shadow-lg";
 
       days.push(
         <div
-          onClick={() => (isSunday ? null : setDate(currentDate))}
+          onClick={() => ( currentDate?.getDate() == today?.getDate()? null :setDate(currentDate))}
           key={i}
           className={dayClasses}
         >
@@ -745,8 +747,8 @@ const GetStarted = () => {
                         <h3 className="mb-5 md:text-lg text-xl font-medium text-gray-900 ">
                           Select Pickup Method
                         </h3>
-                        <ul className="md:grid flex flex-col md:space-y-0 space-y-5  md:justify-start justify-center items-center md:items-start w-full    md:grid-cols-3">
-                          <li className="flex md:justify-start md:w-fit w-[75vw] justify-center items-center  md:items-start">
+                        <ul className="lg:grid flex flex-col lg:space-y-0 space-y-5 justify-start  items-start w-full    md:grid-cols-3">
+                          <li className="flex justify-start lg:w-fit md:w-[40vw] w-[100vw] items-start">
                             <input
                               type="radio"
                               id="hosting-small1"
@@ -776,7 +778,7 @@ const GetStarted = () => {
                               </div>
                             </label>
                           </li>
-                          <li className="flex justify-center md:w-fit w-[75vw] md:justify-start md:items-start items-center">
+                          <li className="flex  lg:w-fit md:w-[40vw] w-[100vw] justify-start items-start ">
                             <input
                               type="radio"
                               id="hosting-medium1"
@@ -937,12 +939,12 @@ const GetStarted = () => {
                       Say "Goodbye" to the Post Office
                     </div>
                   </div>
-                  <div className="container md:my-24 my-5 mx-auto ">
+                  <div className="container md:mb-24 md:mt-5  my-5 mx-auto ">
                     {/* Section: Design Block */}
                     <section className="md:mb-32 mb-10">
                       <div
                         className="grid gap-0  grid-col-1
-                       lg:grid-cols-3 lg:gap-x-0 lg:gap-y-20"
+                       lg:grid-cols-2 lg:gap-x-0 lg:gap-y-20"
                       >
                         <div className="mb-6 md:block flex justify-center items-center lg:mb-0">
                           <div className="block h-[105%] w-[80%] text-black rounded-lg bg-gray-100 shadow-xl border-blue-600 border-2 ">
