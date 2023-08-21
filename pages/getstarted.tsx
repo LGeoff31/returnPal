@@ -44,21 +44,22 @@ const GetStarted = () => {
   const [selectedPlan, setSelectedPlan] = useState("");
   const weekStart = startOfWeek(selectedDate);
   const [today, settoday] = useState<Date>(new Date());
+
   const handleCheckout = async () => {
     const response = await fetch("/api/checkout", {
       method: "POST",
+      body: JSON.stringify({
+        formData,
+        date,
+        selectedPlan,
+      }),
       headers: {
         "Content-Type": "application/json",
       },
     });
+    // await submitFormData(formData, date, selectedPlan);
     const dataResponse = await response.json();
-    // const b = dataResponse.dataResponse; // Replace 'redirectUrl' with the actual key in your response
-
-    // Redirect to the new page
-    // window.location.href = b;
-    //data response has my redirect url now i want to redirect
     window.location.href = dataResponse.UrlToRedirect;
-    // console.log(dataResponse.UrlToRedirect);
   };
 
   const renderWeek = () => {
@@ -79,7 +80,11 @@ const GetStarted = () => {
 
       days.push(
         <div
-          onClick={() => ( currentDate?.getDate() == today?.getDate()? null :setDate(currentDate))}
+          onClick={() =>
+            currentDate?.getDate() == today?.getDate()
+              ? null
+              : setDate(currentDate)
+          }
           key={i}
           className={dayClasses}
         >
@@ -123,16 +128,7 @@ const GetStarted = () => {
   };
   const [formSubmited, setFormSubmitted] = useState(false);
 
-  const formSubmit = async () => {
-    console.log(formData);
-    console.log(date);
-    console.log(selectedPlan);
-    const data = await submitFormData(formData, date, selectedPlan);
-    console.log(data);
-    if (data) {
-      setFormSubmitted(true);
-    }
-  };
+  const formSubmit = async () => {};
   const [validatePhNumber, setValidatePHNumber] = useState(false);
 
   const validatePhoneNumber = (phoneNumber: any) => {
