@@ -4,6 +4,7 @@ const graphqlAPI =
   "https://api-ca-central-1.hygraph.com/v2/cll80jvds0u6w01uj7a3odxe3/master";
 
 export const submitFormData = async (formData, date, selectedPlan) => {
+ 
   const mutation = gql`
     mutation CreatePickupRequests($data: PickupRequestsCreateInput!) {
       createPickupRequests(data: $data) {
@@ -25,7 +26,7 @@ export const submitFormData = async (formData, date, selectedPlan) => {
       street: formData.apt,
       zipCode: formData.zip,
       pickupMethod: formData.pickupType,
-      returnLabelImage: formData.returnLabelFile[0],
+      returnLabelImage: formData.fileURI,
     },
   };
 

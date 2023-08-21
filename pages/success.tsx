@@ -17,13 +17,14 @@ const Success = () => {
     const address = searchParams.get("address");
     const apt = searchParams.get("apt");
     const city = searchParams.get("city");
-    const zip = searchParams.get("email");
+    const zip = searchParams.get("zip");
     const labelType = searchParams.get("labelType");
     const pickupType = searchParams.get("pickupType");
     const returnLabel = searchParams.get("additionalInfo");
     const addtionalInfo = searchParams.get("additionalInfo");
     const date = searchParams.get("date");
     const description = searchParams.get("description");
+    const fileURI = searchParams.get("fileURI");
 
     const selectedPlan = searchParams.get("selectedPlan");
 
@@ -39,6 +40,7 @@ const Success = () => {
       pickupType: pickupType,
       returnLabel: returnLabel,
       description: description,
+      fileURI: fileURI,
     };
     console.log("form data FINAL is", formData);
     console.log("date FINAL is", formData);

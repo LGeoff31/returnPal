@@ -18,6 +18,20 @@ const GetStarted = () => {
     email: string;
     photoURL: string;
   };
+    const [formData, setFormData] = useState({
+      name: "",
+      phoneNumber: "",
+      address: "",
+      apt: "",
+      city: "",
+      zip: "",
+      additionalInfo: "",
+      labelType: "",
+      pickupType: "",
+      returnLabelFile: null,
+      description: "",
+      fileURI:"",
+    });
 
   const [userData, setUserData] = useState<YourType | null>();
   const router = useRouter();
@@ -46,21 +60,61 @@ const GetStarted = () => {
   const [today, settoday] = useState<Date>(new Date());
 
   const handleCheckout = async () => {
-    const response = await fetch("/api/checkout", {
-      method: "POST",
-      body: JSON.stringify({
-        formData,
-        date,
-        selectedPlan,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    // await submitFormData(formData, date, selectedPlan);
-    const dataResponse = await response.json();
-    window.location.href = dataResponse.UrlToRedirect;
-  };
+
+    const form = new FormData();
+    if (formData.returnLabelFile) {   
+      form.append("fileUpload", formData.returnLabelFile[0]);
+      fetch(
+        `https://api-ca-central-1.hygraph.com/v2/cll80jvds0u6w01uj7a3odxe3/master/upload`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdjbXMtbWFpbi1wcm9kdWN0aW9uIn0.eyJ2ZXJzaW9uIjozLCJpYXQiOjE2OTE5MzYwNjcsImF1ZCI6WyJodHRwczovL2FwaS1jYS1jZW50cmFsLTEuaHlncmFwaC5jb20vdjIvY2xsODBqdmRzMHU2dzAxdWo3YTNvZHhlMy9tYXN0ZXIiLCJtYW5hZ2VtZW50LW5leHQuZ3JhcGhjbXMuY29tIl0sImlzcyI6Imh0dHBzOi8vbWFuYWdlbWVudC5ncmFwaGNtcy5jb20vIiwic3ViIjoiMjM4OTFhM2UtZGZmNC00OGNjLTg0MDMtNzc0MzdmMGE5YTFkIiwianRpIjoiY2xsOWoxdGFoMThiazAxdGNoOXA5YTlvbiJ9.p23Lj-8hGKq6xRpdqIVE5QbCZGQrZO3RXdmH86wRJ2u2hrgti1T97_2XhnQiU-kinKj55MFSmSeX300C2fsXXVXK-ncrqctsTX2dRlcbmZPudWrGo2XuT_RAw39bECl4LR2-sb-MoqvC0kPna-CKgRdBYY-OjOSL1FICpXof_GH72IZ4A_EfGsQHRGAu66RnuDBLByDLYLttaZLDLMeF9dAKJ6TxeBxDQS50EPLlLG1LyAAb5Z4b3aEmi6TblOY2GVVdFNavPy8fWkoi7xEMr-M7MBXO695A3CvPm5T7JHFCOEi2-u4VwkR4zDQZ5-97nmfDcw1QQy12f4FR0jk0E4dR3Kl9mW58BkYQ0sThly3sO3nad4-7Ml9rpHEwNvQ6q_yFpOqfE9tr2A6FScA7rg-4eYnm1i3xM4rbeuTeze61y_v5kkwGsG8Xfx-DeZkV4GnUWFdT7y-coMfD38pAYcURAGVyuwhoQAbGSVsLKzPI0JSiHeBbSmeOk-THpQkKfO2hVaUVZwkZ4ZWLjXBIEswbAzRCDKhN0tPX-IlKcOiFPikGQs9-XywSuVwZyXMimAnRgSsT-QgQMIC1wGt09f6e8qaff60Eipli1lRnETXNT9yS6Ek4BUJyb09hCqaTgH-G1XjviOKCeIUCU4Ip7yzRq3zdzxRsyLa7dFGruO0`,
+          },
+          body: form,
+        }
+        ).then((res) => res.json())
+        .then(async(res:any) => {  
+           formData.returnLabelFile=null
+          console.log(res);
+           formData.fileURI = res.url
+             const response = await fetch("/api/checkout", {
+               method: "POST",
+               body: JSON.stringify({
+                 formData,
+                 date,
+                 selectedPlan,
+               }),
+               headers: {
+                 "Content-Type": "application/json",
+               },
+             });
+             const data = await submitFormData(formData, date, selectedPlan);
+             console.log(data);
+             const dataResponse = await response.json();
+             window.location.href = dataResponse.UrlToRedirect;
+            })
+      
+    }
+    else { 
+       formData.returnLabelFile = null;
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        body: JSON.stringify({
+          formData,
+          date,
+          selectedPlan,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await submitFormData(formData, date, selectedPlan);
+      console.log(data)
+      const dataResponse = await response.json();
+      window.location.href = dataResponse.UrlToRedirect;
+    }
+    };
 
   const renderWeek = () => {
     const days = [];
@@ -97,19 +151,7 @@ const GetStarted = () => {
     return days;
   };
 
-  const [formData, setFormData] = useState({
-    name: "",
-    phoneNumber: "",
-    address: "",
-    apt: "",
-    city: "",
-    zip: "",
-    additionalInfo: "",
-    labelType: "",
-    pickupType: "",
-    returnLabelFile: null,
-    description: "",
-  });
+
   const [labelfilerequires, setlaberlfilerequires] = useState(false);
   useEffect(() => {
     if (formData.labelType == "Physical Label" || formData.returnLabelFile) {
