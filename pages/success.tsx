@@ -77,20 +77,9 @@ const Success = () => {
       fileURI: fileURI,
     };
 
-    console.log("form data FINAL is", formData);
-    console.log("date FINAL is", formData);
-    console.log("Selected plan FINAL is", formData);
-
-    // console.log("Email:", email);
-    // console.log("All query parameters:", Array.from(searchParams.entries()));
-    // console.log("Router object:", router);
     submitFormData(formData, date, selectedPlan);
     sendSuccessEmail();
     console.log("im doing toast now");
-
-    // console.log(router);
-    // console.log(searchParams.get("email"));
-    // console.log("dwdwdawdawdawda", Array.from(searchParams.entries()));
   }, []);
   return (
     <Layout>

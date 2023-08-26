@@ -11,9 +11,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   }
   const msg = {
     to: "geoffrey31415@gmail.com", // Change to your recipient
-    from: "electricochy1@gmail.com", // Change to your verified sender
-    subject: "Sending with SendGrid is Fun",
-    text: "and easy to do anywhere, even with Node.js",
+    from: "geoffrey31415@gmail.com", // Change to your verified sender
+    subject: "Payment Success Overview",
+    text: `and easy to do anywhere, even with Node.js `,
     html: "<strong>and easy to do anywhere, even with Node.js</strong>",
   };
   sgMail.send(msg).then(() => {
