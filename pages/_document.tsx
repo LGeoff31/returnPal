@@ -2,6 +2,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Stack } from "@mui/material";
+// import { ChakraProvider } from "@chakra-ui/react";
 
 export default function Document() {
   return (
@@ -13,7 +14,9 @@ export default function Document() {
 
       <body>
         <Stack>
+          {/* <ChakraProvider> */}
           <Main />
+          {/* </ChakraProvider> */}
         </Stack>
         <NextScript />
       </body>

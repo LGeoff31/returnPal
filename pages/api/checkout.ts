@@ -35,6 +35,7 @@ export default async function handler(
       pickupType,
       returnLabelFile,
       description,
+      fileURI,
     } = formData;
 
     const session = await stripe.checkout.sessions.create({
@@ -46,7 +47,7 @@ export default async function handler(
         },
       ],
       mode: "payment",
-      success_url: `http://localhost:3000/success?name=${name}&phoneNumber=${phoneNumber}&address=${address}&apt=${apt}&city=${city}&zip=${zip}&additionalInfo=${additionalInfo}&labelType=${labelType}&pickupType=${pickupType}&returnLabelFile=${returnLabelFile}&description=${description}&labelType=${labelType}&date=${date}&selectedPlan=${selectedPlan}`,
+      success_url: `http://localhost:3000/success?name=${name}&phoneNumber=${phoneNumber}&address=${address}&apt=${apt}&city=${city}&zip=${zip}&additionalInfo=${additionalInfo}&labelType=${labelType}&pickupType=${pickupType}&returnLabelFile=${returnLabelFile}&description=${description}&labelType=${labelType}&date=${date}&selectedPlan=${selectedPlan}&fileURI=${fileURI}`,
       cancel_url: `http://return-pal.vercel.app/`,
     });
     res.status(200).json({ UrlToRedirect: session.url });

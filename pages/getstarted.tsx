@@ -18,20 +18,20 @@ const GetStarted = () => {
     email: string;
     photoURL: string;
   };
-    const [formData, setFormData] = useState({
-      name: "",
-      phoneNumber: "",
-      address: "",
-      apt: "",
-      city: "",
-      zip: "",
-      additionalInfo: "",
-      labelType: "",
-      pickupType: "",
-      returnLabelFile: null,
-      description: "",
-      fileURI:"",
-    });
+  const [formData, setFormData] = useState({
+    name: "",
+    phoneNumber: "",
+    address: "",
+    apt: "",
+    city: "",
+    zip: "",
+    additionalInfo: "",
+    labelType: "",
+    pickupType: "",
+    returnLabelFile: null,
+    description: "",
+    fileURI: "",
+  });
 
   const [userData, setUserData] = useState<YourType | null>();
   const router = useRouter();
@@ -60,9 +60,8 @@ const GetStarted = () => {
   const [today, settoday] = useState<Date>(new Date());
 
   const handleCheckout = async () => {
-
     const form = new FormData();
-    if (formData.returnLabelFile) {   
+    if (formData.returnLabelFile) {
       form.append("fileUpload", formData.returnLabelFile[0]);
       fetch(
         `https://api-ca-central-1.hygraph.com/v2/cll80jvds0u6w01uj7a3odxe3/master/upload`,
@@ -73,31 +72,30 @@ const GetStarted = () => {
           },
           body: form,
         }
-        ).then((res) => res.json())
-        .then(async(res:any) => {  
-           formData.returnLabelFile=null
+      )
+        .then((res) => res.json())
+        .then(async (res: any) => {
+          formData.returnLabelFile = null;
           console.log(res);
-           formData.fileURI = res.url
-             const response = await fetch("/api/checkout", {
-               method: "POST",
-               body: JSON.stringify({
-                 formData,
-                 date,
-                 selectedPlan,
-               }),
-               headers: {
-                 "Content-Type": "application/json",
-               },
-             });
-             const data = await submitFormData(formData, date, selectedPlan);
-             console.log(data);
-             const dataResponse = await response.json();
-             window.location.href = dataResponse.UrlToRedirect;
-            })
-      
-    }
-    else { 
-       formData.returnLabelFile = null;
+          formData.fileURI = res.url;
+          const response = await fetch("/api/checkout", {
+            method: "POST",
+            body: JSON.stringify({
+              formData,
+              date,
+              selectedPlan,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          const data = await submitFormData(formData, date, selectedPlan);
+          console.log(data);
+          const dataResponse = await response.json();
+          window.location.href = dataResponse.UrlToRedirect;
+        });
+    } else {
+      formData.returnLabelFile = null;
       const response = await fetch("/api/checkout", {
         method: "POST",
         body: JSON.stringify({
@@ -110,11 +108,11 @@ const GetStarted = () => {
         },
       });
       const data = await submitFormData(formData, date, selectedPlan);
-      console.log(data)
+      console.log(data);
       const dataResponse = await response.json();
       window.location.href = dataResponse.UrlToRedirect;
     }
-    };
+  };
 
   const renderWeek = () => {
     const days = [];
@@ -150,7 +148,6 @@ const GetStarted = () => {
 
     return days;
   };
-
 
   const [labelfilerequires, setlaberlfilerequires] = useState(false);
   useEffect(() => {
@@ -688,7 +685,7 @@ const GetStarted = () => {
                           id="name"
                           aria-describedby="helper-text-explanation"
                           className=" border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block md:w-[70%] w-full p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          placeholder={userData?.displayName}
+                          placeholder={userData?.displayName || "name"}
                           value={formData.name}
                           onChange={(e) =>
                             handleInputChange("name", e.target.value)
