@@ -10,7 +10,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       .json({ error: "Method not allowed, only POST is allowed." });
   }
   const msg = {
-    to: "geoffrey31415@gmail.com", // Change to your recipient
+    to: "info@returnpal.ca", // Change to your recipient
     from: "geoffrey31415@gmail.com", // Change to your verified sender
     subject: "Payment Success Overview",
     text: `and easy to do anywhere, even with Node.js `,
