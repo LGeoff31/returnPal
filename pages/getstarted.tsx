@@ -685,7 +685,7 @@ const GetStarted = () => {
                           id="name"
                           aria-describedby="helper-text-explanation"
                           className=" border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block md:w-[70%] w-full p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          placeholder={userData?.displayName || "name"}
+                          placeholder={userData?.displayName || "First Name"}
                           value={formData.name}
                           onChange={(e) =>
                             handleInputChange("name", e.target.value)
@@ -735,7 +735,9 @@ const GetStarted = () => {
                           id="address"
                           aria-describedby="helper-text-explanation"
                           className=" border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block md:w-[70%] w-full p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          placeholder={userData?.displayName}
+                          placeholder={
+                            userData?.displayName || "Street Address"
+                          }
                           value={formData.address}
                           onChange={(e) =>
                             handleInputChange("address", e.target.value)
