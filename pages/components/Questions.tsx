@@ -79,9 +79,6 @@ const Questions = () => {
               // boxShadow: "none",
               width: "30rem",
               marginBottom: "1rem",
-              // "&:not(:last-child)": {
-              //   marginBottom: "1rem",
-              // },
             }}
           >
             <AccordionSummary expandIcon={<AddIcon />}>
