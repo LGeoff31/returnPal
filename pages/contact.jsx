@@ -47,7 +47,7 @@ const Contact = () => {
         sx={{ background: "#f5f5f5" }}
       >
         <CardContent>
-          <Typography gutterBottom fontSize="40px" paddingTop="10rem">
+          <Typography fontSize="40px" paddingTop="10rem">
             <span style={{ color: "black" }}>Contact&nbsp;</span>
             <span
               style={{
@@ -66,7 +66,7 @@ const Contact = () => {
             color="textSecondary"
             gutterBottom
           >
-            <span style={{ fontWeight: "bold" }}>Have any questions?</span>
+            <span style={{ fontWeight: "bold" }}>Have any questions? </span>
             <span>
               Email us or submit the form <br /> below. We will respond to your
               inquiry within 24 hrs.
@@ -82,7 +82,7 @@ const Contact = () => {
                   type="text"
                   name="first_name"
                   label="First Name"
-                  placeholder="Enter first name"
+                  placeholder="First Name"
                   variant="outlined"
                   fullWidth
                   required
@@ -92,7 +92,7 @@ const Contact = () => {
                 <TextField
                   name="last_name"
                   label="Last Name"
-                  placeholder="Enter last name"
+                  placeholder="Last Name"
                   variant="outlined"
                   fullWidth
                   required
@@ -103,10 +103,10 @@ const Contact = () => {
                   name="user_email"
                   type="email"
                   label="Email"
-                  placeholder="Enter email"
+                  placeholder="Email"
                   variant="outlined"
                   fullWidth
-                  requiredç
+                  required
                 />
               </Grid>
               <Grid xs={12} item>
@@ -115,7 +115,7 @@ const Contact = () => {
                   label="Message"
                   multiline
                   rows={4}
-                  placeholder="Type your message"
+                  placeholder="Type Your Message"
                   variant="outlined"
                   fullWidth
                   required
