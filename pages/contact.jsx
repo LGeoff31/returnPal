@@ -47,13 +47,18 @@ const Contact = () => {
         sx={{ background: "#f5f5f5" }}
       >
         <CardContent>
-          <Typography
-            gutterBottom
-            variant="h3"
-            paddingTop="10rem"
-            color="primary"
-          >
-            Contact Us
+          <Typography gutterBottom fontSize="40px" paddingTop="10rem">
+            <span style={{ color: "black" }}>Contact&nbsp;</span>
+            <span
+              style={{
+                backgroundImage: "linear-gradient(to right, #87CEEB, #1E90FF)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+            >
+              Us
+            </span>
           </Typography>
           <Typography
             variant="body2"

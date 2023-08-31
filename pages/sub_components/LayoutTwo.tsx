@@ -33,15 +33,12 @@ const LayoutOne = ({
       textAlign={{ xs: "center", md: "left", lg: "left" }}
       spacing={2}
     >
-      {/* <Grid item xs={12} md={6} lg={6} order={{ xs: 1, md: 1 }}>
-        <Image
-          src={src}
-          alt="Retailers"
-          width={600}
-          height={300}
-          style={{ paddingRight: "5rem" }}
-        />
-      </Grid> */}
+      {imagePosition && (
+        <Grid item xs={12} md={6} lg={6}>
+          <Image src={src} alt="Retailers" width={600} height={300} />
+        </Grid>
+      )}
+
       <Grid item xs={12} md={6} lg={6} paddingLeft={{ xs: "0", md: "5%" }}>
         <Typography
           fontWeight="bold"
@@ -51,9 +48,6 @@ const LayoutOne = ({
           marginBottom="2rem"
         >
           {description1}
-          {/* We&apos;re all over the GTA, with a local facility in Toronto
-            designed to ensure shipping labels are printed and the
-            repackaging of items can meet same-day return needs. */}
         </Typography>
         <Typography
           fontWeight="bold"
@@ -62,21 +56,15 @@ const LayoutOne = ({
           color="#01314B"
         >
           {description2}
-          {/* Returning your online shopping purchases has never been easier.
-            Unless you get the wrong size, in which case you&apos;ll be
-            returning it so many times you&apos;ll know the shipping label
-            by heart. */}
+
         </Typography>
       </Grid>
-      <Grid item xs={12} md={6} lg={6}>
-        <Image
-          src={src}
-          alt="Retailers"
-          width={600}
-          height={300}
-          //   style={{ paddingRight: { xs: 0, md: 5 } }}
-        />
-      </Grid>
+      {!imagePosition && (
+        <Grid item xs={12} md={6} lg={6}>
+          <Image src={src} alt="Retailers" width={600} height={300} />
+        </Grid>
+      )}
+   
     </Grid>
   );
 };

@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 // import Pricing from "./components/Pricing";
 import Questions from "./components/Questions";
 import { Element } from "react-scroll";
+import Retailers from "./components/Retailers";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Layout>
         <Homepage />
         <HowItWorks />
+        <Retailers />
         <Questions />
       </Layout>
     </>

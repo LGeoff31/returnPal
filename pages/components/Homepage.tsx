@@ -18,163 +18,92 @@ const Homepage = () => {
     <>
       <Grid
         sx={{
-          position: "relative",
-          overflow: "hidden",
+          paddingLeft: { lg: "15rem", md: "10rem", sm: "7rem", xs: "3rem" },
+          background: "linear-gradient(to bottom, lightblue, white)",
         }}
       >
-        <div className="video-wrapper">
-          <video autoPlay muted loop playsInline className="video-element">
-            <source
-              src="https://video.wixstatic.com/video/11062b_b9abbd9e13a9459db58a6baa340377e7/1080p/mp4/file.mp4"
-              type="video/mp4"
-            />
-          </video>
-        </div>
-
-        <Grid
-          color={"white"}
-          sx={{
-            position: "absolute",
-            bottom: "20%",
-            left: "10%",
-            display: "flex", // Add display flex
-            flexDirection: "column", // Stack
-            zIndex: 2,
-          }}
+        <Typography
+          variant="h4"
+          zIndex={2}
+          sx={{ fontSize: { xs: "3rem", md: "4rem" } }}
+          paddingTop="10rem"
+          fontWeight="100"
         >
-          <Typography
-            position="relative"
-            variant="h4"
-            fontWeight="500"
-            zIndex={2}
-            sx={{ fontSize: { xs: "3rem", md: "4rem" } }}
-          >
-            Return Your Package <br /> The Easy Way.
-          </Typography>
-          <Box
-            sx={{
-              backgroundColor: "rgba(0, 191, 255, 0.1)", // Light transparent blue background
-              marginTop: "1.5%",
-              paddingLeft: "5%",
-
-              paddingTop: "1%",
-              paddingBottom: "1%",
-              width: { xs: "90%", md: "50%" },
-              borderRadius: "30px", // Add rounded corners to the box
-            }}
-          >
-            <Typography
-              variant="body1"
-              fontSize="1.1rem"
-              // Set the font weight to your desired boldness (e.g., 600)
-            >
-              Seamless Contactless Returns
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              marginTop: "10%",
+          Return Your Package <br /> The{" "}
+          <span style={{ fontWeight: "bold" }}> Easy Way</span>
+        </Typography>
+        <Stack
+          direction={{ lg: "row", md: "row", sm: "row", xs: "column" }}
+          marginTop="2rem"
+        >
+          <div
+            style={{
               display: "flex",
+              justifyContent: "center",
               alignItems: "center",
-              zIndex: 3,
             }}
           >
-            <picture>
-              <img
-                src="https://static.wixstatic.com/media/bf8e2b_68051fb7563f42079a1cd10f2b4b4b22~mv2.png/v1/fill/w_88,h_98,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/returnpalfinal%20logos_Transparent_Full%20Bl.png"
-                alt="ReturnPal Icon Logo"
-                width="88"
-                height="98"
-              />
-            </picture>
-            <Link href="get-started" underline="none">
-              <Button
-                sx={{
-                  // backgroundColor: "#00bfff",
-                  backgroundColor: "#20aae6",
-                  borderRadius: 50, // Adjust the value as needed to get the desired oval shape
-                  padding: "0.5rem 36px", // Customize the padding to fit the content
-                  fontSize: "1.15rem", // Set the font size to your preference
-                  fontWeight: "bold", // Adjust font weight as needed
-                  textTransform: "none", // Avoid uppercase transformation
-                  color: "primary", // Set the text color to contrast with the background
-                  "&:hover": {
-                    background: "#005DFF", // Set a darker background color on hover
-                  },
-                }}
-                variant="contained"
-                endIcon={<NearMeIcon />}
-              >
-                Return
-              </Button>
-            </Link>
-          </Box>
-        </Grid>
-      </Grid>
-      <Stack
-        direction={{ sm: "column", md: "row" }}
-        alignItems="center"
-        textAlign={"center"}
-        justifyContent={"center"}
-        sx={{
-          padding: { xs: "0.5rem", sm: "1rem", md: "2rem" }, // Add some padding for better spacing
-          marginTop: "2rem",
-          // marginLeft: { md: "10%" },
-        }}
-      >
-        <picture
-          style={{
-            transform: trigger ? "translateX(0)" : "translateX(-100%)",
-            transition: "transform 0.75s ease-in-out",
-          }}
-        >
-          <img
-            src="https://static.wixstatic.com/media/cfb1f8f03ec948f2a3eb4e46890195a3.jpg/v1/fill/w_1022,h_682,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Box%20Delivery.jpg"
-            alt="A girl receiving a box"
-            width="400px"
-            height="auto"
-          />
-        </picture>
-
-        <Stack direction="column">
-          <Typography
-            variant="h4"
-            fontWeight="bold"
-            margin="1rem"
-            marginTop={"3rem"}
-            fontSize={"2.5rem"}
-            color="#01314B"
-            sx={{
-              paddingLeft: { md: "4rem" },
-              alignSelf: "center",
-              fontSize: { xs: "30px", md: "40px" },
-            }}
-          >
-            Returning has never <br /> been this hassle-free
-          </Typography>
-          <Link href="/get-started" underline="none">
             <Button
               sx={{
-                borderRadius: "50px", // Adjust the value as needed to get the desired oval shape
-                padding: "0.5rem 36px", // Customize the padding to fit the content
-                fontSize: "1.15rem", // Set the font size to your preference
+                backgroundColor: "#2594d9",
+                borderRadius: 2, // Adjust the value as needed to get the desired oval shape
+                padding: { lg: "0.5rem 3rem", xs: "0.5rem 3rem" }, // Customize the padding to fit the content
+                fontSize: {
+                  lg: "1.15rem",
+                  md: "1rem",
+                  sm: "0.8rem",
+                  xs: "1.1rem",
+                }, // Set the font size to your preference
+                width: { lg: "290px", md: "280px", sm: "250px", xs: "280px" },
+                marginRight: "2rem",
+                marginBottom: { sm: "0rem", xs: "1rem" },
                 fontWeight: "bold", // Adjust font weight as needed
                 textTransform: "none", // Avoid uppercase transformation
-                background: "#00bfff", // Set the desired background color
-                marginBottom: "2rem",
-                color: "#fff", // Set the text color to contrast with the background
+                color: "primary", // Set the text color to contrast with the background
                 "&:hover": {
                   background: "#005DFF", // Set a darker background color on hover
                 },
-                transform: trigger ? "translateX(0)" : "translateX(-100%)",
-                transition: "transform 0.75s ease-in-out",
+              }}
+              endIcon={<NearMeIcon />}
+              variant="contained"
+            >
+              SCHEDULE NOW
+            </Button>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Button
+              sx={{
+                // backgroundColor: "#00bfff",
+                backgroundColor: "transparent",
+                width: { lg: "290px", md: "280px", sm: "250px", xs: "280px" },
+                borderRadius: 2, // Adjust the value as needed to get the desired oval shape
+                padding: { lg: "0.5rem 3rem", xs: "0.5rem 3rem" },
+                fontSize: {
+                  lg: "1.15rem",
+                  md: "1rem",
+                  sm: "0.8rem",
+                  xs: "1.1rem",
+                },
+                marginRight: "2rem",
+                border: "2px solid black", // Add black border
+                fontWeight: "bold", // Adjust font weight as needed
+                color: "black", // Set the text color to contrast with the background
+                "&:hover": {
+                  background: "#005DFF", // Set a darker background color on hover
+                },
               }}
             >
-              Learn More
+              HOW IT WORKS?
             </Button>
-          </Link>
+          </div>
         </Stack>
-      </Stack>
+      </Grid>
     </>
   );
 };
