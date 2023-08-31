@@ -47,13 +47,23 @@ const Contact = () => {
         sx={{ background: "#f5f5f5" }}
       >
         <CardContent>
-          <Typography
-            gutterBottom
+        <Typography  paddingBottom ="5rem"></Typography> 
+        {/* will increase once i get a photo to upload */}
+          <Typography 
+            display = "inline"
             variant="h3"
-            paddingTop="10rem"
-            color="primary"
+            color="Black"
+            fontSize={55}
           >
-            Contact Us
+            Contact  {" "}
+          </Typography>
+          <Typography 
+            display="inline"
+            variant="h3"
+            color="primary"
+            fontSize={55}
+          >
+            Us
           </Typography>
           <Typography
             variant="body2"
@@ -61,15 +71,15 @@ const Contact = () => {
             color="textSecondary"
             gutterBottom
           >
-            <span style={{ fontWeight: "bold" }}>Have any questions?</span>
+            <span style={{ fontWeight:"bold"}}> Have any questions? </span>
             <span>
-              Email us or submit the form <br /> below. We will respond to your
-              inquiry within 24 hrs.
+              Submit the form below<br/> and we will respond within 24 hours.
             </span>
           </Typography>
-          <Typography paddingTop="1rem" paddingBottom="1rem">
+          { <Typography paddingTop="1rem" paddingBottom="1rem">
             <EmailIcon /> info.returnpal@gmail.com
-          </Typography>
+          </Typography>} 
+           {/* is email needed? */}
           <form ref={form} onSubmit={sendEmail}>
             <Grid container spacing={1}>
               <Grid xs={12} sm={6} item>
@@ -77,7 +87,7 @@ const Contact = () => {
                   type="text"
                   name="first_name"
                   label="First Name"
-                  placeholder="Enter first name"
+                  placeholder= "First Name"
                   variant="outlined"
                   fullWidth
                   required
@@ -87,7 +97,7 @@ const Contact = () => {
                 <TextField
                   name="last_name"
                   label="Last Name"
-                  placeholder="Enter last name"
+                  placeholder="Last Name"
                   variant="outlined"
                   fullWidth
                   required
@@ -98,10 +108,10 @@ const Contact = () => {
                   name="user_email"
                   type="email"
                   label="Email"
-                  placeholder="Enter email"
+                  placeholder="Email"
                   variant="outlined"
                   fullWidth
-                  requiredç
+                  required
                 />
               </Grid>
               <Grid xs={12} item>
@@ -110,7 +120,7 @@ const Contact = () => {
                   label="Message"
                   multiline
                   rows={4}
-                  placeholder="Type your message"
+                  placeholder="Type Your Message"
                   variant="outlined"
                   fullWidth
                   required
@@ -119,7 +129,7 @@ const Contact = () => {
               <Grid xs={12} item>
                 <Button
                   type="submit"
-                  variant="contained"
+                  variant="contained" // different variants??
                   color="primary"
                   fullWidth
                 >
