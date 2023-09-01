@@ -11,7 +11,7 @@ const Retailers = () => {
       <>
         <Box display="flex" flexDirection={"row"} marginBottom="2rem">
           <Box
-            width={{ md: "20px", xs: "40px" }}
+            width={{ md: "20px", sm: "23px", xs: "40px" }}
             height="20px"
             sx={{ backgroundColor: "#0bd956" }}
             borderRadius="50%"
@@ -58,20 +58,18 @@ const Retailers = () => {
             its way to our assigned courier
           </Typography>
         </Grid>
-        <div
-          style={{
-            // display: "flex",
-            marginRight: "2rem",
-          }}
-        >
+        <div style={{}}>
           <img
             src="../images/back-truck.png"
             alt={"back truck photo"}
             width="160px"
             height="200px"
             style={{
-              marginLeft: "5rem",
-              marginRight: "5rem",
+              margin: "0 auto",
+              display: "flex",
+              justifyContent: "center",
+              // marginLeft: "5rem",
+              // marginRight: "5rem",
             }}
           />
         </div>
@@ -172,12 +170,12 @@ const Retailers = () => {
             width="120px"
             style={{ background: "white", marginRight: "2rem" }}
           />
-          <img
+          {/* <img
             src="/images/shein.png"
             height="40px"
             width="120px"
             style={{ background: "white" }}
-          />
+          /> */}
         </Box>
       </Grid>
       <Grid
@@ -188,7 +186,10 @@ const Retailers = () => {
         paddingRight={{ md: "0rem", xs: "1rem" }}
         paddingTop="5rem"
       >
-        <Typography variant="h3">
+        <Typography
+          variant="h3"
+          fontSize={{ md: "2.5rem", sm: "2rem", xs: "2rem" }}
+        >
           <span style={{ fontWeight: "100" }}>YOUR&nbsp;</span>
           <span style={{ fontWeight: "600" }}>BENEFITS</span>
         </Typography>

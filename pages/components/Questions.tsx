@@ -77,17 +77,19 @@ const Questions = () => {
               boxShadow: "0px 0px 10px 0px rgba(0, 0, 0, 0.2)",
               // boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
               // boxShadow: "none",
-              width: "30rem",
+              width: "24rem",
               marginBottom: "1rem",
             }}
           >
             <AccordionSummary expandIcon={<AddIcon />}>
-              <Typography fontSize="1.25rem" fontWeight="400" textAlign="left">
+              <Typography fontSize="1rem" fontWeight="400" textAlign="left">
                 {faq.question}
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography textAlign="left">{faq.answer}</Typography>
+              <Typography textAlign="left" fontSize="1rem">
+                {faq.answer}
+              </Typography>
             </AccordionDetails>
           </Accordion>
         ))}
