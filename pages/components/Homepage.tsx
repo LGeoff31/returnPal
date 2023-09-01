@@ -39,7 +39,6 @@ const Homepage = () => {
           <div
             style={{
               display: "flex",
-              justifyContent: "center",
               alignItems: "center",
             }}
           >
@@ -73,7 +72,6 @@ const Homepage = () => {
           <div
             style={{
               display: "flex",
-              justifyContent: "center",
               alignItems: "center",
             }}
           >
