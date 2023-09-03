@@ -204,13 +204,13 @@ const About = () => {
             
 Our service allows everyday shoppers to return items with just a click of a button, all without leaving home. We also integrate seamlessly with existing business operations, making it easier for companies to offer hassle-free returns while maintaining customer satisfaction. What sets ReturnPal apart is our collaboration with brands to repurpose unsold or returned goods. We achieve this by partnering with various nonprofits and charities."
           />
-           
-          <Divider
+          {/* <Divider
             orientation="horizontal"
             flexItem
             color="black"
             paddingBottom="2rem"
-          />
+          /> */}
+          <Divider orientation="horizontal" color="black" />
           <Founder
             src="/images/returnpal-moe.png"
             name="Mohammed Al-Salem"
