@@ -22,8 +22,8 @@ const Founder = ({
         <Image
           src={src}
           alt="hasan"
-          height={300}
-          width={330}
+          height={400}
+          width={990}
           style={{ marginTop: "2rem" }}
         />
         <Typography
