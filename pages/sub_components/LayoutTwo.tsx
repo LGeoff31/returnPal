@@ -34,7 +34,7 @@ const LayoutOne = ({
       spacing={2}
     >
       <Grid item xs={12} md={6} lg={6}>
-        <Image src={src} alt="Retailers" width={450} height={300} />
+        <Image src={src} alt="Retailers" width={400} height={300} />
       </Grid>
 
       <Grid item xs={12} md={6} lg={6} paddingLeft="1rem" paddingRight="1rem">
