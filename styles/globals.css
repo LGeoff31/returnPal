@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@tailwind base;
+/* @tailwind base; */
 
 @tailwind components;
 
@@ -243,4 +243,79 @@
   border-color: #ff9999; /* or any other border color you prefer */
   /* Add more custom styles for Sundays */
   cursor: not-allowed;
+}
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+.right-arrow,
+.left-arrow {
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ff2625;
+  font-size: 25px;
+  border-radius: 4px;
+  position: absolute;
+  bottom: -20px;
+  right: 80px;
+  transform: scale(1, 1);
+  transition: 0.3s all ease-in-out;
+}
+
+.right-arrow {
+  right: 140px;
+}
+
+.right-arrow:hover,
+.left-arrow:hover {
+  transform: scale(1.3, 1.3);
+}
+
+.react-horizontal-scrolling-menu--wrapper {
+  /* width: 100%; */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.scroll-container {
+  overflow: auto;
+  /* white-space: nowrap; */
+  /* padding: 5px 70px 5px 20px; */
+  background: transparent;
+  height: 100%;
+  border-radius: 15px;
+}
+
+.gridscroll {
+  display: inline-block;
+}
+
+.gridscroll img {
+  margin-right: 22px;
+}
+
+@media screen and (max-width: 1200px) {
+  .detail-image {
+    width: 300px;
+    height: 300px;
+  }
+
+  .react-horizontal-scrolling-menu--scroll-container {
+    width: 500px;
+  }
+
+  .left-arrow,
+  .right-arrow {
+    position: static !important;
+  }
+
+  .exercise-video {
+    width: 320px;
+    height: 300px;
+  }
 }

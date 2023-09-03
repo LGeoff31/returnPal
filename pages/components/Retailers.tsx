@@ -1,5 +1,6 @@
 import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
+import HorizontalScroller from "./HorizontalScroller";
 
 interface BulletPointProps {
   text: string;
@@ -11,7 +12,7 @@ const Retailers = () => {
       <>
         <Box display="flex" flexDirection={"row"} marginBottom="2rem">
           <Box
-            width={{ md: "20px", sm: "23px", xs: "40px" }}
+            width={{ md: "20px", sm: "20px", xs: "40px" }}
             height="20px"
             sx={{ backgroundColor: "#0bd956" }}
             borderRadius="50%"
@@ -58,21 +59,20 @@ const Retailers = () => {
             its way to our assigned courier
           </Typography>
         </Grid>
-        <div style={{}}>
-          <img
-            src="../images/back-truck.png"
-            alt={"back truck photo"}
-            width="160px"
-            height="200px"
-            style={{
-              margin: "0 auto",
-              display: "flex",
-              justifyContent: "center",
-              // marginLeft: "5rem",
-              // marginRight: "5rem",
-            }}
-          />
-        </div>
+
+        <img
+          src="../images/back-truck.png"
+          alt={"back truck photo"}
+          width="160px"
+          height="200px"
+          style={{
+            margin: "0 auto",
+            display: "flex",
+            justifyContent: "center",
+            // marginLeft: "5rem",
+            // marginRight: "5rem",
+          }}
+        />
       </Stack>
       <Box
         sx={{
@@ -84,64 +84,76 @@ const Retailers = () => {
           background: "white",
           padding: "0.25rem",
           borderRadius: "8px",
-          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          flexDirection: "row",
           marginTop: { md: "0rem", sm: "2rem", xs: "2rem" },
-          gap: { md: "2rem", xs: "0rem" },
+          gap: { md: "2rem", xs: "1rem" },
         }}
       >
         <Box display={{ md: "flex", xs: "-moz-initial  " }} gap="2rem">
-          <picture>
-            <img
-              src="https://static.wixstatic.com/media/bf8e2b_057e9b83e897486ba813c80ac897b5d7~mv2.png/v1/fill/w_344,h_168,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/FedEx-Logo.png"
-              alt="FedEx Logo"
-              width="172"
-              height="84"
-              style={{}}
-            />
-          </picture>
+          <img
+            src="https://static.wixstatic.com/media/bf8e2b_057e9b83e897486ba813c80ac897b5d7~mv2.png/v1/fill/w_344,h_168,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/FedEx-Logo.png"
+            alt="FedEx Logo"
+            width="172"
+            height="84"
+            style={{}}
+          />
 
-          <picture>
-            <img
-              src="https://static.wixstatic.com/media/bf8e2b_0c9381a5706043c6b388f94acbb31a69~mv2.png/v1/fill/w_344,h_168,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/DHL-Emblem.png"
-              alt="DHL Logo"
-              width={"172"}
-              height="84"
-              style={{}}
-            />
-          </picture>
+          <img
+            src="https://static.wixstatic.com/media/bf8e2b_0c9381a5706043c6b388f94acbb31a69~mv2.png/v1/fill/w_344,h_168,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/DHL-Emblem.png"
+            alt="DHL Logo"
+            width={"172"}
+            height="84"
+            style={{}}
+          />
         </Box>
         <Box
           display={{ md: "flex", xs: "-moz-initial  " }}
           alignItems={"center"}
           gap={{ md: "2rem", xs: "0rem" }}
         >
-          <picture>
-            <img
-              src="https://static.wixstatic.com/media/bf8e2b_4be81e81690c434488e498fa103d75a7~mv2.png/v1/fill/w_166,h_166,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/UPS-Logo_edited.png"
-              alt="ups logo"
-              width="83"
-              height="83"
-            />
-          </picture>
-          <picture>
-            <img
-              src="https://static.wixstatic.com/media/bf8e2b_45cf2bb5c6c94e6d93f32a2a65d26fb1~mv2.png/v1/fill/w_204,h_204,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/bf8e2b_45cf2bb5c6c94e6d93f32a2a65d26fb1~mv2.png"
-              alt="purolator courier logo"
-              width="102"
-              height="102"
-              style={{}}
-            />
-          </picture>
+          <img
+            src="https://static.wixstatic.com/media/bf8e2b_4be81e81690c434488e498fa103d75a7~mv2.png/v1/fill/w_166,h_166,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/UPS-Logo_edited.png"
+            alt="ups logo"
+            width="70"
+            height="93"
+          />
+
+          <img
+            src="https://static.wixstatic.com/media/bf8e2b_45cf2bb5c6c94e6d93f32a2a65d26fb1~mv2.png/v1/fill/w_204,h_204,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/bf8e2b_45cf2bb5c6c94e6d93f32a2a65d26fb1~mv2.png"
+            alt="purolator courier logo"
+            width="120"
+            height="102"
+            style={{}}
+          />
+        </Box>
+        <Box
+          display={{ md: "flex", xs: "-moz-initial  " }}
+          alignItems={"center"}
+          gap={{ md: "2rem", xs: "0rem" }}
+        >
+          <img
+            src="/images/canada-post.png"
+            alt="purolator courier logo"
+            width="120"
+            height="140"
+          />
+
+          <img
+            src="/images/canpar.png"
+            alt="purolator courier logo"
+            width="102"
+            height="102"
+            style={{}}
+          />
         </Box>
       </Box>
       <Grid sx={{ background: "#098bdb" }}>
         <Typography
           variant="h6"
-          paddingTop={{ md: "5rem", sm: "9rem", xs: "10rem" }}
-          paddingBottom="3rem"
+          paddingTop={{ md: "5rem", sm: "12rem", xs: "10rem" }}
           textAlign="center"
           color="#cfcfcf"
           fontSize={{ md: "1.5rem", sm: "1rem" }}
@@ -151,32 +163,17 @@ const Retailers = () => {
           </span>
           <span style={{ fontWeight: "700", color: "white" }}>+100 Brands</span>
         </Typography>
-        <Box
-          paddingLeft="2rem"
-          display="flex"
-          justifyContent={"center"}
-          alignItems="center"
-          paddingBottom="2rem"
+
+        <Typography
+          variant="h6"
+          paddingBottom="3rem"
+          textAlign="center"
+          color="#cfcfcf"
+          fontSize={{ md: "1.5rem", sm: "1rem" }}
         >
-          <img
-            src="/images/amazon.png"
-            height="40px"
-            width="120px"
-            style={{ background: "white", marginRight: "2rem" }}
-          />
-          <img
-            src="/images/bestbuy.png"
-            height="40px"
-            width="120px"
-            style={{ background: "white", marginRight: "2rem" }}
-          />
-          {/* <img
-            src="/images/shein.png"
-            height="40px"
-            width="120px"
-            style={{ background: "white" }}
-          /> */}
-        </Box>
+          <span style={{ fontWeight: "700", color: "white" }}>Swipe Left</span>
+        </Typography>
+        <HorizontalScroller />
       </Grid>
       <Grid
         container

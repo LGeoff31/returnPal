@@ -89,7 +89,6 @@ const GetInvolved = () => {
         description2="Our goal is to save you from having to repackage items, print
           shipping labels, and take that long drive to the not so local
           post office."
-        imagePosition={true}
       />
       <LayoutTwo
         src="/images/returnpal-gta.webp"
@@ -100,7 +99,6 @@ const GetInvolved = () => {
                 Unless you get the wrong size, in which case you will be
                 returning it so many times you'll know the shipping label
                 by heart."
-        imagePosition={false}
       />
       <Grid
         container
