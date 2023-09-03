@@ -50,9 +50,8 @@ const About = () => {
             marginRight="0rem"
           >
             Our mission at ReturnPal is to revolutionize the way returns are
-            <br />
-            done by providing a hassle-free and convenient solution for online
-            shoppers.
+            done by <br /> providing a hassle-free and convenient solution for
+            online shoppers.
             {/* <br />
             <br />
             We aim to take the stress out of the return process by handling the
