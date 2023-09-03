@@ -150,7 +150,7 @@ const GetInvolved = () => {
           justifyContent={"space-evenly"}
           alignItems="center"
         >
-          <Founder
+          {/* <Founder
             src="/images/returnpal-hasan.png"
             name="Hasan-Ali Abidi"
             description="CEO of Play Forever"
@@ -160,7 +160,7 @@ const GetInvolved = () => {
             src="/images/returnpal-mo.png"
             name="Mohammed Al-Salem"
             description="Founder of Play Forever"
-          />
+          /> */}
         </Stack>
       </Grid>
     </Layout>
