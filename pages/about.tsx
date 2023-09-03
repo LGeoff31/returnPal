@@ -213,14 +213,7 @@ Our service allows everyday shoppers to return items with just a click of a butt
             
             Choosing ReturnPal is a win-win for everyone involved. It simplifies the return process, promotes a more sustainable way of doing business, and ultimately improves the quality of life for our customers. Our focus on simplifying returns, fostering sustainability, and improving quality of life has resonated with both consumers and businesses, making a real difference in the way online shopping returns are handled."
           />
-
-          {/* <Founder
-            src="/images/returnpal-moe.png"
-            name="Mohammed Al-Salem"
-            role="CEO of Returnpal"
-            description="Choosing ReturnPal is a win-win for everyone involved. It simplifies the return process, promotes a more sustainable way of doing business, and ultimately improves the quality of life for our customers. Our focus on simplifying returns, fostering sustainability, and improving quality of life has resonated with both consumers and businesses, making a real difference in the way online shopping returns are handled."
-          /> */}
-        </Grid>
+        <Grid/>
       </Grid>
     </Layout>
   );
