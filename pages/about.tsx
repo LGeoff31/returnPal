@@ -141,7 +141,7 @@ const About = () => {
         sx={{
           background: "#e8f7ff",
           display: "flex",
-          flexDirection: "row",
+          flexDirection: { md: "row", xs: "column" },
           alignItems: "center",
           // justifyContent: "space-between",
           padding: "2rem",
@@ -155,6 +155,7 @@ const About = () => {
         <Typography
           variant="h2"
           fontSize={{ lg: "60px", md: "50px", sm: "40px", xs: "30px" }}
+          textAlign={{ md: "-moz-initial", xs: "center" }}
         >
           <span>Schedule Your Return&nbsp;</span>
           <span
@@ -176,8 +177,9 @@ const About = () => {
             background: "#128be0",
             borderRadius: "10px",
             fontWeight: "600",
-            marginLeft: "4rem",
+            marginLeft: { md: "4rem", xs: "0rem" },
             padding: "0.5rem",
+            marginTop: { md: "0rem", xs: "2rem" },
           }}
         >
           Get started
