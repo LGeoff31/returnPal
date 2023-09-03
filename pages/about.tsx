@@ -23,7 +23,7 @@ const About = () => {
       <Stack direction={{ md: "row", sm: "column" }} paddingTop="8rem">
         <Box
           textAlign={{ md: "start", sm: "center", xs: "center" }}
-          paddingLeft={{ md: "6rem" }}
+          paddingLeft={{ lg: "10rem", md: "5rem", sm: "0rem" }}
         >
           <Typography fontSize="40px">
             <span style={{ color: "black", fontWeight: "150" }}>
@@ -42,19 +42,22 @@ const About = () => {
             </span>
           </Typography>
           <Typography
-            width={{ md: "70%", sm: "80%", xs: "80%" }}
+            // width={{ md: "70%", sm: "80%", xs: "80%" }}
             margin={{ md: "0", sm: "0 auto", xs: "0 auto" }}
             color="grey"
             paddingTop="1rem"
+            paddingRight="0rem"
+            marginRight="0rem"
           >
             Our mission at ReturnPal is to revolutionize the way returns are
+            <br />
             done by providing a hassle-free and convenient solution for online
             shoppers.
-            <br />
+            {/* <br />
             <br />
             We aim to take the stress out of the return process by handling the
             entire repackaging and delivery process, allowing customers to sit
-            back and relax.
+            back and relax. */}
           </Typography>
         </Box>
         <img
@@ -62,6 +65,7 @@ const About = () => {
           width="300px"
           style={{
             margin: "0 auto",
+            // marginRight: "5rem",
           }}
         />
       </Stack>
