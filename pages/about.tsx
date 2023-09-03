@@ -46,7 +46,8 @@ const About = () => {
             margin={{ md: "0", sm: "0 auto", xs: "0 auto" }}
             color="grey"
             paddingTop="1rem"
-            paddingRight="0rem"
+            paddingLeft={{ md: "0rem", xs: "2rem" }}
+            paddingRight={{ md: "0rem", xs: "2rem" }}
             marginRight="0rem"
           >
             Our mission at ReturnPal is to revolutionize the way returns are
