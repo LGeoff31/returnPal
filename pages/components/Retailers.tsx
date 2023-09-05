@@ -170,9 +170,7 @@ const Retailers = () => {
           textAlign="center"
           color="#cfcfcf"
           fontSize={{ md: "1.5rem", sm: "1rem" }}
-        >
-          <span style={{ fontWeight: "700", color: "white" }}>Swipe Left</span>
-        </Typography>
+        ></Typography>
         <HorizontalScroller />
       </Grid>
       <Grid

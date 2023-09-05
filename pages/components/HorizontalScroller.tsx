@@ -28,11 +28,12 @@ const HorizontalScroller = () => {
             style={{ background: "white", marginRight: "2rem" }}
           />
           <img
-            src="/images/shein.png"
+            src="/images/temu.png"
             height="40px"
             width="120px"
-            style={{ background: "white" }}
+            // style={{ background: "white" }}
           />
+
           <img
             src="/images/amazon.png"
             height="40px"

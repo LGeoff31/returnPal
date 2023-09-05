@@ -34,14 +34,14 @@ const LayoutOne = ({
       spacing={2}
     >
       <Grid item xs={12} md={6} lg={6}>
-        <Image src={src} alt="Retailers" width={400} height={300} />
+        <Image src={src} alt="Retailers" width={450} height={300} />
       </Grid>
 
       <Grid item xs={12} md={6} lg={6} paddingLeft="1rem" paddingRight="1rem">
         <Typography
           fontWeight="150"
           variant="h6"
-          fontSize="1.5rem"
+          fontSize="1.25rem"
           color="grey"
           marginBottom="2rem"
           paddingTop={{ md: "0rem", xs: "1rem" }}
@@ -51,7 +51,7 @@ const LayoutOne = ({
         <Typography
           fontWeight="150"
           variant="h6"
-          fontSize="1.5rem"
+          fontSize="1.25rem"
           color="grey"
         >
           {description2}

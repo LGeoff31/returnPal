@@ -5,6 +5,7 @@ import {
   Grid,
   TextField,
   Typography,
+  Box,
 } from "@mui/material";
 // import React, {useRef} from "react";
 import Layout from "./components/Layout";
@@ -43,12 +44,16 @@ const Contact = () => {
       <Grid
         container
         direction={{ md: "row", sm: "column" }}
+        // paddingLeft="4rem"
+        display="flex"
         justifyContent={"center"}
         sx={{ background: "#f5f5f5" }}
       >
         <CardContent>
           <Typography fontSize="40px" paddingTop="10rem">
-            <span style={{ color: "black" }}>Contact&nbsp;</span>
+            <span style={{ color: "black", fontWeight: "100" }}>
+              CONTACT&nbsp;
+            </span>
             <span
               style={{
                 backgroundImage: "linear-gradient(to right, #87CEEB, #1E90FF)",
@@ -57,7 +62,7 @@ const Contact = () => {
                 color: "transparent",
               }}
             >
-              Us
+              US
             </span>
           </Typography>
           <Typography
@@ -134,6 +139,19 @@ const Contact = () => {
             </Grid>
           </form>
         </CardContent>
+        <Box sx={{ paddingTop: { md: "18rem", xs: "0rem" } }}>
+          <img
+            src="/images/robot.png"
+            alt={"back truck photo"}
+            width="200px"
+            // height="20px"
+            style={{
+              margin: "0 auto",
+              maxHeight: "700px",
+              paddingBottom: "2rem",
+            }}
+          />
+        </Box>
       </Grid>
     </Layout>
   );
