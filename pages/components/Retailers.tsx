@@ -229,6 +229,7 @@ const Retailers = () => {
           />
         </Grid>
         <Button
+          href="/getstarted"
           variant="contained"
           sx={{
             width: "12rem",

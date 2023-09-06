@@ -44,9 +44,9 @@ const Contact = () => {
       <Grid
         container
         direction={{ md: "row", sm: "column" }}
-        // paddingLeft="4rem"
-        display="flex"
-        justifyContent={"center"}
+        paddingLeft={{ lg: "10rem", md: "7rem", sm: "5rem", xs: "2rem" }}
+        // display="flex"
+        // justifyContent={"center"}
         sx={{ background: "#f5f5f5" }}
       >
         <CardContent>
@@ -139,19 +139,19 @@ const Contact = () => {
             </Grid>
           </form>
         </CardContent>
-        <Box sx={{ paddingTop: { md: "18rem", xs: "0rem" } }}>
+        {/* <Box sx={{ paddingTop: { md: "18rem", xs: "0rem" } }}>
           <img
             src="/images/robot.png"
             alt={"back truck photo"}
             width="200px"
-            // height="20px"
             style={{
               margin: "0 auto",
               maxHeight: "700px",
+              marginLeft: "2rem",
               paddingBottom: "2rem",
             }}
           />
-        </Box>
+        </Box> */}
       </Grid>
     </Layout>
   );

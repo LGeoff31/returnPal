@@ -27,6 +27,7 @@ const ScheduleReturn = () => {
         <span style={{ color: "#3da1e3", fontWeight: "600" }}>Now</span>
       </Typography>
       <Button
+        href="/getstarted"
         variant="contained"
         sx={{
           width: "12rem",

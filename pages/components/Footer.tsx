@@ -41,7 +41,7 @@ const Footer = () => {
           <InstagramIcon sx={{ fontSize: 48 }} />
         </Link> */}
         <Link
-          href="/pricing"
+          href="/contact"
           variant="h5"
           underline="none"
           color="black"
@@ -56,7 +56,7 @@ const Footer = () => {
           Contact
         </Link>
         <Link
-          href="/pricing"
+          href="/about"
           variant="h5"
           color="black"
           underline="none"

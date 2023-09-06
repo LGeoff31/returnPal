@@ -53,7 +53,7 @@ const WhyReturnpal = () => {
         ultimately improves the quality of life for our customers. Our focus on
         simplifying returns, fostering sustainability, and improving quality of
         life has resonated with both consumers and businesses, making a real
-        difference in the way online shopping returns are handled.   
+        difference in the way online shopping returns are handled.
       </Typography>
     </Grid>
   );

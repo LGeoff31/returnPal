@@ -42,7 +42,10 @@ const Homepage = () => {
               alignItems: "center",
             }}
           >
+            {/* <Link>
+            </Link> */}
             <Button
+              href="/getstarted"
               sx={{
                 backgroundColor: "#2594d9",
                 borderRadius: 2, // Adjust the value as needed to get the desired oval shape
