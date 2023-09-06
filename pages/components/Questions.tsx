@@ -14,34 +14,34 @@ import AddIcon from "@mui/icons-material/Add";
 const Questions = () => {
   const faqs = [
     {
-      question: "Do I need to package my returns?",
-      answer: `ReturnPal recommends returns be repackaged into their original packaging material provided upon purchase. 
-     If this is not possible, our ReturnPal couriers will happily deliver your returns to our packing facility where items will be appropriately repackaged before being sent out for final returns.`,
+      question:
+        "Can I return Items from any online store and any courier with ReturnPal",
+      answer: `Yes! ReturnPal works with all online retailers and couriers. You can use our service to return anything you bought online`,
     },
     {
-      question: "How do I add a new question?",
+      question: "Do I have to package my item before returning it?",
       answer:
-        "To add a new question go to app settings and press Manage Questions button.",
+        "No, you don't have to worry about packaging. We will do it for you when we collect your item.",
     },
     {
-      question: "Can I insert pictures in my FAQ?",
+      question: "Do I have to print my return label before returning it",
       answer:
-        "Yes! To add a picture follow these simple steps: Enter App Settings Click the Manage Questions button Click on the question you would like to attach a picture to  When editing your answer, click on the picture icon and then add an image from your library",
+        "No, you don't have to print anything. Just upload your return label or receipt to our app or website and we will print it for you.",
     },
     {
-      question: "Do you collect returns on weekends?",
+      question: "Can I return items on the weekends or holidays?",
       answer:
-        "We operate 7 days a week, on average, returns are picked up on the same day the return is originally ordered.",
+        "Yes, you can return items anytime you want. We collect returns 24/7, 7 days a week.",
     },
     {
-      question: "Can I insert a video in my FAQ?",
+      question: "How fast will my item be shipped back to the retailer",
       answer:
-        "Yes! Users can add video from YouTube or Vimeo with ease: Enter App Settings Click the Manage Questions button Click on the question you would like to attach a video to When editing your answer, click on the video icon and then paste the YouTube or Vimeo video URL That's it! A thumbnail of your video will appear in answer text box.",
+        "Usually, your item will be delivered to the post office within 12-24 hours of your return request",
     },
     {
-      question: "How long does shipping typically take?",
+      question: "What if I have more questions or need help?",
       answer:
-        "Shipping time is entirely dependent on the terms listed on your return label, typically, the entire return process takes an additional 12 hours more then how long it would take to complete the return yourself.",
+        "Please contact us here. We are happy to assist you with any queries or issues.",
     },
     {
       question: "What if I’m returning multiple item to the same place?",

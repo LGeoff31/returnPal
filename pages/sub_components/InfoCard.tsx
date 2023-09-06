@@ -45,7 +45,7 @@ const InfoCard = ({
       <Typography
         variant="h6"
         sx={{
-          fontWeight: "500",
+          fontWeight: "650",
           marginBottom: "0.5rem",
           color: "black",
         }}

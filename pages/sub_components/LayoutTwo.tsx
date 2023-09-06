@@ -42,7 +42,7 @@ const LayoutOne = ({
           fontWeight="150"
           variant="h6"
           fontSize="1.25rem"
-          color="grey"
+          // color="grey"
           marginBottom="2rem"
           paddingTop={{ md: "0rem", xs: "1rem" }}
         >
@@ -52,7 +52,7 @@ const LayoutOne = ({
           fontWeight="150"
           variant="h6"
           fontSize="1.25rem"
-          color="grey"
+          // color="grey"
         >
           {description2}
         </Typography>

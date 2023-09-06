@@ -5,7 +5,7 @@ const ScheduleReturn = () => {
   return (
     <Box
       paddingTop="3rem"
-      marginTop="10rem"
+      marginTop={{ md: "10rem", xs: "5rem" }}
       sx={{
         background: "#e8f7ff",
         display: "flex",
@@ -24,17 +24,7 @@ const ScheduleReturn = () => {
         textAlign={{ md: "-moz-initial", xs: "center" }}
       >
         <span>Schedule Your Return&nbsp;</span>
-        <span
-          style={{
-            fontWeight: "600",
-            backgroundImage: "linear-gradient(to right, #87CEEB, #1E90FF)",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
-            color: "transparent",
-          }}
-        >
-          Now
-        </span>
+        <span style={{ color: "#3da1e3", fontWeight: "600" }}>Now</span>
       </Typography>
       <Button
         variant="contained"

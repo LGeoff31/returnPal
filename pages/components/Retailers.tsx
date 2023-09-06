@@ -10,15 +10,31 @@ const Retailers = () => {
   const BulletPoint = ({ text }: BulletPointProps) => {
     return (
       <>
-        <Box display="flex" flexDirection={"row"} marginBottom="2rem">
+        <Box
+          display="flex"
+          flexDirection={"row"}
+          paddingBottom="2rem"
+          alignItems={"center"}
+        >
           <Box
             width={{ md: "20px", sm: "20px", xs: "40px" }}
             height="20px"
-            sx={{ backgroundColor: "#0bd956" }}
+            sx={{ backgroundColor: "#3da1e3" }}
             borderRadius="50%"
             marginRight="2rem"
           />
-          <Typography>{text}</Typography>
+          <Typography
+            // marginTop={{ md: "1rem", sm: "0rem" }}
+            variant="h6"
+            fontSize={"1.25rem"}
+            // padding={{ md: "0rem", xs: "2rem" }}
+            // paddingTop="3rem"
+            // paddingBottom="2rem"
+            color="#474747"
+            fontWeight="200"
+          >
+            {text}
+          </Typography>
         </Box>
       </>
     );
@@ -155,7 +171,8 @@ const Retailers = () => {
           variant="h6"
           paddingTop={{ md: "5rem", sm: "12rem", xs: "10rem" }}
           textAlign="center"
-          color="#cfcfcf"
+          // color="#cfcfcf"
+          color="white"
           fontSize={{ md: "1.5rem", sm: "1rem" }}
         >
           <span style={{ fontWeight: "100" }}>
@@ -176,17 +193,18 @@ const Retailers = () => {
       <Grid
         container
         direction="column"
-        sx={{ background: "#fefff2" }}
-        paddingLeft={{ md: "5rem", xs: "2rem" }}
-        paddingRight={{ md: "0rem", xs: "1rem" }}
+        sx={{ background: "#e8f7ff" }}
+        paddingLeft={{ lg: "10rem", md: "5rem", sm: "2rem", xs: "1rem" }}
+        paddingRight={{ md: "0rem", sm: "2rem", xs: "1rem" }}
         paddingTop="5rem"
+        paddingBottom="2rem"
       >
         <Typography
           variant="h3"
-          fontSize={{ md: "2.5rem", sm: "2rem", xs: "2rem" }}
+          fontSize={{ lg: "60px", md: "50px", xs: "45px" }}
         >
           <span style={{ fontWeight: "100" }}>YOUR&nbsp;</span>
-          <span style={{ fontWeight: "600" }}>BENEFITS</span>
+          <span style={{ color: "#3da1e3", fontWeight: "600" }}>BENEFITS</span>
         </Typography>
         <Grid container direction="column" marginTop="2rem">
           <BulletPoint

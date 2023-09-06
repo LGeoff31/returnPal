@@ -9,20 +9,41 @@ import {
 } from "@mui/material";
 import NearMeIcon from "@mui/icons-material/NearMe";
 import Layout from "./components/Layout";
+import PricingCard from "./components/PricingCard";
 
 const Pricing = () => {
   return (
     <Layout>
-      <div className="pt-20 flex flex-col md:items-start items-center justify-center md:justify-start ">
-        <Typography
-          variant="h3"
-          margin="0 auto"
-          paddingTop="2rem"
-          textAlign={"center"}
+      <Typography
+        variant="h3"
+        margin="0 auto"
+        paddingTop="7rem"
+        textAlign={"center"}
+      >
+        <span style={{ color: "black", fontWeight: "150" }}>PRICING&nbsp;</span>
+        <span
+          style={{
+            backgroundImage: "linear-gradient(to right, #87CEEB, #1E90FF)",
+            WebkitBackgroundClip: "text",
+            backgroundClip: "text",
+            color: "transparent",
+            fontWeight: "600",
+          }}
         >
-          Pricing Plans
-        </Typography>
-      </div>
+          PLANS
+        </span>
+      </Typography>
+      <PricingCard
+        title={"Pay as you go"}
+        info={"dwad"}
+        description={[
+          "Get access to advanced features and premium support.",
+          "Priority customer support.",
+          "Monthly webinars and tutorials.",
+        ]}
+        price={"dawd"}
+      />
+
       <div className=" md:my-16 my-5 flex justify-center ">
         {/* Section: Design Block */}
         <section className="md:mb-2 mb-10 ">

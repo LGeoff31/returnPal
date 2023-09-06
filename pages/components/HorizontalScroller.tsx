@@ -9,11 +9,10 @@ const HorizontalScroller = () => {
     <div className="scroll-container">
       <div className="gridscroll">
         <Box
-          paddingLeft="2rem"
+          paddingLeft={{ md: "6rem", xs: "1rem" }}
           display="flex"
-          //   justifyContent={"center"}
-          //   alignItems="center"
           paddingBottom="2rem"
+          alignItems={"center"}
         >
           <img
             src="/images/amazon.png"
@@ -35,43 +34,37 @@ const HorizontalScroller = () => {
           />
 
           <img
-            src="/images/amazon.png"
+            src="/images/homedepot.png"
             height="40px"
             width="120px"
             style={{ background: "white", marginRight: "2rem" }}
           />
           <img
-            src="/images/bestbuy.png"
+            src="/images/walmart.png"
             height="40px"
             width="120px"
             style={{ background: "white", marginRight: "2rem" }}
           />
           <img
-            src="/images/shein.png"
+            src="/images/cosco.png"
             height="40px"
             width="120px"
             style={{ background: "white" }}
           />
           <img
-            src="/images/amazon.png"
+            src="/images/sense.png"
             height="40px"
             width="120px"
             style={{ background: "white", marginRight: "2rem" }}
           />
           <img
-            src="/images/bestbuy.png"
+            src="/images/nike.png"
             height="40px"
             width="120px"
             style={{ background: "white", marginRight: "2rem" }}
           />
           <img
-            src="/images/shein.png"
-            height="40px"
-            width="120px"
-            style={{ background: "white" }}
-          />
-          <img
-            src="/images/shein.png"
+            src="/images/canadiantire.png"
             height="40px"
             width="120px"
             style={{ background: "white" }}

@@ -9,38 +9,45 @@ const Mission = () => {
       paddingLeft={{ lg: "10rem", md: "5rem", sm: "0rem" }}
       paddingRight={{ lg: "10rem", md: "5rem", sm: "0rem" }}
     >
-      <Box textAlign="start">
+      <Box textAlign={{ lg: "start", md: "center" }}>
         <Typography
-          textAlign={{ md: "start", xs: "center" }}
-          fontSize={{ md: "4rem", xs: "2rem" }}
+          variant="h2"
+          fontSize={{ lg: "60px", md: "50px", sm: "40px", xs: "30px" }}
+          //   textAlign="center"
+          paddingLeft={{ md: "0rem", xs: "2rem" }}
         >
-          <span style={{ color: "black", fontWeight: "150" }}>
-            MISSION&nbsp;
-          </span>
-          <span
-            style={{
-              backgroundImage: "linear-gradient(to right, #87CEEB, #1E90FF)",
-              WebkitBackgroundClip: "text",
-              backgroundClip: "text",
-              color: "transparent",
-              fontWeight: "600",
-            }}
-          >
-            STATEMENT
-          </span>
+          <span>MISSION&nbsp;</span>
+          <span style={{ color: "#3da1e3", fontWeight: "600" }}>STATEMENT</span>
         </Typography>
         <Typography
-          color="grey"
-          paddingTop="1rem"
-          paddingLeft={{ md: "0rem", xs: "2rem" }}
+          marginTop={{ md: "1rem", sm: "0rem" }}
+          variant="h6"
+          fontSize={"1.25rem"}
+          padding={{ md: "0rem", xs: "2rem" }}
+          paddingTop="3rem"
+          marginBottom={{ md: "2rem", xs: "1rem" }}
+          fontWeight="300"
         >
           Our mission at ReturnPal is to revolutionize the way returns are done
           by providing a hassle-free and convenient solution for online
           shoppers.
         </Typography>
         <Typography
+          marginTop={{ md: "1rem", sm: "0rem" }}
+          variant="h6"
+          fontSize={"1.25rem"}
+          padding={{ md: "0rem", xs: "2rem" }}
+          paddingTop="3rem"
+          marginBottom={{ md: "2rem", xs: "1rem" }}
+          fontWeight="300"
+        >
+          We aim to take the stress out of the return process by handling the
+          entire repackaging and delivery process, allowing customers to sit
+          back and relax.
+        </Typography>
+        {/* <Typography
           margin={{ md: "0", sm: "0 auto", xs: "0 auto" }}
-          color="grey"
+          //   color="grey"
           paddingTop="2rem"
           paddingLeft={{ md: "0rem", xs: "2rem" }}
           paddingRight={{ md: "0rem", xs: "2rem" }}
@@ -49,7 +56,7 @@ const Mission = () => {
           We aim to take the stress out of the return process by handling the
           entire repackaging and delivery process, allowing customers to sit
           back and relax.
-        </Typography>
+        </Typography> */}
       </Box>
       <img
         src="/images/loading.png"

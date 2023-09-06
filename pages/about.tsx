@@ -37,14 +37,10 @@ const About = () => {
       />
       <LayoutTwo
         src="/images/returnpal-gta.webp"
-        description1="We are all over the GTA, with a local facility in Toronto
-                designed to ensure shipping labels are printed and the
-                repackaging of items can meet same-day return needs."
-        description2="Returning your online shopping purchases has never been easier.
-                Unless you get the wrong size, in which case you will be
-                returning it so many times you'll know the shipping label
-                by heart."
+        description1="We are all over the GTA, with a local facility in Toronto designed to ensure shipping labels are printed and the repackaging of items can meet same-day return needs."
+        description2="Returning your online shopping purchases has never been easier."
       />
+
       <ScheduleReturn />
       <Founders />
       <WhyReturnpal />

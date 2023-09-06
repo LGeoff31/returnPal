@@ -17,7 +17,7 @@ const Footer = () => {
     <Grid
       container
       direction="row"
-      paddingLeft="2rem"
+      paddingLeft={{ md: "2rem", xs: "0rem" }}
       display="flex"
       alignItems="center"
       justifyContent={"space-between"}
@@ -44,7 +44,7 @@ const Footer = () => {
           href="/pricing"
           variant="h5"
           underline="none"
-          color="grey"
+          color="black"
           sx={{
             cursor: "pointer",
             transition: "color 0.3s ease",
@@ -58,8 +58,8 @@ const Footer = () => {
         <Link
           href="/pricing"
           variant="h5"
+          color="black"
           underline="none"
-          color="grey"
           sx={{
             cursor: "pointer",
             transition: "color 0.3s ease",

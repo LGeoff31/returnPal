@@ -35,7 +35,7 @@ const HowItWorks = () => {
           number="1"
         />
         <InfoCard
-          title="Select your pickup method"
+          title="Select a pickup method"
           description="Leave your package on your doorsteps or hand it off to one our specialists"
           number="2"
         />

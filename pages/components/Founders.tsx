@@ -6,28 +6,27 @@ const Founders = () => {
     <>
       <Typography
         variant="h2"
-        fontSize={{ md: "4rem", xs: "2rem" }}
+        fontSize={{ md: "4rem", sm: "3rem", xs: "2rem" }}
         paddingTop="7rem"
-        paddingBottom="1rem"
         color="black"
         fontWeight="500"
         textAlign={"center"}
       >
         <span style={{ color: "black", fontWeight: "150" }}>How&nbsp;</span>
-        <span
-          style={{
-            backgroundImage: "linear-gradient(to right, #87CEEB, #1E90FF)",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
-            color: "transparent",
-            fontWeight: "600",
-          }}
-        >
-          WE&nbsp;
-        </span>
+        <span style={{ color: "#3da1e3", fontWeight: "600" }}>WE&nbsp;</span>
         <span style={{ color: "black", fontWeight: "150" }}>STARTED&nbsp;</span>
       </Typography>
-      <Typography paddingLeft="10%" paddingRight="10%">
+      <Typography
+        // marginTop={{ md: "1rem", sm: "0rem" }}
+        variant="h6"
+        fontSize={{ md: "1.25rem", xs: "1rem" }}
+        // padding={{ md: "0rem", xs: "2rem" }}
+        paddingLeft="10%"
+        paddingRight="10%"
+        paddingTop="3rem"
+        marginBottom={{ md: "2rem", xs: "1rem" }}
+        fontWeight="300"
+      >
         ReturnPal was born out of a simple realization: the traditional process
         of returning online purchases is far too complicated. Two friends after
         waiting in line at the post office, decided there had to be a better
@@ -45,17 +44,7 @@ const Founders = () => {
         textAlign={"center"}
       >
         <span style={{ color: "black", fontWeight: "150" }}>OUR&nbsp;</span>
-        <span
-          style={{
-            backgroundImage: "linear-gradient(to right, #87CEEB, #1E90FF)",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
-            color: "transparent",
-            fontWeight: "600",
-          }}
-        >
-          RETURNPAL&nbsp;
-        </span>
+        <span style={{ color: "#3da1e3", fontWeight: "600" }}>RETURNPAL</span>
       </Typography>
       <Grid
         container
