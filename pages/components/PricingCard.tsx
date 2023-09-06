@@ -26,13 +26,13 @@ const PricingCard = ({ title, info, description, price }: PricingCardInfo) => {
         {info}
       </Typography>
       <Divider sx={{ my: 2 }} />
-      <ul>
+      {/* <ul>
         {description.map((item, index) => (
           <li key={index}>
             <Typography variant="body2">{item}</Typography>
           </li>
         ))}
-      </ul>
+      </ul> */}
       <Button variant="contained" color="primary" fullWidth>
         {title}
       </Button>

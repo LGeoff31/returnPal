@@ -33,7 +33,7 @@ const Pricing = () => {
           PLANS
         </span>
       </Typography>
-      <PricingCard
+      {/* <PricingCard
         title={"Pay as you go"}
         info={"dwad"}
         description={[
@@ -42,7 +42,7 @@ const Pricing = () => {
           "Monthly webinars and tutorials.",
         ]}
         price={"dawd"}
-      />
+      /> */}
 
       <div className=" md:my-16 my-5 flex justify-center ">
         {/* Section: Design Block */}
