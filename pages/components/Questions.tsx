@@ -38,15 +38,16 @@ const Questions = () => {
       answer:
         "Usually, your item will be delivered to the post office within 12-24 hours of your return request",
     },
-    {
-      question: "What if I have more questions or need help?",
-      answer:
-        "Please contact us below. We are happy to assist you with any queries or issues.",
-    },
+
     {
       question: "What if I’m returning multiple item to the same place?",
       answer:
         "You can return unlimited packages with our membership or add on a package for a small fee with the one time return order",
+    },
+    {
+      question: "What if I have more questions or need help?",
+      answer:
+        "Please contact us below. We are happy to assist you with any queries or issues.",
     },
   ];
   return (
@@ -96,7 +97,7 @@ const Questions = () => {
       </Grid>
       <Typography
         variant="h3"
-        fontSize={{ lg: "60px", md: "50px", xs: "45px" }}
+        fontSize={{ lg: "60px", md: "50px", xs: "30px" }}
         marginTop="2rem"
         textAlign={"center"}
       >

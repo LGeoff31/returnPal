@@ -17,7 +17,7 @@ const Footer = () => {
     <Grid
       container
       direction="row"
-      paddingLeft={{ md: "2rem", xs: "0rem" }}
+      paddingLeft={"2rem"}
       display="flex"
       alignItems="center"
       justifyContent={"space-between"}
@@ -26,7 +26,7 @@ const Footer = () => {
       }}
     >
       <img
-        src="https://static.wixstatic.com/media/bf8e2b_c85de989efb94a37b6648bf67621349b~mv2.png/v1/crop/x_0,y_845,w_2403,h_878/fill/w_193,h_70,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/returnpalfinal%20logos_WMK_BlackBlue_transparent.png"
+        src="/images/navbar-logo-transparent.png"
         alt="returnpalfinal logos_WMK_BlackBlue_transparent.png"
         width="200px"
       />
@@ -66,14 +66,14 @@ const Footer = () => {
             fontSize: { xs: 15, md: 20, lg: 22 },
             marginTop: ".7rem",
             "&:hover": { color: "#1E90FF" },
-            paddingRight: "5rem",
+            paddingRight: { md: "5rem", xs: "2rem" },
           }}
         >
           About
         </Link>
       </Grid>
 
-      <Grid container direction="row" paddingLeft="1rem">
+      <Grid container direction="row">
         <Typography
           color="grey"
           marginRight="2%"
