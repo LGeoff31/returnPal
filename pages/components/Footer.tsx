@@ -20,6 +20,7 @@ const Footer = () => {
       paddingLeft={"2rem"}
       display="flex"
       alignItems="center"
+      paddingTop="1rem"
       justifyContent={"space-between"}
       sx={{
         background: "linear-gradient(to bottom, lightblue, white)",
@@ -66,10 +67,27 @@ const Footer = () => {
             fontSize: { xs: 15, md: 20, lg: 22 },
             marginTop: ".7rem",
             "&:hover": { color: "#1E90FF" },
-            paddingRight: { md: "5rem", xs: "2rem" },
+            // paddingRight: { md: "5rem", xs: "2rem" },
           }}
         >
           About
+        </Link>
+        <Link
+          href="https://www.linkedin.com/company/return-pal/"
+          target="_blank"
+          display="flex"
+          marginTop="0.2rem"
+        >
+          <LinkedInIcon sx={{ fontSize: { md: 48, xs: 30 } }} />
+        </Link>
+        <Link
+          marginTop="0.2rem"
+          href="https://www.instagram.com/playforever.ca/"
+          target="_blank"
+          sx={{ paddingRight: { md: "5rem", xs: "2rem" } }}
+          marginBottom="1.5rem"
+        >
+          <InstagramIcon sx={{ fontSize: { md: 48, xs: 30 } }} />
         </Link>
       </Grid>
 
