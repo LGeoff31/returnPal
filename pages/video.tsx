@@ -8,14 +8,24 @@ const Video = () => {
       <Typography
         variant="h2"
         textAlign={"center"}
-        paddingTop="5rem"
+        paddingTop="8rem"
         paddingBottom="5rem"
       >
         Video Currently Unavailable
       </Typography>
 
       {/* Video Placeholder */}
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <video
+        width="640"
+        height="360"
+        controls
+        poster="placeholder-image.jpg"
+        style={{ margin: "0 auto", marginTop: "10rem", marginBottom: "2rem" }}
+      >
+        <source src="coming-soon.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      {/* <div style={{ display: "flex", justifyContent: "center" }}>
         <iframe
           width="640"
           height="360"
@@ -24,7 +34,7 @@ const Video = () => {
           frameBorder="0"
           allowFullScreen
         />
-      </div>
+      </div> */}
       {/* <video
         controls
         style={{

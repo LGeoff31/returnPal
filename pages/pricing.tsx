@@ -52,7 +52,7 @@ const Pricing = () => {
                        lg:grid-cols-2 lg:gap-x-0 lg:gap-y-20"
           >
             <div className="mb-6 md:block flex justify-center items-center lg:mb-0">
-              <div className="block h-[105%] w-[80%] text-black rounded-lg bg-gray-100 shadow-xl border-blue-600 border-2 ">
+              <div className="block h-[105%] w-[80%] text-black rounded-lg bg-blue-100 shadow-xl border-blue-600 border-2 ">
                 <div className="border-b-2 border-neutral-100 border-opacity-100 p-6 text-center dark:border-opacity-10">
                   <p className="mb-4 text-blue-600 text-xl  uppercase">
                     <strong>Pay as you go</strong>
@@ -133,15 +133,15 @@ const Pricing = () => {
               </div>
             </div>
             <div className="mb-6 md:mt-0 mt-5  md:block flex justify-center items-center lg:mb-0">
-              <div className="block h-[105%] w-[80%] text-black rounded-lg bg-gray-100 shadow-xl border-blue-600 border-2 ">
+              <div className="block h-[105%] w-[80%] text-black rounded-lg bg-blue-100 shadow-xl border-blue-600 border-2 ">
                 <div className="border-b-2 border-neutral-100 border-opacity-100 p-6 text-center dark:border-opacity-10">
                   <p className="mb-4 text-xl text-blue-600 uppercase">
                     <strong>Membership</strong>
                   </p>
                   <h3 className="mb-6 text-3xl flex justify-start items-center ">
                     <strong className="text-5xl w-full">$19.99</strong>
-                    <small className=" text-sm text-black w-full font-semibold text-start mt-2">
-                      Unlimited pickup for a Month
+                    <small className=" text-sm ml-5 text-black font-semibold text-start mt-2">
+                      + Unlimited pickup for a Month
                     </small>
                   </h3>
                   <hr className="border-2 border-blue-500 mt-10" />
@@ -231,15 +231,15 @@ const Pricing = () => {
               </div>
             </div>
             <div className="mb-6 md:mt-0 mt-5  md:block flex justify-center items-center lg:mb-0">
-              <div className="block h-[105%] w-[80%] text-black rounded-lg bg-gray-100 shadow-xl border-blue-600 border-2 ">
+              <div className="block h-[105%] w-[80%] text-black rounded-lg bg-blue-100 shadow-xl border-blue-600 border-2 ">
                 <div className="border-b-2 border-neutral-100 border-opacity-100 p-6 text-center dark:border-opacity-10">
                   <p className="mb-4 text-xl text-blue-600 uppercase">
                     <strong>3 Months Package</strong>
                   </p>
                   <h3 className="mb-6 text-3xl flex justify-start items-center ">
                     <strong className="text-5xl w-full">$49.99</strong>
-                    <small className=" text-sm text-black w-full font-semibold text-start mt-2">
-                      Unlimited pickups for 3 Months
+                    <small className=" text-sm ml-5 text-black font-semibold text-start mt-2">
+                      + Unlimited pickups for 3 Month
                     </small>
                   </h3>
                   <hr className="border-2 border-blue-500 mt-10" />
@@ -329,15 +329,15 @@ const Pricing = () => {
               </div>
             </div>
             <div className="mb-6 md:mt-0 mt-5  md:block flex justify-center items-center lg:mb-0">
-              <div className="block h-[105%] w-[80%] text-black rounded-lg bg-gray-100 shadow-xl border-blue-600 border-2 ">
+              <div className="block h-[105%] w-[80%] text-black rounded-lg bg-blue-100 shadow-xl border-blue-600 border-2 ">
                 <div className="border-b-2 border-neutral-100 border-opacity-100 p-6 text-center dark:border-opacity-10">
                   <p className="mb-4 text-xl text-blue-600 uppercase">
                     <strong>Yearly</strong>
                   </p>
                   <h3 className="mb-6 text-3xl flex justify-start items-center ">
                     <strong className="text-5xl w-full">$159.9</strong>
-                    <small className=" text-sm text-black w-full font-semibold text-start mt-2">
-                      Unlimited pickups 12 Months
+                    <small className=" text-sm ml-5 text-black font-semibold text-start mt-2">
+                      + Unlimited pickups for 12 Month
                     </small>
                   </h3>
                   <hr className="border-2 border-blue-500 mt-10" />

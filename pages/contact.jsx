@@ -45,8 +45,6 @@ const Contact = () => {
         container
         direction={{ md: "row", sm: "column" }}
         paddingLeft={{ lg: "10rem", md: "7rem", sm: "5rem", xs: "2rem" }}
-        // display="flex"
-        // justifyContent={"center"}
         sx={{ background: "#f5f5f5" }}
       >
         <CardContent>
@@ -78,7 +76,7 @@ const Contact = () => {
             </span>
           </Typography>
           <Typography paddingTop="1rem" paddingBottom="1rem">
-            <EmailIcon /> info.returnpal@gmail.com
+            <EmailIcon /> info.returnpal@ca
           </Typography>
           <form ref={form} onSubmit={sendEmail}>
             <Grid container spacing={1}>
@@ -139,19 +137,22 @@ const Contact = () => {
             </Grid>
           </form>
         </CardContent>
-        {/* <Box sx={{ paddingTop: { md: "18rem", xs: "0rem" } }}>
+        <Box
+          sx={{
+            margin: "0 auto",
+            paddingTop: { lg: "18rem", md: "3rem", xs: "0rem" },
+          }}
+        >
           <img
             src="/images/robot.png"
             alt={"back truck photo"}
             width="200px"
             style={{
-              margin: "0 auto",
-              maxHeight: "700px",
-              marginLeft: "2rem",
+              // margin: "0 auto",
               paddingBottom: "2rem",
             }}
           />
-        </Box> */}
+        </Box>
       </Grid>
     </Layout>
   );
