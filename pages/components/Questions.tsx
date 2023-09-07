@@ -41,12 +41,12 @@ const Questions = () => {
     {
       question: "What if I have more questions or need help?",
       answer:
-        "Please contact us here. We are happy to assist you with any queries or issues.",
+        "Please contact us below. We are happy to assist you with any queries or issues.",
     },
     {
       question: "What if I’m returning multiple item to the same place?",
       answer:
-        "ReturnPal offers discounted rates for same delivery location returns, as well as lowest price gurantees on items that have already been repackaged.",
+        "You can return unlimited packages with our membership or add on a package for a small fee with the one time return order",
     },
   ];
   return (
@@ -94,6 +94,33 @@ const Questions = () => {
           </Accordion>
         ))}
       </Grid>
+      <Typography
+        variant="h3"
+        fontSize={{ lg: "60px", md: "50px", xs: "45px" }}
+        marginTop="2rem"
+        textAlign={"center"}
+      >
+        <span style={{ fontWeight: "100" }}>Any other&nbsp;</span>
+        <span style={{ color: "#3da1e3", fontWeight: "600" }}>Questions?</span>
+      </Typography>
+      <Button
+        href="/contact"
+        variant="contained"
+        sx={{
+          margin: "0 auto",
+          display: "flex",
+          justifyContent: "center",
+          width: "12rem",
+          background: "#128be0",
+          borderRadius: "10px",
+          fontWeight: "600",
+          padding: "0.5rem",
+          marginTop: "1rem",
+          marginBottom: "1rem",
+        }}
+      >
+        Contact Us
+      </Button>
     </>
   );
 };

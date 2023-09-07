@@ -71,7 +71,7 @@ const Founders = () => {
                 fontWeight: "150",
               }}
             >
-              CEO of Returnpal&nbsp;
+              CEO of ReturnPal&nbsp;
             </span>
           </Typography>
         </Box>
@@ -99,7 +99,7 @@ const Founders = () => {
                 fontWeight: "150",
               }}
             >
-              Co-Founder of Returnpal&nbsp;
+              Co-Founder of ReturnPal&nbsp;
             </span>
           </Typography>
         </Box>
