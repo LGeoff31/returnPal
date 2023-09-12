@@ -91,7 +91,7 @@ const Founders = () => {
             marginTop="2rem"
           >
             <span style={{ color: "black", fontWeight: "600" }}>
-              Masood Abeid&nbsp;
+              Mohammad Al-Salem&nbsp;
               <br />
             </span>
             <span

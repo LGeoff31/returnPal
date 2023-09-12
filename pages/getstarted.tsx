@@ -125,7 +125,7 @@ const GetStarted = () => {
 
       const dayClasses =
         date?.getTime() == currentDate.getTime()
-          ? "day w-24 h-36 hover:text-black hover:bg-blue-100  hover:cursor-pointer ease-in duration-500  scale-110 text-white font-bold tracking-wider text-2xl bg-blue-500 shadow-lg flex justify-center"
+          ? "day w-24 h-36 hover:text-black   hover:cursor-pointer ease-in duration-500  scale-110 text-white font-bold tracking-wider text-2xl bg-blue-500 shadow-lg flex justify-center"
           : currentDate?.getDate() == today?.getDate()
           ? "day w-24 h-36  bg-white hover:cursor-not-allowed ease-in duration-500  rounded-5xl text-gray-700 font-bold tracking-wider text-2xl  shadow-lg flex justify-center shadow-lg"
           : "day w-24 h-36 bg-blue-100 hover:text-white ease-in duration-500 hover:bg-blue-500 rounded-5xl text-gray-700 font-bold tracking-wider text-2xl  shadow-lg flex justify-center shadow-lg";
@@ -697,7 +697,7 @@ const GetStarted = () => {
                             +1
                           </div>
                           <input
-                            type="text"
+                            type="number"
                             id=""
                             aria-describedby="helper-text-explanation"
                             className={
@@ -708,6 +708,7 @@ const GetStarted = () => {
                             placeholder="(987) 654-3211"
                             value={formData.phoneNumber}
                             onChange={handlePhoneNumberChange}
+                            autoComplete="tel"
                           />
                         </div>
                       </div>
@@ -716,7 +717,7 @@ const GetStarted = () => {
                         className="mt-2 md:text-sm text-xs text-gray-500 "
                       >
                         You will receive text/email notifications from
-                        Returnmates. Standard messaging rates apply.
+                        ReturnPal. Standard messaging rates apply.
                         <a
                           href="#"
                           className="font-medium text-blue-600 hover:underline dark:text-blue-500"
@@ -809,7 +810,7 @@ const GetStarted = () => {
                                   Direct handoff
                                 </div>
                                 <div className="w-full">
-                                  Meet your Returnmate at the door to ensure a
+                                  Meet your ReturnPal at the door to ensure a
                                   secure handoff
                                 </div>
                               </div>

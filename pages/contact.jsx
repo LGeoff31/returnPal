@@ -76,7 +76,7 @@ const Contact = () => {
             </span>
           </Typography>
           <Typography paddingTop="1rem" paddingBottom="1rem">
-            <EmailIcon /> info.returnpal.ca
+            <EmailIcon /> info@returnpal.ca
           </Typography>
           <form ref={form} onSubmit={sendEmail}>
             <Grid container spacing={1}>
