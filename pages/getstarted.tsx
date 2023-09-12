@@ -752,7 +752,7 @@ const GetStarted = () => {
                           id="apt"
                           aria-describedby="helper-text-explanation"
                           className=" border md:w-1/3 w-full border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 bg-white  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          placeholder="Office, Suite, Apt."
+                          placeholder="Unit Number, Office, Suite, Apt."
                           value={formData.apt}
                           onChange={(e) =>
                             handleInputChange("apt", e.target.value)
