@@ -16,7 +16,6 @@ const HowItWorks = () => {
         justifyContent="center"
         align="center"
         paddingTop={{ lg: "8rem", xs: "5rem" }}
-        paddingBottom="1rem"
       >
         <span style={{ color: "black", fontWeight: "100" }}>OUR</span>{" "}
         <span style={{ fontWeight: "800", color: "black" }}>PROCESS</span>
